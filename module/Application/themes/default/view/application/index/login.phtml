@@ -1,0 +1,43 @@
+<?php
+// This is the login form template for the index page
+
+$lf = $this->loginForm;
+$lf->prepare();
+$lf->setAttribute('action', $this->url('home'));
+$lf->setAttribute('method', 'post');
+
+$lf->get('identity')->setAttribute('class', 'form-element-input');
+$lf->get('identity')->setOptions(array(
+	'label_attributes' => array(
+		'class' => 'form-element-container',
+	),
+));
+
+$lf->get('credential')->setAttribute('class', 'form-element-input');
+$lf->get('credential')->setOptions(array(
+	'label_attributes' => array(
+		'class' => 'form-element-container',
+	),
+));
+
+$lf->get('submit')->setOptions(array(
+	'label' => 'Log In',
+	'label_attributes' => array(
+		'id' => 'loginButton',
+		'class' => 'form-element-container button-login',
+	),
+));
+$lf->get('submit')->setAttributes(array(
+	'class' => 'button button-confirm',
+	'tabIndex' => 3,
+	'value' => 'Log In',
+));
+
+echo $this->form()->openTag($lf);
+echo $this->formElementErrors($lf->get('identity'));
+echo $this->formRow($lf->get('identity'));
+echo $this->formElementErrors($lf->get('credential'));
+echo $this->formRow($lf->get('credential'));
+echo $this->formRow($lf->get('submit'));
+echo $this->form()->closeTag();
+?>

@@ -1,0 +1,290 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Form\CommentForm;
+use Base\Model\Comment;
+use Base\Model\Post;
+use Base\Model\User;
+
+/* @var $post Base\Model\Post */
+/* @var $comment Base\Model\Comment */
+/* @var $user Base\Model\User */
+/* @var $cf Base\Form\CommentForm */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/home-stream.css'));
+
+$feed = $this->feed;
+$photoWidth = 395;
+if($this->width == 'timeline') {
+	$photoWidth = 265;
+}
+$user = $this->zfcUserIdentity();
+?>
+<!-- begin news feed -->
+<div id="pagelet-home-stream">
+	<div class="stream-header">
+		<h3 class="stream-header-title"></h3>
+	</div>
+	<div id="stream">
+		<!-- begin stream -->
+		<ul
+			id="home-stream"
+			class="list stream">
+			<?php foreach ($feed as $post) : ?>
+			<?php
+			// Post variables
+			$postId = $post->getId();
+			$postMessage = $post->getMessage();
+			$postType = $post->getType();
+			$postTime = date('F j, Y, g:i a', $post->getCreationDate()->getTimestamp());
+			$postHtmlTime = $this->elapsedTime($post->getCreationDate());
+			$audience = $post->getVisibility();
+
+			// Author variables
+			$authorId = $post->getFrom()->getId();
+			$authorUsername = $post->getFrom()->getUsername();
+			$authorDisplayName = $post->getFrom()->getDisplayName();
+			$authorIcon = ($post->getFrom()->getPicture()
+				? $post->getFrom()->getPicture()->getIcon()
+				: Constants::DEFAULT_THUMB_3232);
+			$authorLink = $this->url('timeline', array('id' => $authorUsername));
+			$authorThumbSrc = $this->basePath('/content/' . $authorUsername . '/' . $authorIcon);
+			$authorThumbImg = $this->htmlImg(
+				$authorUsername,
+				$authorThumbSrc,
+				array('alt' => $authorDisplayName, 'class' => 'profile-thumb')
+			);
+
+			// DOM element ids
+			$elementId = substr(md5('postId' . $postId), 0, 8);
+			$likeElementId = $elementId . '3';
+			$commentElementId = $elementId . '4';
+			$metaElementId = $elementId . '5';
+			?>
+			<!-- begin stream item -->
+			<li
+				id="<?php echo $elementId; ?>"
+				data-id="<?php echo $postType . '-' . $postId; ?>"
+				class="list-item stream-story">
+				<div class="clearfix story-content">
+					<a
+						class="actor-photo lfloat"
+						href="<?php echo $authorLink; ?>"> <?php echo $authorThumbImg; ?>
+					</a>
+					<div class="story-inner-content">
+						<div
+							class="story-main-wrapper"
+							onkeypress="return Traveloti.inlineSubmit(event, '<?php echo $postId; ?>');">
+							<!-- begin item message -->
+							<h5 class="stream-headline">
+								<div class="actor-name">
+									<a href="<?php echo $authorLink; ?>"><?php echo $authorDisplayName; ?>
+									</a>
+								</div>
+							</h5>
+							<h5 class="stream-message">
+								<span class="message-body"><span><?php echo $postMessage; ?> </span>
+								</span>
+							</h5>
+							<!-- end item message -->
+							<!-- begin item photo -->
+							<?php if(($postType == 'photo') && ($audience != Constants::PRIVACY_SELF)) : ?>
+							<?php
+							$photoId = substr(md5($post->getName()), 0, 8);
+							$photoSrc = '/content/' . $authorUsername . '/' . $post->getSource();
+							$photoSrc = $this->basePath($photoSrc);
+							$photoAttribs = $this->photoSizer($post, $photoWidth);
+							$photoImg = $this->htmlImg($photoId, $photoSrc, array(
+								'width' => $photoAttribs['width'],
+								'height' => $photoAttribs['height'],
+								'alt' => $post->getName()
+							));
+							?>
+							<div class="stream-attachments">
+								<div class="clearfix stream-photo">
+									<a
+										class="stream-photo-thumb"
+										title="<?php echo $postMessage; ?>"
+										href="<?php echo $photoSrc; ?>"
+										rel="shadowbox"><?php echo $photoImg; ?> </a>
+								</div>
+							</div>
+							<?php endif; ?>
+							<!-- end item photo -->
+							<!-- begin comment/like action block -->
+							<?php
+							$cf = $this->comment($post);
+							$cf->prepare();
+							$cf->setAttributes(array(
+								'action' => 'base/addComment',
+								'method' => 'post',
+								'name' => $elementId,
+								'id' => $postId,
+							));
+							$commentFormId = substr(md5('commentForm' . $postId), 0, 7);
+							$commentFormId1 = $commentFormId . '1';
+							$commentFormId2 = $commentFormId . '2';
+							$cf->get('comment_link')->setAttribute('id', $commentFormId1);
+							$cf->get('message')->setAttribute('class', 'text-input add-comment-input');
+
+							echo $this->form()->openTag($cf);
+							echo $this->formHidden($cf->get('post_id'));
+							echo $this->formHidden($cf->get('type'));
+							?>
+							<div class="stream-footer">
+								<span class="action-links"> <a
+									id="<?php echo $likeElementId; ?>"
+									class="like-link"
+									title="Like this item"
+									href="#">Like</a><span> &middot; </span><label
+									class="comment-link link-button"
+									for="<?php echo $commentFormId1; ?>"><?php echo $this->formElement($cf->get('comment_link')); ?>
+								</label>
+								</span><span> &middot; </span> <span class="stream-source"> <a
+									title="<?php echo $postTime; ?>"
+									href="<?php echo $authorLink; ?>"><abbr><?php echo $postHtmlTime; ?>
+									</abbr> </a>
+								</span>
+							</div>
+							<!-- end comment/like action block -->
+							<!-- begin comments block -->
+							<?php
+							$comments = $post->getComments()->getValues();
+							$likes = $post->getLikes()->getValues();
+							$numComments = count($comments);
+							$numLikes = count($likes);
+							$likeElementId = substr(md5('post' . $postId . 'likes'), 0, 8);
+							?>
+							<div class="comments-container">
+								<!-- begin comments list -->
+								<ul>
+									<?php if($numLikes) : ?>
+									<!-- begin like sentence -->
+									<li class="comment-row like-sentence">
+										<div class="clearfix">
+											<div class="lfloat">
+												<a
+													id="<?php echo $likeElementId; ?>"
+													class="like-thumb"
+													title="Like this item"
+													href="#"><i class="like-icon"></i> </a>
+											</div>
+											<div class="like-list-container">
+												<div class="like-list-container-wrapper">
+													<span> <?php if ($numLikes < 3) : ?><span><?php for ($i = 0; $i < $numLikes; $i++) : ?><a
+															href="<?php echo $this->url('timeline', array('id' => $likes[$i]->getFrom()->getUsername()));?>">
+																<?php echo $likes[$i]->getFrom()->getDisplayName(); ?>
+														</a><span><?php if ($numLikes > 1) : ?> and <?php endif; ?>
+														</span> <?php endfor; ?><span><?php if ($numLikes == 1) : ?>
+																likes this.<?php else : ?> like this.<?php endif; ?> </span>
+													</span> <?php else : ?><span
+														id="<?php echo $metaElementId; ?>"><?php echo $numLikes; ?>
+															people like this.</span> <?php endif; ?>
+													</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<!-- end like sentence -->
+									<?php endif; ?>
+									<?php foreach ($comments as $comment) : ?>
+									<?php
+									// Comment variables
+									$commentId = $comment->getId();
+									$commentDisplayName = $comment->getFrom()->getDisplayName();
+									$commentUsername = $comment->getFrom()->getUsername();
+									$commentLink = $this->url('timeline', array('id' => $commentUsername));
+									$commentIcon = ($comment->getFrom()->getPicture()
+										? $comment->getFrom()->getPicture()->getIcon()
+										: Constants::DEFAULT_THUMB_3232);
+									$commentSrc = $this->basePath('/content/' . $commentUsername . '/' . $commentIcon);
+									$commentImg = $this->htmlImg($commentId, $commentSrc, array('class' => 'actor-image'));
+									$commentMessage = $comment->getMessage();
+									$commentType = $comment->getType();
+									$commentTime = date('F j, Y, g:i a', $comment->getCreationDate()->getTimestamp());
+									$commentHtmlTime = $this->elapsedTime($comment->getCreationDate());
+
+									// DOM element ids
+									$commentElementId = substr(md5('commentId' . $commentId), 0, 8);
+									$commentLikeElementId = $commentElementId . '3';
+									$commentCommentElementId = $commentElementId . '4';
+									$commentMetaElementId = $commentElementId . '5';
+									?>
+									<!-- begin comment item -->
+									<li
+										id="<?php echo $commentElementId; ?>"
+										data-id="<?php echo 'comment-' . $commentId; ?>"
+										class="comment-row comment">
+										<div class="clearfix">
+											<div class="lfloat">
+												<a
+													class="comment-actor-image"
+													href="<?php echo $commentLink; ?>"><?php echo $commentImg; ?>
+												</a>
+											</div>
+											<div class="comment-content">
+												<div class="clearfix comment-content-wrapper">
+													<a
+														class="comment-actor-name"
+														href="<?php echo $commentLink; ?>"><?php echo $commentDisplayName; ?>
+													</a><span class="comment-body"><?php echo $commentMessage; ?>
+													</span>
+													<div class="comment-actions">
+														<span> <a
+															class="link-subtle"
+															title="<?php echo $commentTime; ?>"
+															href=""><?php echo $commentHtmlTime; ?> </a>
+														</span><span> &middot; </span><a
+															id="<?php echo $commentLikeElementId; ?>"
+															class="like-link"
+															title="Like this comment"
+															href="#">Like</a>
+														<?php if ($comment->countLikes()) : ?>
+														<span> &middot; </span><a
+															class="comment-like-button"
+															href="#"><i class="comment-like-icon"> </i><span><?php echo $comment->countLikes(); ?>
+														</span> </a>
+														<?php endif; ?>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<!-- end comment item -->
+									<?php endforeach; ?>
+									<!-- begin comment entry block -->
+									<li class="comment-row add-comment">
+										<div class="clearfix input-wrap">
+											<div class="lfloat">
+												<?php
+												$link = $this->url('base', array('id' => $user->getUsername()));
+												$userSrc = 'content/' . $user->getUsername() . '/';
+												$userSrc .= ($user->getPicture() ? $user->getPicture()->getIcon() : Constants::DEFAULT_THUMB_3232);
+												$userSrc = $this->basePath($userSrc);
+														echo $this->htmlImg($user->getDisplayName(), $userSrc, array('class'=> 'actor-image')); ?>
+											</div>
+											<div class="add-comment-content">
+												<div class="add-comment-content-wrapper">
+													<div class="add-comment-message-container">
+														<?php echo $this->formElement($cf->get('message')); ?>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<!-- end comment  entry block -->
+								</ul>
+								<!--  end comments list -->
+							</div>
+							<?php echo $this->form()->closeTag(); ?>
+							<!-- end comments block -->
+						</div>
+					</div>
+				</div>
+			</li>
+			<!-- end stream item -->
+			<?php endforeach; ?>
+		</ul>
+		<!-- end stream -->
+	</div>
+</div>
+<!-- end news feed -->

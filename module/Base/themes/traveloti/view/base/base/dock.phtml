@@ -1,0 +1,76 @@
+<?php
+use Zend\Form\Element;
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/dock.css'));
+?>
+<!-- begin dock pagelet -->
+<div
+	id="pagelet-dock"
+	class="container_16">
+	<div class="dock-wrapper grid_6 prefix_10">
+		<div class="dock clearfix">
+			<div
+				id="dock-chat"
+				class="dock-chat-buddy-list-container">
+				<a
+					class="dock-chat-button"
+					href="#"> <span class="label">Chat</span>
+				</a>
+				<div
+					id="debug"
+					class="control-toggler"
+					title="Open the Logger">
+					<i class="control-toggle-icon"></i>
+				</div>
+				<div
+					id="dock-chat-flyout"
+					class="chat-flyout toggle-target-closed">
+					<div class="chat-flyout-container">
+						<div class=" clearfix chat-flyout-titlebar">
+							<div class="chat-titlebar-button-wrapper rfloat"></div>
+							<div class="titlebar-label clearfix">
+								<div class="titlebar-text-wrapper">
+									<a
+										class="chat-titlebar-text"
+										href=""></a>
+								</div>
+							</div>
+						</div>
+						<div class="chat-flyout-header"></div>
+						<div class="chat-flyout-body">
+							<div
+								id="chatOut"
+								class="chat-out"></div>
+						</div>
+						<div class="chat-flyout-footer">
+							<div class="input-container">
+								<?php
+								$chatInElement = new Element\Textarea();
+								$chatInElement->setAttributes(array(
+									'class' => 'textarea-autogrow input',
+									'id' => 'chatIn',
+									'name' => 'chatIn',
+									'placeholder' => "What's on your mind?",
+								));
+								$nicknameElement = new Element\Hidden();
+								$nicknameElement->setAttributes(array(
+									'id' => 'nickname',
+									'name' => 'nickname',
+								));
+								?>
+								<?php echo $this->formTextarea($chatInElement); ?>
+								<?php echo $this->formHidden($nicknameElement); ?>
+							</div>
+							<div
+								id="chat-send"
+								class="chat-send-button">
+								<i class="chat-send-icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end dock pagelet -->

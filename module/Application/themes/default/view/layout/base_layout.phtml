@@ -1,0 +1,29 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<?php echo $this->headTitle()->setSeparator(' - ')->setAutoEscape(false) ?>
+
+<?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+<!-- Styles -->
+<?php echo $this->headLink()->prependStylesheet($this->basePath() . '/css/fb-theme/traveloti.css')
+							->appendStylesheet($this->basePath('/vendor/shadowbox-3.0.3/shadowbox.css')) ?>
+
+<!-- Scripts -->
+<?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+->prependFile($this->basePath() . '/js/bootstrap.min.js')
+->prependFile($this->basePath() . '/js/jquery.min.js')
+->appendFile($this->basePath() . '/js/traveloti.js')
+->appendFile($this->basePath('/vendor/shadowbox-3.0.3/shadowbox.js'));
+?>
+<script type="text/javascript">
+Shadowbox.init({
+    handleOversize: "resize",
+    modal: true
+});
+</script>
+</head>
+<?php echo $this->content; ?>
+</html>

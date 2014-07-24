@@ -1,0 +1,35 @@
+<?php
+use Application\StdLib\Constants;
+?>
+<div id="pagelet-welcome-box">
+	<div class="clearfix welcome-box">
+		<a
+			class="welcome-box-block _8o _8s lfloat"
+			href="<?php echo $this->url('timeline', array()); ?>">
+			<?php
+			$src = $this->basePath('/content/'
+				. $this->zfcUserIdentity()->getUsername() . '/'
+				. ($this->zfcUserIdentity()->getPicture() != null
+					? $this->zfcUserIdentity()->getPicture()->getIcon()
+					: Constants::DEFAULT_THUMB_5050)
+			);
+			$id = 'profile_pic_welcome_' . substr(md5($this->zfcUserIdentity()->getUsername()), 0, 8);
+			$alt = $this->zfcUserIdentity()->getDisplayName();
+			?> <?php echo $this->htmlImg($id, $src, array('alt' => $alt, 'class' => '_s0 welcome-box-img _rw img')); ?>
+		</a>
+		<div class="_8m">
+			<div class="_6a prs">
+				<div
+					class="_6a _6b"
+					style="height: 40px;"></div>
+				<div class="_6a _6b">
+					<a
+						class="welcome-box-name"
+						href="<?php echo $this->url('timeline', array()); ?>">
+						<?php echo$this->zfcUserIdentity()->getDisplayName(); ?>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

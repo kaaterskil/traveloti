@@ -1,0 +1,194 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================*/
+/*--------------------------------------------*/
+.button-login {
+	color: #376e77;
+}
+
+.button-register {
+	background: -moz-linear-gradient(center top, #67AE55, #578843) repeat scroll 0 0 #69A74E;
+	border-radius: 5px 5px 5px 5px;
+	clear: both;
+	color: #fff;
+	display: block;
+	font-size: 1.5em;
+	margin-left: 14px;
+	padding: 7px 20px;
+}
+
+.button-wide {
+	padding: 2px 16px;
+}
+
+.icon-text {
+	display: inline-block;
+	padding-left: 21px;
+	position: relative;
+}
+
+.list-item {
+	display: block;
+}
+
+.loggedout-menubar-container {
+	background-color: #376e77;
+	height: 82px;
+	min-width: 980px;
+}
+
+.loggedout-menubar {
+	margin: 0 auto;
+	padding-top: 13px;
+	width: 980px;
+}
+
+.loggedout-menubar .tr_logo {
+	margin-top: 11px;
+}
+
+.menu-login-container {
+	color: #fff;
+}
+
+label.form-element-container {
+	display: block;
+	float: left;
+	margin-right: 14px;
+	padding-bottom: 14px;
+}
+
+label.form-element-container span {
+	color: #fff;
+	display: block;
+	font-weight: normal;
+	line-height: 1.28em;
+	padding-bottom: 4px;
+	line-height: 1.28em;
+}
+
+#loginButton span {
+	color: #376e77;
+}
+
+.form-element-input,.form-element-select,.reg-element-select {
+	border: 1px solid #1d2a5b;
+	color: #000;
+	font-size: 1em;
+	font-weight: normal;
+	padding: 3px 3px 4px 3px;
+	width: 142px;
+}
+
+.home-container {
+	
+}
+
+.home-content {
+	margin: 0 auto;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	min-height: 500px;
+	width: 980px;
+}
+
+.home-image-container {
+	display: inline-block;
+	vertical-align: top;
+	width: 550px;
+}
+
+.home-image-title {
+	font-size: 2em;
+	margin-bottom: 20px;
+	padding-left: 35px;
+	padding-right: 35px;
+	text-align: center;
+}
+
+.home-image-lede {
+	font-size: 1.5em;
+	padding: 20px 45px 40px 27px;
+	text-align: center;
+}
+
+.registration-container {
+	background-color: #ebf3f5;
+	display: inline-block;
+	padding: 10px;
+	vertical-align: top;
+}
+
+div.registration-container label.form-element-container span,div.simple-registration-container label.form-element-container span
+	{
+	color: #666;
+	font-weight: normal;
+}
+
+.reg-title {
+	font-size: 3em;
+	margin-bottom: 5px;
+}
+
+.reg-lede {
+	font-size: 1.667em;
+	margin-bottom: 20px;
+}
+
+.reg-element-container {
+	display: block;
+	float: left;
+	font-size: 1.5em;
+	margin-bottom: 10px;
+	padding-right: 10px;
+}
+
+.reg-element-short-input,.reg-element-long-input {
+	border: 1px solid #376e77;
+	border-radius: 5px 5px 5px 5px;
+	color: #808080;
+	font-size: 1.636em;
+	font-weight: normal;
+	padding: 8px 10px;
+}
+
+.reg-element-short-input {
+	width: 164px;
+}
+
+.reg-element-long-input {
+	width: 364px;
+}
+
+.reg-element-select {
+	border: 1px solid #376e77;
+	font-size: 1.5em;
+	font-weight: normal;
+}
+
+.signup-bar-container {
+	background-color: transparent;
+	margin: 0 auto;
+	width: 980px;
+}
+
+.signup-btn {
+	float: left;
+}
+
+.signup-bar {
+	border-top: 1px solid #999999;
+	color: #fff;
+	font-size: 1.083em;
+	font-weight: bold;
+	padding: 9px 0;
+}
+
+.signup-bar-content {
+	float: left;
+	font-size: 1em;
+	font-weight: bold;
+	padding: 4px 14px 6px;
+}
+/*--------------------------------------------*/
+/*============================================*/

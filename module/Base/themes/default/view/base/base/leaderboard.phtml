@@ -1,0 +1,89 @@
+<?php
+use Base\Model\User;
+
+/* @var $user User */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti-nav-jewel.css'));
+
+$user = $this->zfcUserIdentity();
+?>
+<div id="pagelet-bluebar">
+	<div
+		id="blue-bar-container"
+		class="slim">
+		<div
+			id="blue-bar"
+			class="fixed-element">
+			<div
+				id="page-header"
+				class="clearfix">
+				<h1 id="page-logo">
+					<a href="/"><?php echo $this->htmlImg(
+						'logo',
+						$this->basePath('/images/Traveloti-Logo-ReverseBlue-9pt.gif'),
+						array(
+							'title' => "Go to Traveloti Home",
+							'class' => 'tr_logo'
+						)); ?> </a>
+				</h1>
+				<div
+					id="jewel-container"
+					class="notif-negative-base notif-centered notif-genrle-app-receipt">
+					<?php
+					echo $this->requestJewel;
+					echo $this->notificationJewel;
+					?>
+				</div>
+				<div
+					id="head-nav"
+					class="clearfix">
+					<form
+						id="navSearch"
+						class="lfloat"
+						action="/base/search">
+						<div class="typeahead">
+							<div class="wrap">
+								<div class="inner-wrap">
+									<span class="search-input text-input"> <span> <input
+											type="text"
+											id="q"
+											class="input-text"
+											maxlength="100"
+											value="Search for destinations, interests, seasons and people" />
+											<button
+												type="submit"
+												title="Search for destinations, interests, seasons and people"></button>
+									</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="rfloat">
+						<ul
+							id="page-nav"
+							class="clearfix">
+							<li class="nav-item first-item tinyman"><a
+								class="nav-link"
+								title="Profile"
+								href="<?php echo $this->url('home', array('id' => $user->getUsername())); ?>"><span
+									class="header-tinyman-name"><?php echo $user->getDisplayName(); ?>
+								</span> </a>
+							</li>
+							<li class="nav-item middle-item"><a
+								class="nav-link"
+								title="Find Friends"
+								href="<?php echo $this->url('friend', array('action' => 'browser')); ?>">Find
+									Friends</a></li>
+							<li class="nav-item last-item"><a
+								class="nav-link"
+								title="Log Out"
+								href="<?php echo $this->url('base', array('action' => 'logout')); ?>">Log
+									Out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

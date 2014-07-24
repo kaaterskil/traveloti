@@ -1,0 +1,279 @@
+<?php
+use Base\Form\AgentForm;
+use Base\Form\BloggerForm;
+use Base\Form\UserForm;
+use Zend\Form\Element;
+
+$this->headlink()->appendStylesheet($this->basePath('/css/traveloti/account-settings.css'));
+
+$uf = $this->userForm;
+$uf->prepare();
+$uf->setAttributes(array(
+	'action' => 'general',
+	'method' => 'post',
+	'name' => 'traveloti_form',
+));
+?>
+<!-- begin general settings pagelet -->
+<div id="settings-general-container">
+	<?php echo $this->form()->openTag($uf); ?>
+	<?php echo $this->formHidden($uf->get($uf::ID)); ?>
+	<?php echo $this->formHidden($uf->get($uf::TYPE)); ?>
+	<div class="pal settings-info-container">
+		<div class="mbm setting-info-form-element">
+			<label
+				class="settings-info-label lfloat"
+				for="<?php echo $uf::FIRST_NAME; ?>"><?php echo $uf->get($uf::FIRST_NAME)->getLabel(); ?>:</label>
+			<?php echo $this->formText($uf->get($uf::FIRST_NAME)); ?>
+			<div class="form-error">
+				<?php echo $this->formElementErrors($uf->get($uf::FIRST_NAME)); ?>
+			</div>
+		</div>
+		<div class="mbm setting-info-form-element">
+			<label
+				class="settings-info-label lfloat"
+				for="<?php echo $uf::MIDDLE_NAME; ?>"><?php echo $uf->get($uf::MIDDLE_NAME)->getLabel(); ?>:</label>
+			<?php echo $this->formText($uf->get($uf::MIDDLE_NAME)); ?>
+			<div class="form-error">
+				<?php echo $this->formElementErrors($uf->get($uf::MIDDLE_NAME)); ?>
+			</div>
+		</div>
+		<div class="mbm setting-info-form-element">
+			<label
+				class="settings-info-label lfloat"
+				for="<?php echo $uf::LAST_NAME; ?>"><?php echo $uf->get($uf::LAST_NAME)->getLabel(); ?>:</label>
+			<?php echo $this->formText($uf->get($uf::LAST_NAME)); ?>
+			<div class="form-error">
+				<?php echo $this->formElementErrors($uf->get($uf::LAST_NAME)); ?>
+			</div>
+		</div>
+		<div class="mbm setting-info-form-element">
+			<label
+				class="settings-info-label lfloat"
+				for="<?php echo $uf::DISPLAY_NAME_ORDER; ?>"><?php echo $uf->get($uf::DISPLAY_NAME_ORDER)->getLabel(); ?>:</label>
+			<?php echo $this->formRadio($uf->get($uf::DISPLAY_NAME_ORDER)); ?>
+			<div class="form-error">
+				<?php echo $this->formElementErrors($uf->get($uf::DISPLAY_NAME_ORDER)); ?>
+			</div>
+		</div>
+		<div class="mbm setting-info-form-element">
+			<label
+				class="settings-info-label lfloat"
+				for="<?php echo $uf::EMAIL; ?>"><?php echo $uf->get($uf::EMAIL)->getLabel(); ?>:</label>
+			<?php echo $this->formText($uf->get($uf::EMAIL)); ?>
+			<div class="form-error">
+				<?php echo $this->formElementErrors($uf->get($uf::EMAIL)); ?>
+			</div>
+		</div>
+		<div class="mbm setting-info-form-element">
+			<label
+				class="settings-info-label lfloat"
+				for="<?php echo $uf::GENDER; ?>"><?php echo $uf->get($uf::GENDER)->getLabel(); ?>:</label>
+			<?php echo $this->formRadio($uf->get($uf::GENDER)); ?>
+			<div class="form-error">
+				<?php echo $this->formElementErrors($uf->get($uf::GENDER)); ?>
+			</div>
+		</div>
+
+		<!-- start blogger/agent properties -->
+		<?php if($uf instanceof BloggerForm) : ?>
+		<div class="settings-expert-container">
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::SINCE; ?>"><?php echo $uf->get($uf::SINCE)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::SINCE)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::SINCE)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::EXPERT_NAME; ?>"><?php echo $uf->get($uf::EXPERT_NAME)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::EXPERT_NAME)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::EXPERT_NAME)); ?>
+				</div>
+			</div>
+
+
+
+			<?php if ($uf instanceof AgentForm) : ?>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::CERTIFICATION; ?>"><?php echo $uf->get($uf::CERTIFICATION)->getLabel(); ?>:</label>
+				<?php echo $this->formTextarea($uf->get($uf::CERTIFICATION)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::CERTIFICATION)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::SPECIALIZATION; ?>"><?php echo $uf->get($uf::SPECIALIZATION)->getLabel(); ?>:</label>
+				<?php echo $this->formTextarea($uf->get($uf::SPECIALIZATION)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::SPECIALIZATION)); ?>
+				</div>
+			</div>
+			<?php endif; ?>
+
+
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::ADDRESS1; ?>"><?php echo $uf->get($uf::ADDRESS1)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::ADDRESS1)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::ADDRESS1)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::ADDRESS2; ?>"><?php echo $uf->get($uf::ADDRESS2)->getLabel(); ?>
+				</label>
+				<?php echo $this->formText($uf->get($uf::ADDRESS2)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::ADDRESS2)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::CITY; ?>"><?php echo $uf->get($uf::CITY)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::CITY)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::CITY)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::REGION; ?>"><?php echo $uf->get($uf::REGION)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::REGION)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::REGION)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::POSTAL_CODE; ?>"><?php echo $uf->get($uf::POSTAL_CODE)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::POSTAL_CODE)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::POSTAL_CODE)); ?>
+				</div>
+			</div>
+
+
+			<?php if ($uf instanceof AgentForm) : ?>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::TELEPHONE; ?>"><?php echo $uf->get($uf::TELEPHONE)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::TELEPHONE)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::TELEPHONE)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::HOURS; ?>"><?php echo $uf->get($uf::HOURS)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::HOURS)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::HOURS)); ?>
+				</div>
+			</div>
+			<?php endif; ?>
+
+
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::BIO; ?>"><?php echo $uf->get($uf::BIO)->getLabel(); ?>:</label>
+				<?php echo $this->formTextarea($uf->get($uf::BIO)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::BIO)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::TESTIMONIAL; ?>"><?php echo $uf->get($uf::TESTIMONIAL)->getLabel(); ?>:</label>
+				<?php echo $this->formTextarea($uf->get($uf::TESTIMONIAL)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::TESTIMONIAL)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::LINK_BLOG; ?>"><?php echo $uf->get($uf::LINK_BLOG)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::LINK_BLOG)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::LINK_BLOG)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::LINK_WEBSITE; ?>"><?php echo $uf->get($uf::LINK_WEBSITE)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::LINK_WEBSITE)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::LINK_WEBSITE)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::LINK_FACEBOOK; ?>"><?php echo $uf->get($uf::LINK_FACEBOOK)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::LINK_FACEBOOK)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::LINK_FACEBOOK)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::LINK_TWITTER; ?>"><?php echo $uf->get($uf::LINK_TWITTER)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::LINK_TWITTER)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::LINK_TWITTER)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::LINK_LINKEDIN; ?>"><?php echo $uf->get($uf::LINK_LINKEDIN)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::LINK_LINKEDIN)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::LINK_LINKEDIN)); ?>
+				</div>
+			</div>
+			<div class="mbm setting-info-form-element">
+				<label
+					class="settings-info-label lfloat"
+					for="<?php echo $uf::LINK_YOUTUBE; ?>"><?php echo $uf->get($uf::LINK_YOUTUBE)->getLabel(); ?>:</label>
+				<?php echo $this->formText($uf->get($uf::LINK_YOUTUBE)); ?>
+				<div class="form-error">
+					<?php echo $this->formElementErrors($uf->get($uf::LINK_YOUTUBE)); ?>
+				</div>
+			</div>
+		</div>
+		<?php endif; ?>
+		<!-- end blogger/agent properties -->
+
+		<div class="mbm setting-info-form-element">
+			<label
+				class="settings-info-label lfloat"
+				for="<?php echo $uf::SUBMIT; ?>">&nbsp;</label>
+			<?php echo $this->formSubmit($uf->get($uf::SUBMIT)); ?>
+		</div>
+	</div>
+	<?php echo $this->form()->closeTag(); ?>
+</div>
+<!-- end general settings pagelet -->

@@ -1,0 +1,173 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================================*/
+/*------------------------------------------------------------*/
+.welcome-box-thumb {
+	cursor: pointer;
+	display: block;
+	float: left;
+	margin-right: 8px;
+	text-decoration: none;
+}
+
+.welcome-box-thumb .welcome-box-img {
+	height: 40px !important;
+	width: 40px !important;
+}
+
+.welcome-box-name-wrapper,.welcome-box-name-spacer {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+.welcome-box-name {
+	display: block;
+	font-weight: bold;
+	word-wrap: break-word;
+}
+
+/*------------------------------------------------------------*/
+.nav-header {
+	font-weight: bold;
+}
+
+/*------------------------------------------------------------*/
+#content-area {
+	word-wrap: break-word;
+}
+
+.stream-story {
+	margin-top: 5px;
+	background-color: #f1eee4;
+}
+
+.story-content .actor-photo {
+	margin: 5px 10px 5px 5px;
+}
+
+.profile-thumb {
+	display: block;
+	height: 50px;
+	width: 50px;
+}
+
+.story-inner-content {
+	margin-left: 65px;
+}
+
+.story-main-wrapper {
+	padding-top: 5px;
+	padding-bottom: 15px;
+}
+
+.stream-headline {
+	font-size: 13px;
+	line-height: 18px;
+	margin: 0;
+	padding: 0;
+}
+
+.stream-headline .actor-name {
+	font-weight: bold;
+	padding-bottom: 4px;
+}
+
+.stream-message {
+	margin: 0 0 5px 0;
+	padding: 0;
+}
+
+.stream-attachments {
+	margin: 10px 0;
+}
+
+.stream-source a {
+	color: #999;
+}
+
+.comments-container {
+	margin-right: 10px
+}
+
+.comment-row {
+	background-color: #d8d0b6;
+	margin-top: 1px;
+	padding: 0 5px;
+}
+
+.comment-actor-image .actor-image,.add-comment .actor-image {
+	display: block;
+	height: 32px;
+	margin: 5px 5px 5px 0;
+	width: 32px;
+}
+
+.like-list-container-wrapper,.comment-content-wrapper {
+	display: inline-block;
+	padding-top: 5px;
+	margin-bottom: 4px;
+}
+
+.add-comment-content-wrapper {
+	margin-bottom: 4px;
+	overflow: hidden;
+	padding-top: 5px;
+}
+
+.input-wrap {
+	position: relative;
+}
+
+.add-comment-message-container {
+	overflow: hidden;
+	position: relative;
+}
+
+.add-comment-input {
+	-moz-box-sizing: border-box;
+	border: 1px solid #a59a79;
+	display: block;
+	font-size: 11px;
+	height: 20px;
+	line-height: 1.28;
+	max-width: 100%;
+	overflow: hidden;
+	resize: none;
+	width: 100%;
+	overflow: hidden;
+	height: 20px;
+	display: block;
+}
+
+.comment-like-icon {
+	background-image: url('/images/fb-icons-6.png');
+	background-position: -111px -28px;
+	background-repeat: no-repeat;
+	background-size: auto auto;
+	display: inline-block;
+	height: 9px;
+	margin-right: 3px;
+	width: 10px;
+	white-space: nowrap;
+}
+
+/*------------------------------------------------------------*/
+.link-button input,.link-button button {
+	background: none repeat scroll 0 0 transparent;
+	border: medium none;
+	color: #884a14;
+	cursor: pointer;
+	font-size: 11px;
+	font-family: Tahoma, Verdana, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+.link-button input:HOVER,.link-button button:HOVER {
+	text-decoration: underline;
+}
+
+/*------------------------------------------------------------*/
+/*============================================================*/

@@ -1,0 +1,3 @@
+local.php
+*.local.php
+/scn-social-auth.local.php

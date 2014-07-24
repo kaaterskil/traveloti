@@ -1,0 +1,57 @@
+<?php
+use Base\Form\TravelLogForm;
+use Base\Model\User;
+use Base\Model\TravelLog;
+use Base\MOdel\TravelLogAdmin;
+
+/* @var $tlf TravelLogForm */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/travel-log.css'));
+
+$tlf = $this->travelLogForm;
+$tlf->setAttributes(array(
+	'action' => '/base/createLog',
+	'enctype' => 'multipart/form-data',
+	'method' => 'post',
+	'name' => 'travel_log_form',
+));
+?>
+<!-- begin pagelet travel-logs -->
+<div
+	id="travel-log-pagelet"
+	class="grid_9 push_3">
+	<div class="tl-form-container">
+		<div class="tl-form-header">
+			<div class="header-top clearfix">
+				<h2 class="header-title">Set Up Your Travel Log</h2>
+			</div>
+		</div>
+		<div class="tl-form-wrapper">
+			<div class="tl-form-instructions">Please provide some initla
+				information to help set up your Travel Log. Don't worry, you can
+				change and update everything later except for the name. Later, you
+				can add travel interests to help you in your search for the best
+				experience, and help boast to others once you return.</div>
+			<?php echo $this->form()->openTag($tlf); ?>
+			<div class="mbm tl-form-name clearfix">
+				<?php echo $this->formText($tlf->get('name')); ?>
+			</div>
+			<div class="tl-form-photo clearfix">
+				<?php echo $this->formRow($tlf->get('cover_picture')); ?>
+			</div>
+			<div class="mtm mbs tl-form-tip clearfix">Add a description and
+				website to help other Traveloti find you:</div>
+			<div class="clearfix">
+				<?php echo $this->formTextarea($tlf->get('general_info')); ?>
+			</div>
+			<div class="mts mbm tl-form-website clearfix">
+				<?php echo $this->formText($tlf->get('website')); ?>
+			</div>
+			<div class="mts mbm tl-form-submit clearfix">
+				<?php echo $this->formSubmit($tlf->get('submit_btn')); ?>
+			</div>
+			<?php echo $this->form()->closeTag(); ?>
+		</div>
+	</div>
+</div>
+<!-- end pagelet travel-logs -->

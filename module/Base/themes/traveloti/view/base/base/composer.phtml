@@ -1,0 +1,142 @@
+<?php
+use Base\Form\StatusForm;
+/* @var $sf StatusForm */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/composer.css'));
+
+$formElementId = substr(md5('composer-form'), 0, 8);
+$messageId = $formElementId . '1';
+$tagsId = $formElementId . '2';
+$placeId = $formElementId . '3';
+
+$uploadElementId = substr(md5('photo-upload'), 0, 8);
+$imgToggleId = substr(md5('photo-toggle'), 0, 8);
+$tagToggleId = substr(md5('tag-toggle'), 0, 8);
+$placeToggleId = substr(md5('place-toggle'), 0, 8);
+
+$sf = $this->statusForm;
+$sf->prepare();
+$sf->setAttributes(array(
+	'id' => $formElementId,
+	'method' => 'post',
+	'name' => 'composer_form',
+));
+$sf->get($sf::ELEM_MESSAGE)->setAttributes(array(
+	'class' => 'composer-message',
+	'id' => $messageId,
+));
+$sf->get($sf::ELEM_TAGS)->setAttributes(array(
+	'class' => 'input-text composer-text-input',
+	'id' => $tagsId,
+));
+$sf->get($sf::ELEM_LOCATION)->setAttributes(array(
+	'class' => 'input-text composer-text-input input-location',
+	'id' => $placeId,
+));
+
+$messages = $sf->getMessages();
+?>
+<!-- begin pagelet composer -->
+<div id="pagelet-composer">
+	<div class="mtm mbl">
+		<div class="clearfix">
+			<ul class="composer-list clearfix">
+				<li class="composer-list-item"><a
+					class="composer-icon-text"
+					href="#"
+					onclick="Traveloti.composerFocusUpdateStatus('<?php echo $formElementId; ?>', '<?php echo $uploadElementId; ?>', '<?php echo $messageId; ?>', '<?php echo $imgToggleId; ?>');"><i
+						class="img composer-icon-update-status"></i>Update Status</a>
+				</li>
+				<li class="composer-list-item plm"><a
+					class="composer-icon-text"
+					href="#"
+					onclick="Traveloti.composerFocusPhotoUpload('<?php echo $formElementId; ?>', '<?php echo $uploadElementId; ?>', '<?php echo $messageId; ?>', '<?php echo $imgToggleId; ?>');"><i
+						class="img composer-icon-add-photo"></i>Add Photo</a>
+				</li>
+			</ul>
+		</div>
+		<div class="composer-wrapper">
+			<?php echo $this->form()->openTag($sf); ?>
+			<?php echo $this->formHidden($sf->get($sf::ELEM_FORMID)); ?>
+			<?php echo $this->formHidden($sf->get($sf::ELEM_USERID)); ?>
+			<div class="composer-message-inner-wrapper">
+				<?php echo $this->formTextarea($sf->get($sf::ELEM_MESSAGE)); ?>
+			</div>
+			<div
+				id="<?php echo $imgToggleId; ?>"
+				class="composer-field-wrapper hidden-element">
+				<div class="composer-field-inner-wrapper pts prs pbs pls">
+					<?php echo $this->formFile($sf->get($sf::ELEM_PHOTO)); ?>
+				</div>
+			</div>
+			<div
+				id="<?php echo $tagToggleId; ?>"
+				class="composer-field-wrapper hidden-element">
+				<div class="composer-field-inner-wrapper">
+					<?php echo $this->formText($sf->get($sf::ELEM_TAGS)); ?>
+				</div>
+			</div>
+			<div
+				id="<?php echo $placeToggleId; ?>"
+				class="composer-field-wrapper hidden-element">
+				<div class="composer-field-inner-wrapper">
+					<?php echo $this->formText($sf->get($sf::ELEM_LOCATION)); ?>
+				</div>
+			</div>
+			<div class="composer-bottom-row">
+				<div class="clearfix">
+					<div class="composer-field-icon-wrapper lfloat">
+						<div class="lfloat">
+							<a
+								id=""
+								class="composer-toggle-icon"
+								title="Tag people in your post"
+								onclick="Traveloti.toggleHiddenElement('<?php echo $tagToggleId; ?>');"
+								href="#"><span class="composer-icon-tags"></span> </a>
+						</div>
+						<div class="lfloat">
+							<a
+								id=""
+								class="composer-toggle-icon"
+								title="Add a location to your post"
+								onclick="Traveloti.toggleHiddenElement('<?php echo $placeToggleId; ?>');"
+								href="#"><span class="composer-icon-place"></span> </a>
+						</div>
+					</div>
+					<div class="composer-button-wrapper rfloat">
+						<div class="lfloat">
+							<?php echo $this->formSelect($sf->get($sf::ELEM_AUDIENCE)); ?>
+						</div>
+						<div class="plm lfloat">
+							<?php echo $this->formSubmit($sf->get($sf::ELEM_SUBMIT)); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<?php echo $this->form()->closeTag(); ?>
+			<div
+				id="<?php echo $uploadElementId; ?>"
+				class="composer-photo-container hidden-element">
+				<table
+					class="grid fixed-grid"
+					cellspacing="0"
+					cellpadding="0">
+					<tr>
+						<td class="prs"><a
+							id=""
+							class="pbm ptm table-grid-item"
+							onclick="Traveloti.composerTogglePhotoUpload('<?php echo $formElementId; ?>', '<?php echo $uploadElementId; ?>', '<?php echo $messageId; ?>', '<?php echo $imgToggleId; ?>');"
+							href="#">
+								<div class="composer-photo-upload-title fsl fwb">Upload Photo</div>
+						</a>
+						</td>
+						<td class="pls">
+							<div class=""></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end pagelet composer -->

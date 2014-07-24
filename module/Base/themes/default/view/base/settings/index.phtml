@@ -1,0 +1,32 @@
+<?php
+// Page variables
+$headerTitle = $this->headerTitle;
+?>
+<div id="main-container" class="settings-page">
+	<div id="left-column-container">
+		<div id="left-column">
+			<?php echo $this->pageletWelcomBox ?>
+			<?php echo $this->pageletNavigation ?>
+		</div>
+	</div>
+	<div
+		id="content-column"
+		class="clearfix">
+		<div id="header-area">
+			<div class="header header-page">
+				<div class="clearfix header-top">
+					<div>
+						<h2 class="header-title">
+							<?php echo $headerTitle; ?>
+						</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="content-area">
+			<div id="settings-page-content">
+				<?php echo $this->settingsContent; ?>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,282 @@
+<?php
+/* @var $aif Base\Form\CombinedAlbumImageForm */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti-photo-upload.css'))
+->appendStylesheet($this->basePath('/css/traveloti-photo-upload1.css'))
+->appendStylesheet($this->basePath('/css/traveloti-photo-upload2.css'));
+$this->headScript()
+->appendFile($this->basePath('https://maps.googleapis.com/maps/api/js?key=AIzaSyAwQ4xQc3w5gh8xm4ivH-CAvMCdRaf5CnA&sensor=false'))
+->appendFile($this->basePath('/js/traveloti-photo-locator.js'), 'text/javascript', array());
+
+$a1 = substr(md5('albumLocationContainer'), 0, 8);
+$a2 = substr(md5('albumLocationList'), 0, 8);
+$p1 = substr(md5('photoContainer'), 0, 8);
+$p2 = substr(md5('photoLocationContainer'), 0, 8);
+$p3 = substr(md5('photoLocationList'), 0, 8);
+$p4 = substr(md5('locationFormElementContainer'), 0, 8);
+$p5 = substr(md5('locationFormElement'), 0, 8);
+
+$photo = $this->photo;
+
+$aif = $this->albumImageForm;
+$aif->prepare();
+$aif->setAttributes(array(
+	'id' => $p0,
+	'method' => 'post',
+	'action' => 'addPhoto',
+));
+$aif->get('album_location')->setAttributes(array(
+	'onchange' => "locationLister('" . $a2 . "', this);",
+	'onfocus' => "Traveloti.toggleAlbumLocContainer('" . $a1 . "', '" . $a2 . "');",
+	'onblur' => "Traveloti.toggleAlbumLocContainer('" . $a1 . "', null);",
+));
+$aif->get('location')->setAttributes(array(
+	'id' => $p5,
+	'onchange' => "Traveloti.locationLister('" . $pllId . "', this);",
+	'onfocus' => "Traveloti.toggleHiddenElement('" . $p3 . "');",
+	'onblur' => "Traveloti.toggleImgLocContainer('" . $p1 . "', '" . $p2 . "', '" . $p4 . "');"
+));
+?>
+<div
+	id="map_canvas"
+	style="width: 100%;
+	height: 100%"></div>
+<div
+	class="layer-page-wrapper flash-uploader-overlay layer _3qw"
+	style="min-width: 966px;">
+	<?php echo $this->form()->openTag($aif); ?>
+	<div class="layer-page-inner">
+		<div
+			class="overlay layer-page contextual-layer-parent"
+			style="margin-left: -483px;
+	width: 966px;">
+			<div class="overlay-content">
+				<div class="layer-page-content layer-page-default-padding">
+					<?php echo $this->formHidden($aif->get('user_id')); ?>
+					<?php echo $this->formHidden($aif->get('src')); ?>
+					<?php echo $this->formHidden($aif->get('filepath')); ?>
+					<div class="pam header-box box-white">
+						<table class="grid grid-fixed">
+							<tbody>
+								<tr>
+									<td class="prm">
+										<div class="album-info-fields">
+											<?php echo $this->formRow($aif->get('name')); ?>
+											<div class="mentions-input description-input">
+												<div class="typeahead mentions-typeahead">
+													<div class="wrap">
+														<div class="inner-wrap">
+															<?php echo $this->formElement($aif->get('description_text')); ?>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</td>
+									<td class="plm">
+										<table
+											class="grid album-meta-fields"
+											cellspacing="0"
+											cellpadding="0">
+											<tbody>
+												<tr>
+													<td class="prs places-typeahead-cell">
+														<div class="album-place-typeahead">
+															<div
+																class="typeahead clearable-typeahead place-typeahead-with-icon">
+																<div class="wrap">
+																	<div class="inner-wrap">
+																		<div
+																			class="sticky-placeholder-input sticky-placeholder-empty-input">
+																			<?php echo $this->formElement($aif->get('album_location')); ?>
+																		</div>
+																	</div>
+																</div>
+																<div
+																	id="<?php echo $a1 ?>"
+																	class="typeahead-view places-typeahead-view hidden-element"
+																	style="width: 278px;">
+																	<div
+																		id=""
+																		class="scrollable-area nofade scrollable-area-with-shadow content-after"
+																		style="width: 278px;">
+																		<div
+																			id=""
+																			class="scrollable-area-wrap scrollable">
+																			<div
+																				class="scrollable-area-body"
+																				style="width: 268px;">
+																				<div class="scrollable-area-content">
+																					<div
+																						id="<?php echo $a2; ?>"
+																						class="places-typeahead-view-list"></div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="scrollable-area-track">
+																			<div
+																				class="scrollable-area-gripper"
+																				style="height: 120px;
+	top: 0px;"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td class="pls"></td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div
+						class="photo photo-bulk-editor clearfix"
+						style="min-height: 562px;">
+						<div
+							id="<?php echo $p1; ?>"
+							class="editable-photo">
+							<div class="photo-wrap editable-photo-ready">
+								<div
+									class="letterboxed-image photo editable-photo-image vertically-centered"
+									style="height: 218px;">
+									<div
+										class="scaled-image-container scaled-image"
+										style="width: 290px;
+	height: 217px;">
+										<?php
+										$id = $photo->getSource();
+										$src = $this->basePath('/tmp/' . $aif->get('filepath')->getValue());
+										?>
+										<?php echo $this->htmlImg($id, $src, array('class' => 'scaled-image-fit-width img', 'width' => 290, 'height' => 218, 'alt' => 'loading', 'style'=> 'top: -0.12%;')); ?>
+									</div>
+									<div class="border"></div>
+								</div>
+								<div class="pas status-bar">High Resolution: waiting...</div>
+							</div>
+							<div class="inputs">
+								<div class="caption-area">
+									<div class="mentions-input">
+										<div class="highlighter">
+											<div>
+												<span class="highlighter-content"></span>
+											</div>
+										</div>
+										<div
+											class="typeahead caption-typeahead mentions-typeahead"
+											style="height: auto;">
+											<div class="wrap">
+												<div class="inner-wrap">
+													<?php echo $this->formElement($aif->get('caption_text'));?>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="metadata-controls">
+									<div class="inner box-gray">
+										<span
+											class="meta-icon place-icon"
+											onclick="Traveloti.toggleImgLocContainer('<?php echo $p1; ?>', '<?php echo $p2; ?>', '<?php echo $p4; ?>', '<?php echo $p5; ?>');"></span>
+									</div>
+								</div>
+								<div
+									id="<?php echo $p2; ?>"
+									class="metadata-inputs">
+									<div class="typeahead clearable-typeahead places-typeahead">
+										<div class="wrap">
+											<div class="inner-wrap">
+												<div
+													class="sticky-placeholder-input sticky-placeholder-empty-input">
+													<?php echo $this->formElement($aif->get('location')); ?>
+												</div>
+											</div>
+										</div>
+										<div
+											id="<?php echo $p4; ?>"
+											class="typeahead-view places-typeahead-view hidden-element"
+											style="width: 288px;">
+											<div
+												id=""
+												class="scrollable-area nofade scrollable-area-with-shadow"
+												style="width: 288px;">
+												<div
+													id=""
+													class="scrollable-area-wrap scrollable">
+													<div
+														class="scrollable-area-body"
+														style="width: 278px;">
+														<div class="scrollable-area-content">
+															<div
+																id="<?php echo $p3; ?>"
+																class="places-typeahead-view-list"></div>
+														</div>
+													</div>
+												</div>
+												<div class="scrollable-area-track">
+													<div class="scrollable-area-gripper hidden-element"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="pvm phl footer-box box-white footer-fixed"
+						style="margin-left: -484px;">
+						<table
+							class="grid footer-inner grid-fixed"
+							cellspacing="0"
+							cellpadding="0">
+							<tbody>
+								<tr>
+									<td>
+										<table
+											class="grid"
+											cellspacing="0"
+											cellpadding="0">
+											<tbody>
+												<tr>
+													<td>
+														<div class="add-photos-enabled"></div>
+													</td>
+													<td>
+														<div class="mlm quality-row quality-row-redesign quality"></div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td class="hcent">
+										<div class="clearfix">
+											<div class="pvs progress-wrap lfloat"></div>
+											<div class="mlm progress-links lfloat">
+												<a
+													class="cancel"
+													name="cancel"
+													href="#">Cancel</a>
+											</div>
+										</div>
+									</td>
+									<td class="hrght">
+										<div
+											class="selector inline-block audience-selector audience-selector-no-truncate dynamic-icon-selector selector-right selector-bottom-up selector-normal selector-dynamic-label selector-dynamic-tooltip">
+											<div class="wrap"></div>
+											<?php echo $this->formElement($aif->get('album_audience')); ?>
+										</div> <?php echo $this->formElement($aif->get('post_photos_button')); ?>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php echo $this->form()->closeTag(); ?>
+</div>

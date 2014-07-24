@@ -1,0 +1,73 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================================*/
+/*------------------------------------------------------------*/
+#travel-log-pagelet {
+	min-height: 500px;
+	padding-top: 10px;
+	margin-bottom: 30px;
+}
+
+.tl-form-container {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	background-color: #f1eee4;
+	border: 1px solid #999;
+	border-radius: 4px;
+	margin: 40px 0 20px;
+}
+
+.tl-form-header {
+	border-bottom: 1px solid #999;
+	margin: 20px 20px 0;
+	padding-bottom: 5px;
+}
+
+.header-title {
+	color: #333;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 0;
+	min-height: 20px;
+	padding-bottom: 2px;
+}
+
+/*------------------------------------------------------------*/
+
+.tl-form-wrapper {
+	border: none;
+	margin: 0 0 20px 0;
+	padding: 0 20px;
+}
+
+.tl-form-instructions {
+	color: #666;
+	margin-bottom: 20px;
+}
+
+.tl-form-name {
+	padding-bottom: 5px;
+	border-bottom: 1px solid #999;
+}
+
+.tl-form-photo label {
+	line-height: 22px;
+}
+
+.tl-form-photo input {
+	float: right;
+}
+
+.tl-form-tip {
+	color: #666;
+	border-top: 1px solid #999;
+	padding-top: 3px;
+}
+
+.tl-form-website input, .tl-form-name input {
+	width: 300px;
+}
+
+/*------------------------------------------------------------*/
+/*============================================================*/

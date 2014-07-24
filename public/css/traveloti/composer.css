@@ -1,0 +1,172 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================================*/
+/*------------------------------------------------------------*/
+.composer-list {
+	padding: 5px 0 10px 0;
+	position: relative;
+}
+
+.composer-list-item {
+	display: block;
+	float: left;
+}
+
+.composer-icon-text {
+	color: #333;
+	display: inline-block;
+	font-weight: bold;
+	padding-left: 21px;
+	position: relative;
+	text-decoration: none;
+}
+
+.composer-icon-text .img {
+	left: 0;
+	position: absolute;
+	top: 0ox;
+	vertical-align: middle;;
+}
+
+.composer-wrapper {
+	border: 1px solid #c3c3bb;
+}
+
+.composer-message-inner-wrapper {
+	border: 0 none;
+	padding: 5px;
+}
+
+.composer-field-wrapper {
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	border-color: #c3c3bb -moz-use-text-color -moz-use-text-color;
+	border-image: none;
+	border-right: 0 none;
+	border-style: dashed none none;
+	border-width: 1px 0 0;
+	cursor: default;
+	padding: 0;
+	position: relative;
+}
+
+.composer-field-inner-wrapper {
+	overflow: hidden;;
+}
+
+.composer-message {
+	-moz-box-sizing: border-box;
+	border: 0 none;
+	font-size: 13px;
+	line-height: 1.28;
+	margin: 0;
+	max-width: 100%;
+	min-height: 48px;
+	overflow: hidden;
+	padding: 0;
+	resize: none;
+	width: 100%;
+}
+
+.composer-field-inner-wrapper .composer-text-input {
+	-moz-box-sizing: border-box;
+	background-color: transparent;
+	border: 0 none;
+	outline: 0 none;
+	width: 100%;
+}
+
+.composer-icon-update-status {
+	background-image: url("/images/fb-icons-59.png");
+	background-position: -104px -64px;
+	background-repeat: no-repeat;
+	background-size: auto auto;
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+}
+
+.composer-icon-add-photo {
+	background-image: url("/images/fb-icons-3.png");
+	background-position: -68px -118px;
+	background-repeat: no-repeat;
+	background-size: auto auto;
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+}
+
+.composer-icon-tags {
+	background-image: url(/images/fb-icons-6g.png);
+	background-position: -254px -81px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    display: inline-block;
+    height: 30px;
+    outline: medium none;
+    vertical-align: top;
+    width: 29px;
+}
+
+.composer-icon-place {
+	background-image: url(/images/fb-icons-6g.png);
+	background-position: -434px -81px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    display: inline-block;
+    height: 30px;
+    outline: medium none;
+    vertical-align: top;
+    width: 29px;
+}
+
+.composer-bottom-row {
+	display: block;
+	background-color: #f1eee4;
+	border-top: 1px solid #c3c3bb;
+}
+
+.composer-bottom-row select {
+	border-color: #c3c3bb;
+}
+
+.composer-toggle-icon {
+	display: block;
+	white-space: nowrap;
+}
+
+.composer-toggle-icon-clicked {
+	background-color: #fafafa;
+}
+
+.composer-field-icon-wrapper {
+	display: block;;
+}
+
+.composer-button-wrapper {
+	display: block;
+	padding: 4px;
+}
+
+.composer-button-post {
+	color: #fff;
+}
+
+/*------------------------------------------------------------*/
+.composer-photo-container {
+	border: 1px solid #c3c3bb;
+	padding: 5px;
+}
+
+.table-grid-item {
+	text-align: center;
+}
+
+.composer-photo-upload-title {
+	vertical-align: middle;
+}
+
+/*------------------------------------------------------------*/
+/*============================================================*/

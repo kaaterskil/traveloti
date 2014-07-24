@@ -1,0 +1,38 @@
+<?php
+$title = 'Locations';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('location', array('action'=>'add'));?>">Add new location</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Country</th>
+    <th>City</th>
+    <th>Postal Code</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Metro Code</th>
+    <th>Area Code</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($locations as $location) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($location->getCountry()); ?></td>
+    <td><?php echo $this->escapeHtml($location->getCity()); ?></td>
+    <td><?php echo $this->escapeHtml($location->getPostalCode()); ?></td>
+    <td><?php echo $this->escapeHtml($location->getLatitude()); ?></td>
+    <td><?php echo $this->escapeHtml($location->getLongitude()); ?></td>
+    <td><?php echo $this->escapeHtml($location->getMetroCode()); ?></td>
+    <td><?php echo $this->escapeHtml($location->getAreaCode()); ?></td>
+    <td>
+        <a href="<?php echo $this->url('location',
+        	array('action'=> 'edit', 'id' => $location->getId())); ?>">Edit</a>
+        <a href="<?php echo $this->url('location',
+        	array('action'=> 'delete', 'id' => $location->getId())); ?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

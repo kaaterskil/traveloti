@@ -1,0 +1,328 @@
+<?php
+use Application\StdLib\Constants;
+use Application\View\Helper\NavigationTile;
+use Base\Form\CoverPictureForm;
+use Base\Form\ProfilePictureForm;
+use Base\Model\Notification;
+use Base\Model\Status;
+use Base\Model\Traveloti;
+use Base\Model\TravelLog;
+use Base\Model\User;
+/* @var $traveloti Traveloti */
+/* @var $user User */
+/* @var $notification Notification */
+/* @var $message Status */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/timeline.css'));
+
+$user = $this->zfcUserIdentity();
+$traveloti = $this->traveloti;
+$travelotiUsername = $traveloti->getUsername();
+
+$connectionsLink = $this->url('timeline', array('id' => $travelotiUsername, 'action' => 'traveloti'));
+$photosLink = $this->url('timeline', array('id' => $travelotiUsername, 'action' => 'photos'));
+$travelLogsLink = $this->url('timeline', array('id' => $travelotiUsername, 'action' => 'travelLogs'));
+
+$cpf = new CoverPictureForm();
+$cpf->prepare();
+$cpf->setAttributes(array(
+	'action' => '/timeline/' . $travelotiUsername . '/addCover',
+	'method' => 'post',
+	'id' => 'upload-cover-form',
+));
+
+$ppf = new ProfilePictureForm();
+$ppf->prepare();
+$ppf->setAttributes(array(
+	'action' => '/timeline/' . $travelotiUsername . '/editProfilePicture',
+	'method' => 'post',
+	'id' => 'upload-profile-form',
+));
+
+$isUserAdmin = false;
+if($traveloti instanceof TravelLog) {
+	$admins = $traveloti->getAdministrators()->getValues();
+	foreach($admins as $admin) {
+		if($admin->getUser()->getId() == $user->getId()) {
+			$isUserAdmin = true;
+			break;
+		}
+	}
+}
+
+$isUser = false;
+if($traveloti instanceof User) {
+	if($traveloti->getId() == $user->getId()) {
+		$isUser = true;
+	}
+}
+?>
+<?php if (($traveloti instanceof TravelLog) && $isUserAdmin) : ?>
+<!-- begin travel log admin header -->
+<div id="admin-navigation">
+	<div
+		id="admin-panel"
+		class="header phl pvm">
+		<div class="rfloat">
+			<?php
+			$travelotiId = $traveloti->getId();
+			$infoLink = $this->url('logs', array('action' => 'index', 'id' => $travelotiId));
+			$adminLink = $this->url('logs', array('action' => 'editAdmin', 'id' => $travelotiId));
+			$interestLink = $this->url('logs', array('action' => 'editInterest', 'id' => $travelotiId));
+			?>
+			<ul class="admin-menu">
+				<li class="admin-menu-item first"><a
+					class=""
+					title="Update Information"
+					href="<?php echo $infoLink; ?>">Update Info</a></li>
+				<li class="admin-menu-item"><a
+					class=""
+					title="Manage Administrators"
+					href="<?php echo $adminLink; ?>">Manage Administrators</a></li>
+				<li class="admin-menu-item"><a
+					class=""
+					title="Manage Interests"
+					href="<?php echo $interestLink; ?>">Manage Interests</a></li>
+			</ul>
+		</div>
+		<div>
+			<h2 class="header-title">Manage Your Travel Log</h2>
+		</div>
+		<div class="admin-body clearfix mtm">
+			<div class="admin-notifications-container">
+				<div class="admin-border">
+					<h4>Notifications</h4>
+				</div>
+				<div class="admin-content">
+					<!-- begin notifications list -->
+					<ul>
+						<?php foreach ($traveloti->getNotifications()->getValues() as $notification) :?>
+						<!-- begin notification list item -->
+						<?php
+						$s = $notification->getSender();
+						$sName = $s->getDisplayName();
+						$sUsername = $s->getUsername();
+						$sLink = $this->url('timeline', array('id' => $sUsername));
+						$sIcon = ($s->getPicture()
+							? $s->getPicture()->getIcon()
+							: Constants::DEFAULT_THUMB_3232);
+						$sSrc = $this->basePath('/content/' . $sUsername . '/' . $sIcon);
+						$sImg = $this->htmlImg($sName, $sSrc, array('alt' => $sName, 'class' => 'img'));
+						$titleDate = date('F j, Y, g:i a', $notification->getCreationDate()->getTimestamp());
+						$htmlDate = $this->elapsedTime($creationDate);
+						?>
+						<li class=""><a
+							class="lfloat mrs"
+							href="<?php echo $sLink; ?>"><?php echo $sImg; ?> </a>
+							<div class="">
+								<?php echo $notification->getHtmlTitle(); ?>
+								<div class="clearix metadata">
+									<span class="timestamp"><abbr
+										class="timestamp"
+										title="<?php echo $titleDate; ?>"><?php echo $htmlDate; ?> </abbr>
+									</span>
+								</div>
+							</div>
+						</li>
+						<!-- end notification list item -->
+						<?php endforeach; ?>
+					</ul>
+					<!-- end notifications list -->
+				</div>
+			</div>
+			<div class="admin-messages-container">
+				<div class="admin-border">
+					<h4>Messages</h4>
+				</div>
+				<div class="admin-content">
+					<!-- begin messages list -->
+					<ul>
+						<?php foreach ($traveloti->getMessages() as $message) : ?>
+						<!-- begin message list item -->
+						<?php
+						$msgUsername = $message->getFrom()->getUsername();
+						$msgDisplayName = $message->getFrom()->getDisplayName();
+						$msgLink = $this->url('timeline', array('id' => $msgUsername));
+						$msgIcon = ($message->getFrom()->getPicture()
+							? $message->getFrom()->getPicture()->getIcon()
+							: Constants::DEFAULT_THUMB_3232);
+						$msgSrc = $this->basePath('/content/' . $msgUsername . '/' . $msgIcon);
+						$msgImg = $this->htmlImg($msgDisplayName, $msgSrc, array('class' => 'admin-message-photo img'));
+						$msgTime = $this->elapsedTime($message->getCreationDate());
+						?>
+						<li class="clearfix admin-message-row"><a
+							class="lfloat"
+							href="<?php echo $msgLink; ?>"><?php echo $msgImg; ?> </a>
+							<div class="admin-message-content-wrapper">
+								<div class="">
+									<a href="<?php echo $msgLink; ?>"><?php echo $msgDisplayName; ?>
+									</a> <span class="admin-message-time"><?php echo $msgTime; ?> </span>
+								</div>
+								<div class="">
+									<?php echo $message->getMessage(); ?>
+								</div>
+							</div>
+						</li>
+						<!-- end message list item -->
+						<?php endforeach; ?>
+					</ul>
+					<!-- end messages list -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end travel log admin header -->
+<?php endif; ?>
+<div
+	id="timeline"
+	class="">
+	<div id="timeline-header-container">
+		<div id="timeline-profile-container">
+			<div id="timeline-profile-cover">
+				<?php if($traveloti->getCoverPicture() != null) :?>
+				<?php
+				$coverPic = $traveloti->getCoverPicture()->getSource();
+				$coverTitle = $traveloti->getCoverPicture()->getName();
+				$coverSrc = $this->basePath('/content/' . $travelotiUsername . '/' . $coverPic);
+				$coverImg = $this->htmlImg(
+					$travelotiUsername, $coverSrc,
+					array('alt' => $coverTitle, 'class' => 'cover-photo-img photo img')
+				);
+				?>
+				<a
+					class="cover-image-wrapper"
+					href="<?php echo $coverSrc; ?>"
+					rel="shadowbox"><?php echo $coverImg; ?> </a>
+				<?php else : ?>
+				<div class="timeline-cover-no-image"></div>
+				<?php endif; ?>
+				<?php if ($isUserAdmin || $isUser) : ?>
+				<div class="timeline-cover-button-wrapper">
+					<a
+						id="change-cover-btn"
+						class="timeline-cover-button button"
+						href="#"> <span class="button-text">Change Cover Picture</span>
+					</a>
+					<?php echo $this->form()->openTag($cpf); ?>
+					<?php echo $this->formHidden($cpf->get('filepath')); ?>
+					<?php echo $this->formFile($cpf->get('picture')); ?>
+					<?php echo $this->formSubmit($cpf->get('submit_btn')); ?>
+					<?php echo $this->form()->closeTag(); ?>
+				</div>
+				<?php endif; ?>
+			</div>
+			<div
+				id="timeline-header"
+				class="clearfix">
+				<div class="timeline-name">
+					<?php if($traveloti instanceof User) : ?>
+					<div class="timeline-photo-container">
+						<?php
+						$profilePic = $traveloti->getPicture() ? $traveloti->getPicture()->getPicture() : Constants::DEFAULT_THUMB_5050;
+						$profileTitle = $traveloti->getDisplayName();
+						$profileSrc = $this->basePath('/content/' . $travelotiUsername . '/' . $profilePic);
+						$profileImg = $this->htmlImg(
+							$travelotiUsername, $profileSrc,
+							array('alt' => $profileTitle, 'class' => 'profile-picture img')
+						);
+						?>
+						<a
+							class="profile-picture-wrapper"
+							href="<?php echo $profileSrc; ?>"
+							rel="shadowbox"><?php echo $profileImg; ?> </a>
+						<?php if($isUser) : ?>
+						<div class="timeline-profile-button-wrapper">
+							<a
+								id="change-profile-btn"
+								class="timeline-profile-button button"
+								href="#"> <span class="button-text">Change Profile Picture</span>
+							</a>
+							<?php echo $this->form()->openTag($ppf); ?>
+							<?php echo $this->formHidden($ppf->get('filepath')); ?>
+							<?php echo $this->formFile($ppf->get('picture')); ?>
+							<?php echo $this->formSubmit($ppf->get('submit_btn')); ?>
+							<?php echo $this->form()->closeTag(); ?>
+						</div>
+						<?php endif; ?>
+					</div>
+					<?php endif; ?>
+					<h2>
+						<?php echo $traveloti->getDisplayName(); ?>
+					</h2>
+					<?php if($traveloti instanceof User) : ?>
+					<h3>
+						<?php echo $traveloti->getUserType(); ?>
+					</h3>
+					<?php else : ?>
+					<?php if($traveloti->getLocation() != null) : ?>
+					<h4>
+						<?php echo $traveloti->getLocation(); ?>
+					</h4>
+					<?php endif; ?>
+					<?php if($traveloti->getAbout() != null) : ?>
+					<div class="timeline-about-wrapper">
+						<div class="timeline-about-label lfloat">About:</div>
+						<div class="timeline-about">
+							<?php echo $traveloti->getAbout(); ?>
+						</div>
+					</div>
+					<?php endif; ?>
+					<?php if($traveloti->getGeneralInfo() != null) : ?>
+					<div class="timeline-about-wrapper">
+						<div class="timeline-about-label lfloat">General:</div>
+						<div class="timeline-about">
+							<?php echo $traveloti->getGeneralInfo(); ?>
+						</div>
+					</div>
+					<?php endif; ?>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+		<?php echo $this->pageletTimelineNavigation; ?>
+	</div>
+	<div
+		id="spine-1"
+		class="grid_6 alpha">
+		<?php echo $this->pageletComposer; ?>
+		<?php echo $this->pageletFeed; ?>
+	</div>
+	<div
+		id="spine-2"
+		class="grid_6 omega">
+		<div>
+			<ul>
+				<?php if($traveloti instanceof User) : ?>
+				<li class="timeline-unit clearfix">
+					<div class="timeline-unit-header">
+						<a href="<?php echo $travelLogsLink; ?>"><div class="title fsl">Travel
+								Logs</div> </a>
+					</div>
+					<div class="traveloti-wrapper">
+						<?php echo $this->navigationTile($traveloti, NavigationTile::TRAVEL_LOGS_LARGE, 82); ?>
+					</div>
+				</li>
+				<li class="timeline-unit clearfix">
+					<div class="timeline-unit-header">
+						<a href="<?php echo $connectionsLink; ?>"><div class="title fsl">Connections</div>
+						</a>
+					</div>
+					<div class="connection-wrapper">
+						<?php echo $this->navigationTile($traveloti, NavigationTile::FRIENDS_LARGE, 82); ?>
+					</div>
+				</li>
+				<?php endif; ?>
+				<li class="timeline-unit clearfix">
+					<div class="timeline-unit-header">
+						<a href="<?php echo $photosLink; ?>"><div class="title fsl">Photos</div>
+						</a>
+					</div>
+					<div class="photo-wrapper">
+						<?php echo $this->navigationTile($traveloti, NavigationTile::PHOTOS_LARGE, 82); ?>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

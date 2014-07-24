@@ -1,0 +1,139 @@
+<?php
+use Base\Form\InlineImageForm;
+
+/* @var $imgForm Base\Form\ImageForm */
+/* @var $iif InlineImageForm */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti-photo-stream.css'));
+
+$fileElementId = substr(md5('fileElement'), 0, 8);
+$photos = $this->photos;
+$iif = $this->inlineImageForm;
+
+$iif->prepare();
+$iif->setAttributes(array(
+	'method' => 'post',
+	'action' => 'uploadPhoto',
+));
+$iif->get('photos')->setAttributes(array(
+	'id' => $fileElementId,
+));
+
+$rows = (count($photos) ? ceil(count($photos) / 4) : 1);
+$gridHeight = $rows * 211;
+?>
+<!-- begin photo stream pagelet -->
+<div id="pagelet-photo-stream">
+	<div class="star-grid-as-timeline-unit">
+		<div
+			id="timeline-photos-content"
+			class="photos-redesign-border-overlay">
+			<div
+				class="star-grid"
+				style="height: <?php echo $gridHeight ?>px; width: 844px">
+				<div
+					class="photo-star-grid-element photo-star-grid-non-starred photo-grid-fixed"
+					style="position: absolute;
+	margin-top: 0px;
+	margin-left: 0px">
+					<div class="flash-uploader-overlay-button stat-elem">
+						<a
+							class="photos-redesign-upload-link uploader-select"
+							onclick="return TR.openFileUploadElement('<?php echo $fileElementId; ?>');"
+							href="#">
+							<div class="_30k">Add New Photo</div>
+						</a>
+						<div style="visibility: hidden;">
+							<?php echo $this->form()->openTag($iif); ?>
+							<?php echo $this->formElement($iif->get('photos')); ?>
+							<?php echo $this->form()->closeTag(); ?>
+						</div>
+					</div>
+				</div>
+				<?php for($i = 0; $i < count($photos); $i++) : ?>
+				<?php
+				$columns = 4;
+				if($i == 0) {
+					$left = 211;
+					$top = 0;
+				} else {
+					$left = (($i + 1) % $columns == 0 ? 0 : $left + 211);
+					$top = ($i + 1 < $columns ? 0 : (ceil($i / $columns) - 1 > 1 ? ceil($i / $columns) - 1 : 1) * 211);
+				}
+				$url = $this->basePath('/content/' . $this->zfcUserIdentity()->getUsername() . '/' . $photos[$i]->getSource());
+				$size = ($photos[$i]->getWidth() > $photos[$i]->getHeight() ? round($photos[$i]->getWidth() * 206 / $photos[$i]->getHeight()) . 'px 206px;' : '206px ' . round($photos[$i]->getHeight() * 206 / $photos[$i]->getWidth()) . 'px;');
+				?>
+				<div
+					class="_53s photo-curation-control-wrapper photo-star-grid-element photo-star-grid-non-starred _53s photo-curation-control-wrapper" style="position: absolute; margin-top: <?php echo $top ?>px; margin-left: <?php echo $left; ?>px;">
+					<a class="media-thumb media-thumb-medium _6i9" href="<?php echo $url; ?>" rel="shadowbox">
+						<div class="tag-wrapper">
+							<i class="media-thumb-img" style="background-image: url(<?php echo $url; ?>); background-size: <?php echo $size; ?>"></i>
+						</div>
+					</a>
+					<div class="_53d _53q">
+						<div class="_53g">
+							<div class="_53i">
+								<a
+									class="_53f"
+									href=""><?php echo $photos[$i]->getAlbum()->getName(); ?> </a>
+							</div>
+						</div>
+						<div>
+							<div class="_53k">
+								<a
+									class="_53f _53o _53b"
+									href="#">Like</a> <span class="_6ib"> &middot; </span> <a
+									class="_53f"
+									href="#">Comment</a>
+							</div>
+						</div>
+					</div>
+					<div class="photo-curation-control">
+						<span class="button-group button-group-overlay"> <span
+							class="first-item button-group-item button-item"></span> <span
+							class="last-item button-group-item selector-item">
+								<div
+									class="selector inline-block timeline-selector selector-right selector-normal selector-dynamic-label">
+									<div class="wrap">
+										<a
+											class="timeline-selector-button selector-button button button-overlay button-no-text"
+											onclick="TR.toggleParentClass(this, 'open-toggler');"
+											href="#"> <i class="img sp_c6q8pv sx_f4db6a"></i> <span
+											class="button-text"></span>
+										</a>
+										<div class="selector-menu-wrapper toggle-flyout">
+											<div class="menu selector-menu">
+												<ul class="menu-inner">
+													<li class="menu-item photos-photo-actions-item"><a
+														class="item-anchor"
+														href="#"> <span class="item-label">Download</span>
+													</a>
+													</li>
+													<li
+														class="menu-item photos-photo-actions-crop make-user-profile photos-photo-action-item">
+														<a
+														class="item-anchor"
+														href="<?php echo $this->url('base', array('action' => 'makeProfile', 'id' => $photos[$i]->getId())); ?>">
+															<span class="item-label">Make Profile Picture</span>
+													</a>
+													</li>
+													<li class="menu-item photos-photo-actions-item"><a
+														class="item-anchor"
+														href="#"> <span class="item-label">Delete This Photo</span>
+													</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+						</span>
+						</span>
+					</div>
+				</div>
+				<?php endfor; ?>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end photo stream pagelet -->

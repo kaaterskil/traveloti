@@ -1,0 +1,269 @@
+<?php
+use Application\StdLib\Constants;
+
+/* @var $post Base\Model\Post */
+/* @var $comment Base\Model\Comment */
+/* @var $user Base\Model\User */
+
+$feed = $this->feed;
+$user = $this->zfcUserIdentity();
+?>
+<div id="pagelet-home-stream">
+	<ul class="stream">
+		<li class="stream-header"></li>
+	</ul>
+	<div class="stream">
+		<ul
+			id="home-stream"
+			class="list stream stream-home-page stream-redesign stream-large-headline stream-container">
+			<?php foreach ($feed as $post) :?>
+
+			<!-- begin Post item block -->
+			<?php $postId = substr(md5('post' . $post->getId() . $post->getFrom()->getUsername()), 0, 8); ?>
+			<li
+				id="<?php echo $post->getId(); ?>"
+				class="unified-story stream-story list-item">
+				<div class="clearfix story-content">
+					<?php
+					$userLink = $this->url('base', array('id' => $post->getFrom()->getUsername()));
+					$src = 'content/' . $post->getFrom()->getUsername() . '/';
+					$src .= ($post->getFrom()->getPicture() ? $post->getFrom()->getPicture()->getIcon() : Constants::DEFAULT_THUMB_5050);
+					$src = $this->basePath($src);
+					?>
+					<a
+						class="actor-photo lfloat"
+						href="<?php echo $userLink; ?>"><?php echo $this->htmlImg($post->getFrom()->getDisplayName(), $src, array('class'=> 'profile-pic')); ?>
+					</a>
+					<div class="story-inner-content">
+						<div class="main-wrapper">
+							<div
+								onkeypress="return TR.inlineSubmit(event, '<?php echo $postId; ?>');">
+								<!-- begin Post message block -->
+								<h5 class="stream-message stream-headline">
+									<div class="actor-description actor-name">
+										<a
+											href="<?php echo $this->url('base', array('id' => $post->getFrom()->getUsername())); ?>">
+											<?php echo $post->getFrom()->getDisplayName(); ?>
+										</a>
+									</div>
+								</h5>
+								<h5 class="stream-message user-content-wrapper">
+									<span class="message-body">
+										<div>
+											<span class="user-content"><?php echo $post->getMessage(); ?>
+											</span>
+										</div>
+									</span>
+								</h5>
+								<!-- end Post message block -->
+
+								<!-- begin Post photo block -->
+								<?php
+								$audience = $post->getVisibility();
+								if($post->getFrom()->getHasSilhouette()) {
+									if(($post->getFrom()->getPicture() != null)
+											&& ($post->getFrom()->getPicture()->getId() == $post->getId())) {
+										$audience = Constants::PRIVACY_SELF;
+									}
+								}
+								?>
+								<?php if(($post->getType() == 'photo') && ($audience != Constants::PRIVACY_SELF)) : ?>
+								<div class="mvm stream-attachments">
+									<div class="clearfix photo">
+										<?php
+										$photoId = md5($post->getName());
+										$photoSrc = $this->basePath('/content/' . $post->getFrom()->getUsername() . '/' . $post->getSource());
+										$attribs = $this->photoSizer($post, 398);
+										?>
+										<a
+											class="photo-thumb"
+											title="<?php echo $post->getMessage(); ?>"
+											href="<?php echo $photoSrc; ?>"
+											rel="shadowbox"><?php echo $this->htmlImg($photoId, $photoSrc, array('width' => $attribs['width'], 'height' => $attribs['height'], 'alt' => $post->getName())); ?>
+										</a>
+									</div>
+								</div>
+								<?php endif; ?>
+								<!-- end Post photo block -->
+
+								<!-- begin Comments and Likes link block -->
+								<?php
+								$cf = $this->comment($post);
+								$cf->prepare();
+								$cf->setAttributes(array(
+									'action' => 'base/addComment',
+									'method' => 'post',
+									'name' => 'post-' . $post->getId(),
+									'id' => $postId,
+								));
+								echo $this->form()->openTag($cf);
+								echo $this->formHidden($cf->get('post_id'));
+								echo $this->formHidden($cf->get('type'));
+								?>
+								<div class="stream-footer">
+									<span class="action-links action-links-bottom"> <a
+										id="<?php echo $post->getType() . '-' . $post->getId(); ?>"
+										class="like-link"
+										onclick="return TR.inlineLike(this);"
+										title="Like this item"
+										href="#">Like</a> <span> &middot; </span> <label
+										class="link-button comment-link"
+										title="Leave a comment"> <?php echo $this->formElement($cf->get('comment_link')); ?>
+									</label>
+									</span><span> &middot; </span><span class="stream-source"> <a
+										title="<?php echo date('F j, Y, g:i a', $post->getCreationDate()->getTimestamp()); ?>"
+										href="<?php echo $this->url('base', array('action' => 'posts', 'id' => $post->getFrom()->getUsername())); ?>">
+											<span class="abbr"><?php echo $this->elapsedTime($post->getCreationDate()); ?>
+										</span>
+									</a>
+									</span>
+								</div>
+								<!-- end Comments and Likes link block -->
+
+								<!-- begin Comments block -->
+								<?php
+								$comments = $post->getComments()->getValues();
+								$likes = $post->getLikes()->getValues();
+								$likeCount = count($likes);
+								?>
+								<div>
+									<div class="ufi-container">
+										<ul class="ufi-list">
+											<li class="ufi-arrow"><i></i></li>
+
+											<!-- begin Like sentence -->
+											<?php if ($likeCount) : ?>
+											<li class="ufi-row ufi-like-sentence">
+												<div class="clearfix">
+													<div class="lfloat">
+														<a
+															id="<?php echo $post->getType() . '-' . $post->getId(); ?>"
+															class="ufi-like-thumb ufi-image-block-image like-icon-container"
+															onclick="return TR.inlineLike(this);"
+															title="Like this item"
+															href="#"><i class="ufi-like-icon"></i> </a>
+													</div>
+													<div>
+														<div
+															class="ufi-image-block-content image-block-content-container">
+															<span> <?php if ($likeCount < 3) : ?><span><?php for ($i = 0; $i < $likeCount; $i++) : ?><a
+																	href="<?php echo $this->url('base', array('id' => $likes[$i]->getFrom()->getUsername()));?>">
+																		<?php echo $likes[$i]->getFrom()->getDisplayName(); ?>
+																</a><span><?php if ($likeCount > 1) : ?> and <?php endif; ?>
+																</span> <?php endfor; ?><span><?php if ($likeCount == 1) : ?>
+																		likes this.<?php else : ?> like this.<?php endif; ?> </span>
+															</span> <?php else : ?><span><?php echo $likeCount; ?>
+																	people like this.</span> <?php endif; ?>
+															</span>
+														</div>
+													</div>
+												</div>
+											</li>
+											<?php endif; ?>
+											<!-- end Like sentence -->
+
+											<!-- begin Comments loop -->
+											<?php if(count($comments) > 0) : ?>
+											<?php foreach ($comments as $comment) : ?>
+											<li class="ufi-row ufi-comment">
+												<div class="clearfix">
+													<div class="lfloat">
+														<?php
+														$link = $this->url('base', array('id' => $comment->getFrom()->getUsername()));
+														$commentSrc = 'content/' . $comment->getFrom()->getUsername() . '/';
+														$commentSrc .= ($comment->getFrom()->getPicture() ? $comment->getFrom()->getPicture()->getIcon() : Constants::DEFAULT_THUMB_3232);
+														$commentSrc = $this->basePath($commentSrc);
+														?>
+														<a
+															class="img ufi-image-block-image comment-actor-image"
+															href="<?php echo $link; ?>"> <?php echo $this->htmlImg(
+																$comment->getFrom()->getDisplayName(),
+																$commentSrc,
+																array('class'=> 'img ufi-actor-image like-icon-wrapper _rx')
+															); ?>
+														</a>
+													</div>
+													<div>
+														<div class="clearfix ufi-image-block-content">
+															<div>
+																<div>
+																	<div class="ufi-comment-content">
+																		<a
+																			class="ufi-comment-actor-name"
+																			href=""><?php echo $comment->getFrom()->getDisplayName(); ?>
+																		</a> <span class="ufi-comment-body"><?php echo $comment->getMessage(); ?>
+																		</span>
+																	</div>
+																	<div class="ufi-comment-actions">
+																		<span> <a
+																			class="link-subtle"
+																			title="<?php echo date('F j, Y, g:i a', $comment->getCreationDate()->getTimestamp()); ?>"
+																			href=""><?php echo $this->elapsedTime($comment->getCreationDate()); ?>
+																		</a>
+																		</span><span> &middot; </span><a
+																			id="<?php echo $comment->getType() . '-' . $comment->getId(); ?>"
+																			onclick="return TR.inlineLike(this)"
+																			title="Like this comment"
+																			href="#">Like</a>
+																		<?php if ($comment->countLikes()) : ?>
+																		<span> &middot; </span><a
+																			class="ufi-comment-like-button"
+																			href=""><i class="ufi-comment-like-icon"> </i><span><?php echo $comment->countLikes(); ?>
+																		</span> </a>
+																		<?php endif; ?>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+											<?php endforeach; ?>
+											<?php endif; ?>
+											<!-- end Comments loop -->
+
+											<!-- begin Comment entry block -->
+											<li class="ufi-row ufi-add-comment">
+												<div class="clearfix ufi-mentions-input-wrap">
+													<div class="lfloat">
+														<?php
+														$link = $this->url('base', array('id' => $user->getUsername()));
+														$userSrc = 'content/' . $user->getUsername() . '/';
+														$userSrc .= ($user->getPicture() ? $user->getPicture()->getIcon() : Constants::DEFAULT_THUMB_3232);
+														$userSrc = $this->basePath($userSrc);
+														echo $this->htmlImg($user->getDisplayName(), $userSrc, array('class'=> 'img ufi-actor-image ufi-image-block-image comment-actor-image')); ?>
+													</div>
+													<div>
+														<div class="ufi-image-block-content add-comment-wrapper">
+															<div class="mentions-input text-box-container">
+																<div class="typeahead mentions-typeahead">
+																	<div class="wrap">
+																		<div class="inner-wrap">
+																			<?php echo $this->formElement($cf->get('message')); ?>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+											<!-- end Comment  entry block -->
+
+										</ul>
+									</div>
+								</div>
+								<?php echo $this->form()->closeTag(); ?>
+								<!-- end Comments block -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<!-- end Post item block -->
+
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</div>

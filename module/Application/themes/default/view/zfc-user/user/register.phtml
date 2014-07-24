@@ -1,0 +1,94 @@
+<?php
+/* @var $rf Zend\Form\Form */
+
+$title = "Sign Up for Traveloti";
+$this->headTitle($title);
+$this->headLink()->appendStylesheet($this->basePath('/css/fb-theme/traveloti-login.css'));
+
+$rf = $this->registerForm;
+$rf->prepare();
+
+// Set form attributes
+$rf->setAttributes(array(
+	'action' => 'register',
+	'method' => 'post',
+	'name' => 'reg',
+));
+
+$messages = $rf->getMessages();
+?>
+<div id="pagelet-blue-bar">
+	<div id="blue-bar-holder">
+		<div id="blue-bar">
+			<div>
+				<div class="loggedout-menubar-container">
+					<div class="clearfix loggedout-menubar">
+						<a
+							class="lfloat"
+							href="/"><?php echo $this->htmlImg(
+								'logo',
+								$this->basePath() . '../images/Traveloti-Logo-ReverseBlue-9pt.gif',
+								array(
+									'title' => "Go to Traveloti Home",
+									'class' => 'tr_logo'
+								)); ?> </a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div
+	id="content"
+	class="clearfix">
+	<div class="fullpage-container">
+		<div id="main-container">
+			<div class="content-topper">
+				<div class="content-topper-text-container">
+					<h1 class="mbs _3m8 _6n _6s _6v">Sign Up</h1>
+					<h2 class="mbl _3m7 _6o _6t _mf">Join Traveloti to share your
+						travels and learn valuable tips and advice from friends and other
+						travelers. It's free and always will be.</h2>
+				</div>
+				<div class="window-shade">
+					<div class="simple-registration-form">
+						<div class="simple-registration-container">
+							<div id="reg-box">
+								<?php echo $this->form()->openTag($rf); ?>
+								<?php echo $this->formHidden($rf->get("creationDate")); ?>
+								<div class="clearfix short-fields">
+									<div class="mrm lfloat">
+										<?php echo $this->formElement($rf->get("firstName")); ?>
+									</div>
+									<div class="mbm rfloat">
+										<?php echo $this->formElement($rf->get("lastName")); ?>
+									</div>
+								</div>
+								<div class="mbm">
+									<?php echo $this->formElement($rf->get("email")); ?>
+								</div>
+								<div class="mbm">
+									<?php echo $this->formElement($rf->get("password")); ?>
+								</div>
+								<div class="mbm">
+									<?php echo $this->formElement($rf->get("passwordVerify")); ?>
+								</div>
+								<div class="mtm mbs callout-label">Member Type:</div>
+								<div class="clearfix field-container">
+									<?php echo $this->formRow($rf->get("userType")); ?>
+								</div>
+								<div class="mtl mbm">
+									<?php echo $this->formRow($rf->get("gender")); ?>
+								</div>
+								<div class="reg-btn clearfix">
+									<?php echo $this->formElement($rf->get("submit_btn")); ?>
+								</div>
+								<?php echo $this->form()->closeTag(); ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

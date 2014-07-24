@@ -1,0 +1,209 @@
+<?php
+/* @var $sf Base\Model\StatusForm */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti-composer.css'));
+
+$composerWrapperId = substr(md5('composerWrapper'), 0, 8);
+$formId = substr(md5('composerForm'), 0, 8);
+$formOuterWrapperId = $formId . '1';
+$formInnerWrapperId = $formId . '2';
+$messageElementId = $formId . '3';
+$audienceElementWrapperId = $formId . '4';
+$audienceElementId = $formId . '5';
+$submitBtnId = $formId . '6';
+
+$inlineId = substr(md5('inlineFormElements'), 0, 7);
+$outerDiv1 = $inlineId . '1';
+$innerDiv1 = $inlineId . '10';
+$outerWrapper1 = $inlineId . '11';
+$innerWrapper1 = $inlineId . '12';
+$outerDiv2 = $inlineId . '2';
+$innerDiv2 = $inlineId . '20';
+$outerWrapper2 = $inlineId . '21';
+$innerWrapper2 = $inlineId . '22';
+
+$inlineControl = substr(md5('inlineController'), 0, 7);
+$controlWrapper1 = $inlineControl . '1';
+$inlineController1 = $inlineControl . '11';
+$controlWrapper2 = $inlineControl . '2';
+$inlineController2 = $inlineControl . '22';
+
+$sf = $this->statusForm;
+$sf->prepare();
+$sf->setAttributes(array(
+	'action' => 'base/updateStatus',
+	'method' => 'post',
+	'id' => $formId,
+));
+$sf->get('audience')->setAttribute('id', $audienceElementId);
+$sf->get('submit_btn')->setAttribute('id', $submitBtnId);
+
+$messages = $sf->getMessages();
+?>
+<div id="pagelet-composer">
+	<div
+		id="<?php echo $composerWrapperId; ?>"
+		class="_119 drop-element static-element focus-target mtm mbl"
+		onclick="">
+		<div class="clearfix">
+			<div>
+				<ul class="list _4_ _4ki clearfix _6-h _6-j _6-i">
+					<li class="_4j list-item _4n"><a
+						class="icon-text _9lb"
+						href="#"> <i class="img sp_2ge4b1 sx_e5b813"></i> Update Status <i
+							class="_2wr"></i>
+					</a>
+					</li>
+					<li class="_92 list-item"><a
+						class="icon-text _9lb"
+						href="#"> <i class="img sp_4yuo6n sx_e66002"></i> Add Photos <i
+							class="_2wr"></i>
+					</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="_118">
+			<?php echo $this->form()->openTag($sf); ?>
+			<div class="_2yg">
+				<?php echo $this->formHidden($sf->get('composer_id')); ?>
+				<?php echo $this->formHidden($sf->get('uid')); ?>
+				<div>
+					<div id="<?php echo $formOuterWrapperId; ?>">
+						<div
+							id="<?php echo $formInnerWrapperId; ?>"
+							class="mentions-input _11a">
+							<div
+								id=""
+								class="typeahead composer-typeahead mentions-typeahead">
+								<div class="wrap">
+									<div class="inner-wrap">
+										<?php echo $this->formTextarea($sf->get('message_text'));  ?>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="_3-6">
+					<div>
+						<div id="<?php echo $outerDiv1; ?>">
+							<div
+								id="<?php echo $outerWrapper1; ?>"
+								class="clearfix tokenizer inline-tokenizer _14o hidden-element">
+								<div
+									id="<?php echo $innerWrapper1; ?>"
+									class="typeahead">
+									<div class="wrap">
+										<div class="inner-wrap">
+											<div
+												class="sticky-placeholder-input sticky-placeholder-empty-input">
+												<?php echo $this->formText($sf->get('tags')); ?>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="<?php echo $outerDiv2; ?>">
+							<div
+								id="<?php echo $outerWrapper2; ?>"
+								class="typeahead clearable-typeahead _14n hidden-element">
+								<div class="wrap">
+									<div class="inner-wrap">
+										<?php echo $this->formText($sf->get('place_name')); ?>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="_4y _4-">
+					<div class="clearfix">
+						<div class="_3-7 lfloat">
+							<div>
+								<div
+									id="<?php echo $controlWrapper1; ?>"
+									class="lfloat">
+									<a
+										id="<?php echo $inlineController1; ?>"
+										class="_4p _4q"
+										onclick="TR.toggleHiddenElement(<?php echo $outerWrapper1; ?>.id);"
+										href="#"> <span class="_d31"></span>
+									</a>
+								</div>
+								<div
+									id="<?php echo $controlWrapper2; ?>"
+									class="lfloat">
+									<div
+										id=""
+										class="_6a _zg _4p">
+										<a
+											id="<?php echo $inlineController2; ?>"
+											class="_y9"
+											onclick="TR.toggleHiddenElement(<?php echo $outerWrapper2; ?>.id);"
+											href="#"> <span class="_ya"></span>
+											<div class="_6a _zh">
+												<div
+													class="_6a _6b"
+													style="height: 30px;"></div>
+												<div class="_6a _6b">
+													<span class="_y8"></span>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<ul class="list _4z rfloat _4ki clearfix _6-h _6-j _6-i">
+							<li class="list-item">
+								<div id="<?php echo $audienceElementWrapperId; ?>">
+									<div
+										id="composer-tour-audience"
+										class="composer-audience-wrapper static-element widget">
+										<?php echo $this->formSelect($sf->get('audience')); ?>
+									</div>
+								</div>
+							</li>
+							<li class="list-item"><label
+								class="_11b button button-confirm"
+								for=""> <?php echo $this->formSubmit($sf->get('submit_btn')); ?>
+							</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<?php echo $this->form()->closeTag(); ?>
+		</div>
+	</div>
+</div>
+<script>
+TR.composerController = function(event) {
+	var t = false;
+	var p = <?php echo $composerWrapperId; ?>;
+	var elems = $(event.target).parents();
+	for(var i = 0; i < elems.length; i++) {
+		var e = elems[i];
+		if(e == p) {
+			t = true;
+			break;
+		}
+	}
+	if(t) {
+		if(!$('#' + p.id).hasClass('child-is-focused')) {
+			$('#' + p.id).addClass('child-is-focused');
+		}
+		if(!$('#' + p.id).hasClass('child-has-focus')) {
+			$('#' + p.id).addClass('child-has-focus');
+		}
+		if(!$('#' + p.id).hasClass('child-was-focused')) {
+			$('#' + p.id).addClass('child-was-focused');
+		}
+	} else {
+		$('#' + p.id).removeClass('child-is-focused');
+		$('#' + p.id).removeClass('child-has-focus');
+	};
+};
+</script>

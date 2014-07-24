@@ -1,0 +1,52 @@
+<?php
+$this->headlink()->appendStylesheet($this->basePath('/css/traveloti-account-settings.css'));
+$profiles = $this->profiles;
+
+$pf = $this->profileForm;
+$pf->setName('profile_form');
+$pf->setAttribute('method', 'post');
+$pf->setAttribute('action', 'profile/addProfile');
+$pf->prepare();
+?>
+<ul class="list settings-list settings-list-container">
+	<li
+		class="settings-section-item lit-item settings-section-item-border-top">
+		<div class="settings-section-item-content-wrapper">
+			<div class="settings-section-item-title">Add a Profile Item</div>
+			<div class="settings-section-item-content">Your best experience here
+				at Traveloti is based on setting your travel prefences. Where you
+				want to go, what time of year, other people you want to among, your
+				interests and your budget. Your search for the next awesome
+				experience can be more efficient by adding profile items from the
+				list. You can also create specific profiles for each travel wish
+				list.</div>
+			<div class="">
+				<?php echo $this->form()->openTag($pf); ?>
+				<?php echo $this->formHidden($pf->get('user_id')); ?>
+				<?php echo $this->formElement($pf->get('profile')); ?>
+				<?php echo $this->formRow($pf->get('btnSubmit')); ?>
+				<?php echo $this->form()->closeTag(); ?>
+			</div>
+		</div>
+	</li>
+	<?php if (count($profiles) == 0) : ?>
+	<li class="settings-list-item clearfix list-item">
+		<div class="settings-list-item-container">
+			<span class="settings-list-item-content">No profile items have been
+				created.</span>
+		</div>
+	</li>
+	<?php endif; ?>
+	<?php foreach ($profiles as $profile) : ?>
+	<li class="settings-list-item clearfix list-item">
+		<div class="settings-list-link settings-list-item-container clearfix">
+			<span class="settings-list-item-label"><?php echo ucwords(str_replace('_', ' ', $profile->getProfile()->getDisplayName())); ?>
+			</span> <span class="icon-text settings-list-item-edit"><a
+				href="<?php echo $this->url('profile', array('action' => 'deleteProfile', 'id' => $profile->getId())); ?>">Delete</a>
+			</span> <span class="settings-list-item-category"><?php echo ucfirst($profile->getProfile()->getCategory()->getDisplayName()); ?>
+			</span> <span class="settings-list-item-content"><?php echo $profile->getProfile()->getDescription(); ?>
+			</span>
+		</div>
+	</li>
+	<?php endforeach; ?>
+</ul>

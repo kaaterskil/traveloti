@@ -1,0 +1,92 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================*/
+/*----- begin xQT4ld-PzrC.css ----------------*/
+.friend-browser-page {
+	width: 713px;
+}
+
+.bottom-border {
+	border-left: medium none;
+	border-right: medium none;
+	border-top: medium none;
+}
+
+.friend-browser-header-container {
+	margin-bottom: 10px;
+}
+
+.friend-browser-header {
+	margin-bottom: 15px;
+}
+
+.friend-browser-title {
+	font-size: 1.455em;
+	font-weight: bold;
+}
+
+.friend-browser-subtitle {
+	margin-bottom: 15px;
+	margin-top: 2px;
+}
+
+.friend-browser-checkbox-content {
+	float: right;
+	position: relative;
+	width: 493px;
+}
+
+.friend-browser-checkbox-content-list>li {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.friend-browser-checkbox-content-list>li:first-child {
+	padding-top: 0;
+}
+
+.friend-browser-photo-container {
+	float: left;
+	margin-right: 10px;
+}
+
+.friend-browser-photo-wrapper {
+	height: 75px;
+	width: 75px;
+}
+
+.friend-browser-photo-crop {
+	background: none repeat scroll 0 0 #eee;
+	height: 75px;
+	overflow: hidden;
+	position: absolute;
+	width: 75px;
+}
+
+.friend-browser-aux-align-middle {
+	margin-top: 26px;
+}
+
+.friend-browser-content-align-middle {
+	height: 75px;
+	vertical-align: middle !important;
+}
+
+.friend-browser-actor {
+	color: #333;
+	font-size: 1.182em;
+	font-weight: bold;
+}
+
+/*----- end xQT4ld-PzrC.css ------------------*/
+/*============================================*/
+.friend-browser-page label {
+	color: #333;
+	font-weight: normal;
+}
+
+.sx_452990 {
+	width: 11px;
+	height: 14px;
+	background-position: -439px -20px;
+}

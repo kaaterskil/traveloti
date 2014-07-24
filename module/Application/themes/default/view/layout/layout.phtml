@@ -1,0 +1,37 @@
+<?php echo $this->doctype();; ?>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<?php echo $this->headTitle()->setSeparator(' - ')->setAutoEscape(false) ?>
+
+<?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+<!-- Styles -->
+<?php echo $this->headLink()->prependStylesheet($this->basePath('/css/fb-theme/traveloti.css')) ?>
+
+<!-- Scripts -->
+<?php echo $this->headScript()->prependFile($this->basePath('/js/html5.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+->prependFile($this->basePath('/js/bootstrap.min.js'))
+							  ->prependFile($this->basePath('/js/jquery.min.js')); ?>
+
+</head>
+<body>
+	<div class="global-container">This is the default theme
+		<?php echo $this->content; ?>
+		<div id="page-footer">
+			<div
+				id="footer-container"
+				class="clearfix">
+				<div class="copyright">Traveloti &copy; 2012</div>
+				<div class="disclaimer">This is a developmental website only and not
+					to be confused with an actual functioning production website.
+					Traveloti is not responsible for designs, features and claims made
+					or inferred from this test website. All elements on this
+					developmental website are subject to change.</div>
+			</div>
+		</div>
+	</div>
+	<!-- /container -->
+	<?php echo $this->inlineScript() ?>
+</body>
+</html>

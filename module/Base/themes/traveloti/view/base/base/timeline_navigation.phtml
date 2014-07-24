@@ -1,0 +1,82 @@
+<?php
+use Application\View\Helper\NavigationTile;
+use Base\Model\Traveloti;
+use Base\Model\User;
+/* @var $traveloti Traveloti */
+
+$traveloti = $this->traveloti;
+$travelotiUsername = $traveloti->getUsername();
+$connectionsLink = $this->url('timeline', array('id' => $travelotiUsername, 'action' => 'traveloti'));
+$photosLink = $this->url('timeline', array('id' => $travelotiUsername, 'action' => 'photos'));
+$travelLogsLink = $this->url('timeline', array('id' => $travelotiUsername, 'action' => 'travelLogs'));
+?>
+<!-- begin pagelet timeline navigation -->
+<div
+	id="pagelet-timeline-navigation"
+	class="timeline-navigation-wrapper">
+	<ul
+		id="timeline-navigation"
+		class="clearfix">
+		<li
+			id="pagelet-timeline-about-nav"
+			class="first-tab">
+			<div class="timeline-nav-detail">
+				<div class="">
+					<?php echo $this->navigationInterests($traveloti); ?>
+				</div>
+			</div>
+		</li>
+		<?php if ($traveloti instanceof User) :?>
+		<li
+			id="pagelet-timeline-logs-nav"
+			class=""><a
+			id=""
+			class="tab"
+			href="<?php echo $travelLogsLink; ?>">
+				<div class="timeline-nav-detail">
+					<?php echo $this->navigationTile($traveloti, NavigationTile::TRAVEL_LOGS, 30); ?>
+				</div>
+				<div class="timeline-nav-title">
+					<span class="text">Travel Logs</span> <span class="count"><?php echo $traveloti->getAccounts()->count(); ?>
+					</span>
+				</div>
+		</a>
+		</li>
+		<?php endif; ?>
+		<?php if($traveloti instanceof User) : ?>
+		<li
+			id="pagelet-timeline-friends-nav"
+			class=""><a
+			class="tab"
+			href="<?php echo $connectionsLink; ?>">
+				<div class="timeline-nav-detail">
+					<?php echo $this->navigationTile($traveloti, NavigationTile::FRIENDS, 30); ?>
+				</div>
+				<div class="timeline-nav-title">
+					<span class="text">Connections</span> <span class="count"><?php echo $traveloti->countFriends(); ?>
+					</span>
+				</div>
+		</a>
+		</li>
+		<?php endif; ?>
+		<li
+			id="pagelet-timeline-photos-nav"
+			class=""><a
+			id=""
+			class="tab"
+			href="<?php echo $photosLink; ?>">
+				<div class="timeline-nav-detail">
+					<?php echo $this->navigationTile($traveloti, NavigationTile::PHOTOS, 30); ?>
+				</div>
+				<div class="timeline-nav-title">
+					<span class="text">Photos</span> <span class="count"><?php echo count($traveloti->getPhotos()); ?>
+					</span>
+				</div>
+		</a>
+		</li>
+		<li
+			id="pagelet-timeline-map-nav"
+			class=""></li>
+	</ul>
+</div>
+<!-- end pagelet timeline navigation -->

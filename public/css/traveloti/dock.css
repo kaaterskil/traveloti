@@ -1,0 +1,204 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================================*/
+/*------------------------------------------------------------*/
+.dock-wrapper {
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+}
+
+.dock {
+}
+
+.dock-chat-buddy-list-container {
+	position: relative;
+}
+
+.dock-chat-button {
+	-moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #f1eee4;
+    border-color: rgba(29, 49, 91, 0.3) rgba(29, 49, 91, 0.3) -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 1px 0;
+    box-shadow: 0 1px rgba(255, 255, 255, 0.5) inset;
+    color: #333333;
+    display: block;
+    font-weight: bold;
+    height: 16px;
+    outline: medium none;
+    padding: 4px 25px 4px 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.chat-flyout {
+	background-color: #f1eee4;
+	border-color: #C3C3BB;
+	border-width: 1px 1px 0;
+	border-style: solid solid none;
+	overflow: visible;
+	right: 0px;
+}
+
+.chat-flyout-titlebar {
+	background-color: #666;
+	cursor: pointer;
+}
+
+.chat-flyout-header {
+	background-color: #f6f1e5;
+	border-bottom: 1px solid #d7d2c5;
+	padding: 0 10px;
+	text-align: left;
+}
+
+.chat-flyout-header-title {
+	color: #884a14;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+
+.chat-flyout-titlebar .titlebar-label {
+	color: #fff;
+	font-weight: bold;
+	line-height: 18px;
+}
+
+.titlebar-text-wrapper {
+	padding: 3px 7px 4px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.chat-titlebar-text {
+	color: #fff;
+}
+
+.chat-flyout-body, .chat-flyout-footer {
+    background-color: #fff;
+	position: relative;
+}
+
+.chat-flyout-body {
+	height: 250px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 4px;
+	position: relative;
+}
+
+.chat-flyout-footer .input-container {
+	border-top: 1px solid #d7d2c5;
+	max-height: 77px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 5px 25px 3px 5px;
+	position: relative;
+}
+
+.chat-flyout-footer .input {
+	border: 0 none;
+    display: block;
+    height: 0;
+    margin: 0;
+    min-height: 16px;
+    outline: medium none;
+    padding: 0;
+    resize: none;
+    width: 100%;
+}
+
+.textarea-autogrow {
+	overflow: hidden;
+	margin-right: 23px;
+}
+
+.control-toggler {
+	height: 16px;
+	position: absolute;
+	right: 4px;
+	top: 4px;
+	width: 16px;
+	z-index: 10;
+}
+
+.control-toggle-icon {
+	background-image: url(/images/fb-icons-59.png);
+	background-position: -158px -14px;
+	background-size: auto auto;
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+}
+
+.chat-out p {
+	margin: 0;
+	line-height: 1.28;
+	padding: 0 0 4px 0;
+}
+
+.chat-send-button {
+	bottom: 2px;
+	cursor: pointer;
+	height: 16px;
+	position: absolute;
+	right: 2px;
+	width: 16px;
+}
+
+.chat-send-icon {
+	background-image: url(/images/fb-icons-38.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+}
+
+/*------------------------------------------------------------*/
+#control-wrapper {
+	border: 1px solid rgb(0, 0, 0);
+	opacity: 0.8;
+	position: absolute;
+	left: 4px;
+	top: 38px;
+	width: 550px;
+}
+
+#control-wrapper p {
+	margin-bottom: 4px;
+}
+
+#control-wrapper input[type="button"] {
+	padding: 1px 5px;
+}
+
+#control {
+	background-color: #ffb;
+	height: 10%;
+	padding: 2px;
+}
+
+#logger-log {
+	background-color: #ffd;
+	height: 180px;
+	overflow: auto;
+	padding: 2px;
+	white-space: nowrap;
+}
+
+#logger-log p {
+	font-family: 'Lucida Console'';
+	font-size: 11px;
+	margin: 0;
+	padding: 0;
+}
+
+/*------------------------------------------------------------*/
+/*============================================================*/

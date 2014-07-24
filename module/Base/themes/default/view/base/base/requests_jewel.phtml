@@ -1,0 +1,200 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Model\Request;
+use Base\Model\User;
+
+/* @var $request Request */
+/* @var $user User */
+/* @var $from User */
+
+$user = $this->zfcUserIdentity();
+$requests = $user->getFriendRequests()->getValues();
+?>
+<div
+	id="requests-jewel"
+	class="jewel <?php echo ($user->countRequests() > 0 ? 'has-new' : ''); ?>">
+	<a
+		class="jewel-button"
+		onclick="TR.toggleJewel('requests');"
+		href="#"> <span
+		id="requests-count-wrapper"
+		class="jewel-count"> <span id="requests-count-value"><?php echo $user->countRequests(); ?>
+		</span>
+	</span> <i class="accessible-element"> Requests</i> </span>
+	</a>
+	<div
+		id="requests-flyout"
+		class="jewel-flyout toggle-target-closed toggle-flyout">
+		<div class="jewel-beeper-header">
+			<div class="beeper-nub-wrapper">
+				<div class="beeper-nub"></div>
+			</div>
+		</div>
+		<ul
+			id="requests-list"
+			class="jewel-item-list">
+			<div>
+				<div
+					id=""
+					class="scrollable-area fade scrollable-area-with-shadow content-after"
+					style="width: 330px;">
+					<div
+						class="scrollable-area-wrap scrollable _i"
+						tabindex="0">
+						<div
+							class="scrollable-area-body"
+							style="width: 330px;">
+							<div class="scrollable-area-content">
+								<div
+									id=""
+									class="_k">
+									<div class="request-header header-bottom-border jewel-header">
+										<div class="clearfix header-top">
+											<div>
+												<h3 class="request-header-title">Friend Requests</h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="request-list">
+									<ul
+										id="requests-list"
+										class="list _4g _4ks"">
+										<?php if(count($requests) == 0) : ?>
+										<li class="empty list-gray list-item">
+											<table
+												class="grid no-requests-grid"
+												cellspacing="0"
+												cellpadding="0">
+												<tbody>
+													<tr>
+														<td class="vmid hcent">No new requests</td>
+													</tr>
+												</tbody>
+											</table>
+										</li>
+										<?php else : ?>
+										<?php foreach ($requests as $request) : ?>
+										<li
+											id="<?php echo $request->getType() . '_' . $request->getId(); ?>"
+											class="list-item <?php echo $request->getIsUnread() ? 'jewel-item-new' : ''?>">
+											<div class="clearfix">
+												<a
+													class="_8o _8t lfloat"
+													href="<?php echo $this->url('timeline', array('id' => $request->getSender()->getUsername())); ?>">
+													<?php
+													$from = $request->getSender();
+													$id = $from->getUsername();
+													$src = '/content/' . $from->getUsername() . '/' . ($from->getPicture() ? $from->getPicture()->getIcon() : Constants::DEFAULT_THUMB_5050);
+													$alt = $from->getDisplayName();
+													echo $this->htmlImg($id, $src, array('alt' => $alt, 'class' => '_s0 _8o _8r lfloat _rw img'));
+													?>
+												</a>
+												<div class="clearfix _8m">
+													<div class="_6a mlm rfloat">
+														<div
+															class="_6a _6b"
+															style="height: 50px;"></div>
+														<div class="_6a _6b">
+															<?php
+															$fid1 = substr(md5($from->getUsername() . 'idFormElement'), 0, 8);
+															$fid2 = substr(md5($from->getUsername() . 'requestIdFormElement'), 0, 8);
+															$fid3 = substr(md5($from->getUsername() . 'confirmFriendLabel'), 0, 8);
+															$fid4 = substr(md5($from->getUsername() . 'confirmFriendButton'), 0, 8);
+															$fid5 = substr(md5($from->getUsername() . 'confirmFriendSentButton'), 0, 8);
+															?>
+															<input
+																id="<?php echo $fid1 ?>"
+																class="friend-browser-id"
+																name="friend-browser-id[]"
+																type="hidden"
+																value="<?php echo $from->getId(); ?>"> <input
+																id="<?php echo $fid2 ?>"
+																class="friend-request-id"
+																name="friend-request-id[]"
+																type="hidden"
+																value="<?php echo $request->getId(); ?>">
+															<div
+																id="<?php echo $fid3; ?>"
+																class="friend-browser-add-as-friend static-element">
+																<div class="friend-button">
+																	<label
+																		class="friend-request-add add-button button"
+																		for="<?php echo $fid4; ?>"> <i
+																		class="mrs img sp_c6q8pv sx_452990"></i> <input
+																		id="<?php echo $fid4; ?>"
+																		type="button"
+																		onclick="TR.confirmFriend('<?php echo $fid1; ?>', '<?php echo $fid2; ?>', '<?php echo $fid3; ?>', '<?php echo $fid5; ?>');"
+																		value="Add Friend">
+																	</label><a
+																		id="<?php echo $fid5; ?>"
+																		class="friend-request-outgoing enable-friend-list-flyout outgoing-button enable-friend-list-flyout hidden-element button"
+																		href="#"> <i class="mrs img sp_c6q8pv sx_452990"></i>
+																		<span class="button-text">Accepted!</span>
+																	</a>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="profile-block-content">
+														<div class="_6a">
+															<div
+																class="_6a _6b"
+																style="height: 50px;"></div>
+															<div class="_6a _6b">
+																<div>
+																	<span class="title fsl fwb fcb"> <a
+																		href="<?php echo $this->url('timeline', array('id' => $from->getUsername())); ?>"><?php echo $from->getDisplayName(); ?>
+																	</a>
+																	</span>
+																	<div class="fsm fwn fcg"></div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<?php endforeach;?>
+										<?php endif; ?>
+										<div
+											id="requests-list-wrapper"
+											data-referrer="requestss-list-wrapper"></div>
+
+									</ul>
+								</div>
+								<div
+									class="clearfix more-pager static-element notif-more-pager static element hidden-element more-pager-light more-pager-center">
+									<div>
+										<a
+											class="pam box-white topborder more-pager-primary"
+											href="#"> Show Older <i
+											class="mts mls arrow img sp_apqfpf sx_b3d1c5"></i>
+										</a> <span class="more-pager-loader pam boxd-white topborder ">
+											<img
+											class="img"
+											width="16"
+											height="11"
+											alt=""
+											src="http://static.ak.fbcdn.net/rsrc.php/v2/yb/r/GsNJNwuI-UM.gif">
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="scrollable-area-track invisible-element">
+						<div class="scrollable-area-gripper hidden-element"></div>
+					</div>
+				</div>
+
+				<div class="jewel-footer">
+					<a
+						class="see-more"
+						href="/requests"> <span>See All Friend Requests</span>
+					</a>
+				</div>
+			</div>
+		</ul>
+	</div>
+</div>

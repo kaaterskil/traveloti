@@ -1,0 +1,30 @@
+<div id="main-container">
+	<div class="container_16">
+		<div
+			id="left-column-container"
+			class="grid_3">
+			<div id="left-column">
+				<?php echo $this->pageletWelcomeBox ?>
+				<?php echo $this->pageletNavigation ?>
+			</div>
+		</div>
+		<div
+			id="content-column"
+			class="grid_13">
+			<div class="grid_9 alpha">
+				<div id="content-area">
+					<?php if($this->pageletComposer) echo $this->pageletComposer; ?>
+					<?php if($this->pageletHomeStream) echo $this->pageletHomeStream; ?>
+					<?php echo $this->content; ?>
+				</div>
+			</div>
+			<div id="right-column-container" class="grid_4 omega">
+				<div id="roster-container">
+					<div id="roster-area">
+						<ul></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

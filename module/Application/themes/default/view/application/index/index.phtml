@@ -1,0 +1,62 @@
+<?php
+$title = "Traveloti";
+$this->headTitle($title);
+$this->headLink()->appendStylesheet($this->basePath('/css/fb-theme/traveloti-landing.css'));
+?>
+<div class="loggedout-menubar-container">
+	<div class="clearfix loggedout-menubar">
+		<a
+			class="lfloat"
+			href="/"><?php echo $this->htmlImg(
+				'logo',
+				$this->basePath('images/Traveloti-Logo-ReverseBlue-9pt.gif'),
+				array(
+				'title' => "Go to Traveloti Home",
+				'class' => 'tr_logo'
+			)); ?> </a>
+		<div class="rfloat">
+			<div class="social-login-icon-wrapper lfloat">
+				<div class="fb-login-icon"></div>
+				<div class="fb-button-wrapper">
+					<div class="fb-button">
+						<?php echo $this->socialSignInButton('facebook');?>
+					</div>
+				</div>
+			</div>
+			<div class="menu-login-container rfloat">
+				<?php echo $this->loginForm; ?>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="content-container">
+	<div
+		id="content"
+		class="clearfix">
+		<div class="home-container">
+			<div class="home-content">
+				<div class="home-image-container">
+					<h1 class="home-image-title">Connect, research and share your
+						travels with the other people in your life.</h1>
+					<div>
+						<?php echo $this->htmlImg(
+							'video',
+							$this->basepath('images/Safari.jpg'),
+							array('title' => 'Watch video', 'border' => '1px')); ?>
+					</div>
+					<h2 class="home-image-lede">
+						We bring travelers together with friends, bloggers and travel
+						professionals so you get best-in-class research, advice, tips and
+						booking service. Visit <a href="/">Traveloti Stories</a> to learn
+						more.
+					</h2>
+				</div>
+				<div class="registration-container">
+					<h1 class="reg-title">Sign Up</h1>
+					<h2 class="reg-lede">It's free!</h2>
+					<?php echo $this->registrationForm; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

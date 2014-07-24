@@ -1,0 +1,49 @@
+<?php
+$sidebar = $this->sidebarNav;
+?>
+<div id="pagelet-navigation">
+	<div>
+		<?php foreach ($sidebar as $category => $config) : ?>
+		<div class="home-side-nav">
+			<h4 class="nav-header">
+				<?php echo ucfirst($category); ?>
+			</h4>
+			<div class="mts mbm">
+				<ul class="side-nav">
+					<?php foreach ($config as $item) : ?>
+					<?php if($item['selected']) : ?>
+					<li
+						id="<?php echo $item['id']; ?>"
+						class="side-nav-item selected-item"><?php else : ?>
+					
+					<li
+						id="<?php echo $item['id']; ?>"
+						class="side-nav-item"><?php endif; ?>
+						<div class="button-wrap">
+							<div
+								class="selector inline-block bookmarks-menu-button side-nav-edit-button">
+								<div class="wrap">
+									<a
+										class="selector-button close-button"
+										title="Edit"
+										href="#"></a>
+								</div>
+							</div>
+						</div> <a
+						class="item clearfix"
+						href="<?php echo $this->basePath() . $item['href']; ?>"> <span
+							class="img-wrap"><i
+								class="<?php echo $item['img_class'] . ' ' . $item['img_pos_class'] ?>"></i>
+						</span>
+							<div class="link-wrap no-count">
+								<?php echo $item['text']; ?>
+							</div>
+					</a>
+					</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+		<?php endforeach; ?>
+	</div>
+</div>

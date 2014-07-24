@@ -1,0 +1,74 @@
+<?php
+$this->headLink()->prependStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/smoothness/jquery-ui.css');
+$this->headScript()->appendFile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.js');
+$this->headlink()->appendStylesheet($this->basePath('/css/traveloti/new-dock.css'));
+?>
+<!-- begin new-dock -->
+<div class="clearfix"></div>
+<div id="dock">
+	<div class="container_16">
+		<div class="chat-outer-container grid_7 push_5">
+			<div class="chat-container">
+				<div id="chat-toolbar">
+					<div class="clearfix">
+						<div class="titlebar-label lfloat">
+							<div class="titlebar-text">Chat</div>
+						</div>
+						<span
+							id="new-contact"
+							class="chat-button">Add Contact</span> <span
+							id="new-chat"
+							class="chat-button">Chat With...</span> <span
+							id="disconnect"
+							class="chat-button">Disconnect</span>
+						<div
+							id="chat-flyout"
+							class="control-toggler rfloat"
+							title="Chat with Someone">
+							<span class="chat-toggle-icon"></span>
+						</div>
+						<div
+							id="debug"
+							class="control-toggler rfloat"
+							title="Open the Logger">
+							<span class="control-toggle-icon"></span>
+						</div>
+					</div>
+				</div>
+				<div
+					id="chat-area"
+					class="hidden-element">
+					<ul></ul>
+				</div>
+				<!-- contact dialog -->
+				<div
+					id="contact-dialog"
+					class="hidden-element">
+					<label>JID:</label><input
+						type="text"
+						id="contact-jid" /><label>Name:</label><input
+						type="text"
+						id="contact-name" />
+				</div>
+				<!-- chat dialog -->
+				<div
+					id="chat-dialog"
+					class="hidden-element">
+					<label>JID:</label><input
+						type="text"
+						id="chat-jid" />
+				</div>
+				<!-- approval dialog -->
+				<div
+					id="approve-dialog"
+					class="hidden-element">
+					<p>
+						<span id="approve-jid"></span> has requested a subscription to
+						your presence. Approve or deny?
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end new-dock -->

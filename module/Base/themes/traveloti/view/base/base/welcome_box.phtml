@@ -1,0 +1,33 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Model\User;
+/* @var $user User */
+
+$user = $this->zfcUserIdentity();
+$userLink = $this->url('timeline', array('/'));
+$username = $user->getUsername();
+$userDisplayName = $user->getDisplayName();
+$src = ($user->getPicture() ? $user->getPicture()->getIcon() : Constants::DEFAULT_THUMB_5050);
+$src = $this->basePath('/content/' . $username . '/' . $src);
+$userThumbImg = $this->htmlImg(
+	$username, $src, array('alt' => $userDisplayName, 'class' => 'welcome-box-img')
+);
+?>
+<!-- begin welcome box -->
+<div id="pagelet-welcome-box">
+	<div class="clearfix welcome-box">
+		<a
+			class="welcome-box-thumb"
+			href="<?php echo $userLink; ?>"> <?php echo $userThumbImg; ?>
+		</a>
+		<div>
+			<div class="welcome-box-name-spacer" style="height: 40px;"></div>
+			<div class="welcome-box-name-wrapper">
+				<a
+					class="welcome-box-name"
+					href="<?php echo $userLink; ?>"><?php echo $userDisplayName; ?> </a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  end welcome box -->

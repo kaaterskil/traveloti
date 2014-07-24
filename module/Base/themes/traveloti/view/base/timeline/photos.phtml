@@ -1,0 +1,274 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Form\PhotoUploadForm;
+use Base\Model\Album;
+use Base\Model\Photo;
+use Base\Model\TravelLog;
+use Base\Model\TravelLogAdmin;
+use Base\Model\Traveloti;
+use Base\Model\User;
+
+/* @var $album Album */
+/* @var $user User */
+/* @var $traveloti User */
+/* @var $photo Photo */
+/* @var $puf PhotoUploadForm */
+/* @var $admin TravelLogAdmin */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/browser.css'));
+
+$user = $this->zfcUserIdentity();
+$traveloti = $this->traveloti;
+if($this->album != null) {
+	$album = $this->album;
+	$photos = $album->getPhotos()->getValues();
+} else {
+	$album = null;
+	$photos = $this->photos;
+}
+
+$isSelf = $user->getId() == $traveloti->getId();
+$numPhotos = count($photos);
+$i = 0;
+
+// Traveloti
+$travelotiUsername = $traveloti->getUsername();
+$travelotiLink = $this->url('timeline', array('id' => $travelotiUsername));
+$travelotiDisplayName = $traveloti->getDisplayName();
+$travelotiIcon = $traveloti->getPicture()
+? $traveloti->getPicture()->getIcon()
+: Constants::DEFAULT_THUMB_3232;
+$travelotiSrc = $this->basePath('/content/' . $travelotiUsername . '/' . $travelotiIcon);
+$travelotiImg = $this->htmlImg(
+	$travelotiDisplayName,
+	$travelotiSrc,
+	array('alt' => $travelotiDisplayName, 'class' => 'img')
+);
+
+$isAdmin = false;
+if($traveloti instanceof TravelLog) {
+	foreach($traveloti->getAdministrators()->getValues() as $admin) {
+		if($admin->getUser()->getId() == $user->getId()) {
+			$isAdmin = true;
+			break;
+		}
+	}
+}
+
+// Photo upload form
+if($this->photoUploadForm != null) {
+	$puf = $this->photoUploadForm;
+} else {
+	$puf = new PhotoUploadForm();
+}
+$puf->prepare();
+$puf->setAttributes(array(
+	'action' => $this->url('timeline', array('action' => 'photoUpload', 'id' => $traveloti->getUsername())),
+	'name' => 'photo_upload_form',
+	'method' => 'post',
+));
+$puf->get($puf::ELEM_ALBUMNAME)->setAttribute('class', 'photo-album-title input-text');
+?>
+<!-- begin pagelet photos -->
+<div id="timeline">
+	<?php if(!$isSelf) :?>
+	<div class="timeline-top-section-wrapper clearfix">
+		<div class="clearfix timeline-top-section">
+			<a
+				class="profile-thumb"
+				href="<?php echo $travelotiLink; ?>"><?php echo $travelotiImg; ?> </a>
+			<div class="clearfix profile-inner-content">
+				<a
+					class="fsl fwb"
+					href="<?php echo $travelotiLink; ?>"> <span class=""><?php echo $travelotiDisplayName; ?>
+				</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
+	<div class="photos-header-wrapper">
+		<?php if($isSelf || $isAdmin) : ?>
+		<div class="rfloat">
+			<a
+				id="upload-photo-button"
+				class="button"
+				href="#"><span class="button-text">Add a Photo</span> </a>
+		</div>
+		<?php endif; ?>
+		<h3 class="photos-header-title">
+			<?php if($album != null) :?>
+			<?php echo $album->getName(); ?>
+			<?php else : ?>
+			<?php echo $traveloti->getDisplayName() . "'s photos" ?>
+			<?php endif; ?>
+		</h3>
+	</div>
+	<div class="timeline-photos-list_wrapper">
+		<div class="">
+			<!-- begin photos list -->
+			<div class="timeline-photos-list">
+				<?php if($numPhotos == 0) : ?>
+				<div class="no-photos-list-item">No photos yet!</div>
+				<?php else : ?>
+				<?php foreach ($photos as $photo) : ?>
+				<?php
+				// Photo variables
+				$photoId = $photo->getId();
+				$photoUsername = $traveloti->getUsername();
+				$photoName = ($photo->getName() ? $photo->getName() : $traveloti->getDisplayName());
+				$photoIcon = $photo->getPicture();
+				$photoSrcThumb = $this->basePath(
+					'/content/' . $photoUsername . '/' . $photoIcon);
+				$photoSrcFull = $this->basePath(
+					'/content/' . $photoUsername . '/' . $photo->getSource());
+				$numPhotoLikes = $photo->getLikes()->count();
+				$numPhotoComments = $photo->getComments()->count();
+
+				// Album variables
+				$albumId = $photo->getAlbum()->getId();
+				$albumName = $photo->getAlbum()->getName();
+				$albumLink = $this->url('timeline', array(
+					'id' => $photoUsername,
+					'action' => 'album',
+					'set' => $albumId,
+				));
+
+				// DOM element ids
+				$elementId = substr(md5($photoSrcFull), 0, 8);
+				$outerWrapperId = $elementId . '1';
+				$innerWrapperId = $elementId . '2';
+				$likeElementId = $elementId . '3';
+				$commentElementId = $elementId . '4';
+				$metaElementId = $elementId . '5';
+				?>
+				<!-- begin photos list item -->
+				<div
+					id="<?php echo $elementId; ?>"
+					data-id="<?php echo 'photo-' . $photoId; ?>"
+					class="photos-list-item text-hover">
+					<a
+						class="media-thumbnail"
+						href="<?php echo $photoSrcFull; ?>"
+						rel="shadowbox">
+						<div class="tag-wrapper">
+							<i class="media-thumbnail-image" style="background-image: url('<?php echo $photoSrcThumb; ?>')"></i>
+						</div>
+					</a>
+					<div class="media-text-outer-wrapper media-text">
+						<div class="album-wrapper">
+							<div class="album-inner-wrapper">
+								<a
+									class="media-text-content"
+									href="<?php echo $albumLink; ?>"><?php echo $albumName; ?> </a>
+							</div>
+						</div>
+						<div id="<?php echo $outerWrapperId; ?>">
+							<div
+								id="<?php echo $innerWrapperId; ?>"
+								class="media-action-wrapper">
+								<a
+									id="<?php echo $likeElementId; ?>"
+									class="media-text-content"
+									href="#">Like</a><span class="media-text-separator"> &middot; </span>
+								<a
+									id="<?php echo $commentElementId; ?>"
+									class="media-text-content"
+									href="#">Comment</a> <a
+									id="<?php echo $metaElementId; ?>"
+									class="media-text-content media-meta"
+									href="#">
+									<div class="">
+										<span class="media-meta-like"><?php echo $numPhotoLikes; ?> </span>
+										<span class="media-meta-comment"><?php echo $numPhotoComments; ?>
+										</span>
+									</div>
+								</a>
+							</div>
+						</div>
+						<img
+							class="photo-caption-background"
+							src="" />
+					</div>
+				</div>
+				<!-- end photos list item -->
+				<?php endforeach; ?>
+				<?php endif; ?>
+			</div>
+			<!-- end photos list -->
+		</div>
+	</div>
+	<?php if($isSelf || $isAdmin) : ?>
+	<div
+		id="photo-upload"
+		class="photo-upload-container hidden-element">
+		<div class="photo-upload-inner-container">
+			<?php echo $this->form()->openTag($puf); ?>
+			<?php echo $this->formHidden($puf->get($puf::ELEM_USERID)); ?>
+			<div class="plm prm ptm pbl album-elements-container clearfix">
+				<div class="prl lfloat">
+					<div class="mbs media-form-element">
+						<?php echo $this->formText($puf->get($puf::ELEM_ALBUMNAME)); ?>
+						<div class="form-error">
+							<?php echo $this->formElementErrors($puf->get($puf::ELEM_ALBUMNAME)); ?>
+						</div>
+					</div>
+					<div class="media-form-element">
+						<?php echo $this->formText($puf->get($puf::ELEM_ALBUMDESCRIPTION)); ?>
+						<div class="form-error">
+							<?php echo $this->formElementErrors($puf->get($puf::ELEM_ALBUMDESCRIPTION)); ?>
+						</div>
+					</div>
+				</div>
+				<div class="">
+					<div class="mbm media-form-element">
+						<?php echo $this->formText($puf->get($puf::ELEM_ALBUMLOCATION)); ?>
+						<div class="form-error">
+							<?php echo $this->formElementErrors($puf->get($puf::ELEM_ALBUMLOCATION)); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="plm prm pvl photo-elements-container clearfix">
+				<?php echo $this->formHidden($puf->get($puf::ELEM_SRC)); ?>
+				<?php echo $this->formHidden($puf->get($puf::ELEM_FILEPATH)); ?>
+				<div class="prl lfloat">
+					<div class="mbs media-form-element">
+						<?php echo $this->formFile($puf->get($puf::ELEM_PHOTO)); ?>
+						<div class="form-error">
+							<?php echo $this->formElementErrors($puf->get($puf::ELEM_PHOTO)); ?>
+						</div>
+					</div>
+					<div class="mbs media-form-element">
+						<?php echo $this->formTextarea($puf->get($puf::ELEM_CAPTION)); ?>
+						<div class="form-error">
+							<?php echo $this->formElementErrors($puf->get($puf::ELEM_CAPTION)); ?>
+						</div>
+					</div>
+				</div>
+				<div class="">
+					<div class="media-form-element">
+						<?php echo $this->formText($puf->get($puf::ELEM_LOCATION)); ?>
+						<div class="form-error">
+							<?php echo $this->formElementErrors($puf->get($puf::ELEM_LOCATION)); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pam meta-elements-container">
+				<a
+					class="photo-upload-cancel-button"
+					href="#">Cancel</a>
+				<div class="plm rfloat">
+					<?php echo $this->formSubmit($puf->get($puf::ELEM_SUBMIT)); ?>
+				</div>
+				<div class="plm rfloat">
+					<?php echo $this->formSelect($puf->get($puf::ELEM_ALBUMPRIVACY)); ?>
+				</div>
+			</div>
+			<?php echo $this->form()->closeTag(); ?>
+		</div>
+	</div>
+	<?php endif; ?>
+</div>
+<!-- end pagelet photos -->

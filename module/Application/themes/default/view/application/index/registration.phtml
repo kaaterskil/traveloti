@@ -1,0 +1,50 @@
+<?php
+// This is the registration form template for the index page
+
+use Zend\Form\Form;
+use Zend\Form\Element;
+
+/* @var $rf Form */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/fb-theme/traveloti-login.css'));
+
+$rf = $this->registrationForm;
+$rf->prepare();
+$rf->setAttributes(array(
+	'action' => 'user/register',
+	'method' => 'post',
+	'name' => 'reg',
+));
+?>
+<div id="reg-box">
+	<?php echo $this->form()->openTag($rf); ?>
+	<?php echo $this->formHidden($rf->get("creationDate")); ?>
+	<div class="clearfix short-fields">
+		<div class="mrm lfloat">
+			<?php echo $this->formElement($rf->get("firstName")); ?>
+		</div>
+		<div class="mbm rfloat">
+			<?php echo $this->formElement($rf->get("lastName")); ?>
+		</div>
+	</div>
+	<div class="mbm">
+		<?php echo $this->formElement($rf->get("email")); ?>
+	</div>
+	<div class="mbm">
+		<?php echo $this->formElement($rf->get("password")); ?>
+	</div>
+	<div class="mbm">
+		<?php echo $this->formElement($rf->get("passwordVerify")); ?>
+	</div>
+	<div class="mtm mbs callout-label">Member Type:</div>
+	<div class="clearfix field-container">
+		<?php echo $this->formRow($rf->get("userType")); ?>
+	</div>
+	<div class="mtl mbm">
+		<?php echo $this->formRow($rf->get("gender")); ?>
+	</div>
+	<div class="reg-btn clearfix">
+		<?php echo $this->formElement($rf->get("submit_btn")); ?>
+	</div>
+	<?php echo $this->form()->closeTag(); ?>
+</div>

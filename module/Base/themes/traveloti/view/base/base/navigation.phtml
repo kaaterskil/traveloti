@@ -1,0 +1,54 @@
+<?php
+$sidebar = $this->sidebarNav;
+?>
+<!-- begin side navigation -->
+<div id="pagelet-navigation">
+	<?php foreach ($sidebar as $category => $config) : ?>
+	<div class="home-side-navigation">
+		<h4 class="nav-header">
+			<?php echo ucfirst($category); ?>
+		</h4>
+		<div class="msm mbm">
+			<ul class="side-navigation">
+				<!-- begin navigation list -->
+				<?php foreach ($config as $item) : ?>
+				<?php
+				$elementId = $item['id'];
+				$selectedClass = ($item['selected'] ? 'selected-item' : '');
+				$href = $this->basePath($item['href']);
+				$label = $item['text'];
+				
+				$imgClass = (isset($item['img_class']) ? $item['img_class'] : '');
+				$imgPosClass = (isset($item['img_pos_class']) ? $item['img_pos_class'] : '');
+				$imgClasses = (strlen($imgClass . $imgPosClass) > 0
+					? $item['img_class'] . ' ' . $item['img_pos_class'] : '');
+				?>
+				<li
+					id="<?php echo $elementId; ?>"
+					class="side-nav-item <?php echo $selectedClass; ?>">
+					<div class="button-wrapper">
+						<div class="">
+							<div class="wrap">
+								<a
+									class="selector-button close-button"
+									title="Edit"
+									href="#"></a>
+							</div>
+						</div>
+					</div> <a
+					class="item clearfix"
+					href="<?php echo $href; ?>"> <span class="img-wrapper"><i
+							class="<?php echo $imgClasses; ?>"></i> </span>
+						<div class="link-wrapper no-count">
+							<?php echo $label; ?>
+						</div>
+				</a>
+				</li>
+				<?php endforeach; ?>
+				<!-- end navigation list -->
+			</ul>
+		</div>
+	</div>
+	<?php endforeach; ?>
+</div>
+<!--  end side navigation -->

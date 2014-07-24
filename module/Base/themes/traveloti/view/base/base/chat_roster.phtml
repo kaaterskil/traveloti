@@ -1,0 +1,49 @@
+<?php
+use Application\StdLib\Constants;
+
+use Base\Model\Traveloti;
+use Base\Model\User;
+/* @var $user User */
+/* @var $traveloti Traveloti */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/chat-sidebar.css'));
+
+$friends = $this->friends;
+?>
+<!-- begin pagelet chat roster -->
+<div id="pagelet-sidebar">
+	<div id="chat-sidebar">
+		<!-- begin connections list -->
+		<ul class="chat-list clearfix">
+			<?php foreach ($friends as $traveloti) : ?>
+			<?php
+			$travelotiId = $traveloti->getId();
+			$travelotiDisplayName = $traveloti->getDisplayName();
+			$travelotiUsername = $traveloti->getUsername();
+			$travelotiIcon = ($traveloti->getPicture()
+				? $traveloti->getPicture()->getIcon()
+				: Constants::DEFAULT_THUMB_3232);
+			$travelotiSrc = $this->basePath('/content/' . $travelotiUsername . '/' . $travelotiIcon);
+			$travelotiImg = $this->htmlImg(
+				$travelotiUsername,
+				$travelotiSrc,
+				array('alt' => $travelotiDisplayName, 'class' => 'chat-thumb img')
+			);
+			?>
+			<!-- begin connection item -->
+			<li class="chat-item"><a class="chat-list-item clearfix" data-id="<?php echo $travelotiId; ?>">
+					<div class="chat-list-thumbnail">
+						<?php echo $travelotiImg; ?>
+					</div>
+					<div class="chat-list-name">
+						<?php echo $travelotiDisplayName; ?>
+					</div>
+			</a>
+			</li>
+			<!-- end connection item -->
+			<?php endforeach; ?>
+		</ul>
+		<!--  end connections list -->
+	</div>
+</div>
+<!-- end pagelet chat roster -->

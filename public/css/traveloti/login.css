@@ -1,0 +1,212 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================*/
+/*--------------------------------------------*/
+.form-row {
+	padding: 4px 0 8px;
+	text-align: left;
+}
+
+.form-row input {
+	margin: 0;
+}
+
+.login-error-box {
+	margin-top: 10px;
+	padding: 10px;
+}
+
+.login-error-msg {
+	color: #333;
+	font-weight: bold;
+	font-size: 1.083em;
+}
+
+.login-form-label span {
+	float: left;
+	padding: 3px 0;
+	width: 100px;
+}
+
+.login-page-interstitial {
+	margin-bottom: 40px;
+	width: 640px;
+}
+
+#loginform {
+	clear: left;
+	margin: auto;
+	padding: 15px 0;
+	text-align: left;
+	width: 380px;
+}
+
+/* Error messages are displayed at the top of the form */
+#loginform ul {
+	display: none;
+}
+
+#register-link {
+	float: left;
+	margin-top: 5px;
+}
+
+.loggedout-menubar-container {
+	background-color: #333;
+	height: 82px;
+	min-width: 980px;
+}
+
+.loggedout-menubar {
+	margin: 0 auto;
+	padding-top: 13px;
+	width: 980px;
+}
+
+.loggedout-menubar .fb_logo {
+	margin-top: 17px;
+}
+
+.loggedout-menubar label.menu-login-show-link {
+	color: #98a9ca;
+	position: relative;
+	top: 19px;
+}
+
+.signup-banner div.signup-bar-container {
+	background-color: transparent;
+	width: 980px;
+	margin: 0 auto;
+}
+
+.signup-banner .signup-box {
+	border-top: 1px solid #6684b8;
+	color: #fff;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 9px 0;
+}
+
+.signup-banner .signup-box-content {
+	float: left;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 4px 14px 6px;
+}
+
+.signup-banner .signup-box-submessage {
+	clear: left;
+	display: block;
+	font-size: 13px;
+	font-weight: normal;
+	padding: 3px 0 0 0;
+}
+
+.signup-banner .signup-box .signup-btn {
+	float: left;
+}
+
+#login-btn-inline {
+	float: left;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+
+/*--------------------------------------------*/
+.content-topper {
+	border-top: 1px solid #999;
+	margin: 20px auto 15px;
+	width: 465px;
+}
+
+.content-topper-text-container { /* float: left; */
+	margin: 6px;
+	/* width: 465px; */
+}
+
+.content-topper-text-headline {
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+.content-topper-text {
+	font-size: 0.917em;
+	line-height: 1.28;
+	margin-top: 4px;
+}
+
+#reg-box {
+	margin: 0;
+	padding: 0;
+}
+
+#reg-box .text-field {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-color: #bdc7d8;
+	border-radius: 5px;
+	font-size: 1.636em;
+	margin: 0;
+	padding: 8px 10px;
+	width: 377px;
+}
+
+#reg-box .short-fields {
+	width: 399px;
+}
+
+#reg-box .short-fields .text-field {
+	width: 172px;
+}
+
+#reg-box select {
+    margin: 1px 0;
+}
+
+#reg div.field-container select {
+    font-size: 13px;
+    height: 30px;
+    padding: 5px;
+}
+
+#reg-box .callout-label {
+    color: #333333;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+#reg-box label {
+	vertical-align: middle;
+}
+
+label.input-label {
+	margin-right: 17px;
+}
+
+.gender-label {
+	color: #333;
+	font-size: 1.636em;
+	font-weight: normal;
+	padding: 0 10px 0 3px;
+}
+
+
+#reg-box form#reg div.reg-btn .signup-button {
+    min-width: 157px;
+    padding: 7px 20px;
+    text-align: center;
+}
+
+.simple-registration-container {
+	margin: 0 auto;
+	padding-bottom: 30px;
+	width: 400px;
+}
+
+.window-shade {
+	background-color: #ededed;
+	border-top: 1px solid #999;
+	padding-top: 20px;
+}
+/*--------------------------------------------*/
+/*============================================*/

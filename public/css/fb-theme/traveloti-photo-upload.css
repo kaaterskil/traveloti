@@ -1,0 +1,222 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================*/
+/*----- begin Ti4PKvAaAer.css ----------------*/
+._4ye {
+	display: inline-block;
+	margin-left: 5px;
+	position: relative;
+	top: 4px;
+}
+
+._4v- {
+	position: relative;
+}
+
+._5b8 {
+	display: block;
+	padding: 2px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+._5s8 {
+	background-color: #f03d25;
+	border-radius: 2px;
+	color: #fff;
+	font-weight: bold;
+}
+
+._6zv {
+	color: #333;
+	display: inline-block;
+	font-weight: bold;
+	max-width: 124px;
+	overflow: hidden;
+	padding: 2px 5px 2px 2px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+._6zw {
+	font-size: 9px;
+	margin-left: 3px;
+	padding: 3px;
+	position: absolute;
+}
+
+._6zx {
+	margin-bottom: 4px;
+	margin-left: 5px;
+}
+
+._2uh {
+	float: left;
+	height: 75px;
+	margin-right: 10px;
+	position: relative;
+	width: 75px;
+}
+
+._2uh ._2ui {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yD/x/EVOqX0xC5SF.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 75px;
+	overflow: hidden;
+	width: 75px;
+}
+
+._2uh ._2ui:hover {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/x/HDG8LiSpiXD.png);
+}
+
+._2uh ._2uj {
+	background: none repeat scroll 0 0 #000;
+	display: none;
+	height: 16px;
+	opacity: .7;
+	padding: 2px 4px 2px 4px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+._2uh ._2uk {
+	color: #fff;
+}
+
+._2uh:hover ._2uj {
+	display: block;
+}
+
+._2ul {
+	opacity: .5;
+}
+
+._271 {
+	width: 660px;
+}
+
+._272 {
+	float: left;
+	width: 330px;
+}
+
+.devsite-page #developer-app-details-content ._271
+.developer-app-details-form-grid .contentPane {
+	width: 110px;
+}
+
+.devsite-page #developer-app-details-content ._272 .developer-app-details-form-grid div {
+	text-align: right;
+}
+
+.devsite-page #developer-app-details-content ._272 .developer-app-details-form-grid .sublabel
+	{
+	color: #a7a7a7;
+}
+
+.devsite-page #developer-app-details-content ._68i td {
+	text-align: right;
+}
+
+._2uf ._2um {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.devsite-page .body .body-menu ._5b3 {
+	position: relative;
+}
+
+.devsite-page .body .body-menu ._5b4 {
+	padding-left: 5px;
+}
+
+._5b5 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 123px;
+}
+
+._5b6 {
+	float: left;
+	margin-right: 10px;
+}
+
+._5b7 {
+	display: block;
+	font-size: 9px;
+	padding: 0 3px;
+	position: absolute;
+	right: 0;
+	top: 6px;
+}
+
+.layer-page {
+	left: 50%;
+	margin-left: -370px;
+	width: 720px;
+}
+
+.layer-page .overlay-content {
+	border: none;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .25), 0 1px 5px 3px rgba(0, 0, 0, .05), 0 5px 4px -3px
+		rgba(0, 0, 0, .06);
+}
+
+.layer-page .layer-page-close-wrapper {
+	position: absolute;
+	right: 0;
+	top: -43px;
+}
+
+.layer-page-inner {
+	/* padding: 40px 0; */
+	padding: 37px 0 0 0;
+}
+
+.layer-page-default-padding {
+	padding: 15px;
+}
+
+.layer-page-footer {
+	padding: 8px 10px;
+}
+
+._5b9 {
+	float: left;
+	height: 220px;
+	width: 360px;
+}
+
+._61s {
+	float: right;
+	height: 220px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	width: 360px;
+}
+
+._5bn .content-column {
+	margin-bottom: 10px;
+}
+
+._5ru {
+	border-top: 1px solid #ccc;
+}
+
+._5ru.scrollable-area.content-before::before {
+	background-color: rgba(0, 0, 0, .07);
+}
+
+.devsite-page ._9r9 {
+	margin-bottom: 0;
+	vertical-align: middle;
+}
+/*----- end Ti4PKvAaAer.css ------------------*/
+/*============================================*/

@@ -1,0 +1,46 @@
+<?php
+use Base\Model\TravelLog;
+
+$headerTitle = $this->headerTitle;
+$traveloti = $this->traveloti;
+?>
+<div
+	id="main-container"
+	class="settings-page">
+	<div class="container_16">
+		<div
+			id="left-column-container"
+			class="grid_3">
+			<div id="left-column">
+				<?php echo $this->pageletWelcomeBox ?>
+				<?php echo $this->pageletNavigation ?>
+			</div>
+		</div>
+		<div
+			id="content-column"
+			class="grid_13">
+			<div class="settings-header mhl">
+				<div class="clearfix header-top">
+					<?php if(($traveloti != null) && ($traveloti instanceof TravelLog)) : ?>
+					<div class="rfloat">
+						<a
+							class="button"
+							href="<?php echo $this->url('timeline', array('id' => $traveloti->getUsername())); ?>"><span
+							class="button-text">View Travel Log</span> </a>
+					</div>
+					<?php endif; ?>
+					<div>
+						<h2 class="settings-header-title">
+							<?php echo $headerTitle; ?>
+						</h2>
+					</div>
+				</div>
+			</div>
+			<div id="content-area">
+				<div id="settings-page-content">
+					<?php echo $this->settingsContent; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

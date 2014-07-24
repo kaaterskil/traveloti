@@ -1,0 +1,82 @@
+<?php
+use Base\Model\User;
+use Base\Form\SearchForm;
+/* @var $user User */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/leaderboard.css'));
+
+$user = $this->zfcUserIdentity();
+
+$qf = new SearchForm();
+$qf->prepare();
+$qf->setAttributes(array(
+	'action' => '/find-traveloti/search',
+	'class' => 'lfloat',
+	'id' => 'nav_search',
+	'method' => 'post',
+));
+?>
+<!-- begin leaderboard -->
+<div id="pagelet-leaderboard">
+	<div
+		id="leaderboard-container"
+		class="loggedin-topbar-container">
+		<div class="container_16">
+			<div
+				id="tr-logo"
+				class="grid_3">
+				<div class="tr-logo-loggedin-wrapper">
+					<a href="<?php echo $this->basePath('/') ?>"><i
+						class="tr-logo-loggedin"
+						title="Go to Traveloti Home"></i> </a>
+				</div>
+			</div>
+			<div class="grid_6 search_container">
+				<div
+					id="head-nav"
+					class="nav-search-wrapper">
+					<?php echo $this->form()->openTag($qf); ?>
+					<div class="nav-search-inner-wrapper">
+						<span class="search-input"> <?php echo $this->formText($qf->get('query')); ?>
+							<?php echo $this->formSubmit($qf->get('submit_btn')); ?>
+						</span>
+					</div>
+					<?php echo $this->form()->closeTag(); ?>
+				</div>
+			</div>
+			<div
+				id="jewel-container"
+				class="grid_2">
+				<?php echo $this->requestsJewel; ?>
+				<?php echo $this->notificationsJewel; ?>
+			</div>
+			<div class="grid_5 topnav_container">
+				<div class="rfloat">
+					<ul
+						id="page-nav"
+						class="clearfix">
+						<li class="nav-item first-item tinyman"><a
+							class="nav-link"
+							title="Profile"
+							href="<?php echo $this->url('timeline', array('id' => $user->getUsername())); ?>"><span
+								class="header-tinyman-name"><?php echo $user->getDisplayName(); ?>
+							</span> </a>
+						</li>
+						<li class="nav-item middle-item"><a
+							class="nav-link"
+							title="Find Other Traveloti"
+							href="<?php echo $this->url('friend', array('action' => 'browser')); ?>">Find
+								Other Traveloti</a></li>
+						<li class="nav-item last-item"><a
+							class="nav-link"
+							title="Log Out"
+							href="<?php echo $this->url('base', array('action' => 'logout')); ?>">Log
+								Out</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- end leaderboard -->

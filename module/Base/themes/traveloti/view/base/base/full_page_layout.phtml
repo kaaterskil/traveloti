@@ -1,0 +1,20 @@
+<?php
+$headTitle = $this->zfcUserIdentity()->getDisplayName() . ' | Traveloti';
+$this->headTitle($headTitle);
+?>
+<body>
+	<?php echo $this->leaderboardPagelet; ?>
+	<div id="global-container">
+		<div
+			id="content"
+			class="clearfix"
+			style="min-height: 100px;">
+			<?php echo $this->content; ?>
+		</div>
+		<div id="page-footer">
+			<?php // echo $this->footer; ?>
+		</div>
+	</div>
+	<?php echo $this->dockPagelet; ?>
+	<?php echo $this->xmppLoggerPagelet; ?>
+</body>

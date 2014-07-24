@@ -1,0 +1,98 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Model\Notification;
+use Base\Model\User;
+
+/* @var $notification Notification */
+/* @var $user User */
+
+$user = $this->zfcUserIdentity();
+$notifications = $user->getNotifications()->getValues();
+$numNotifications = count($notifications);
+$hasNewClass = ($user->countNotifications() ? 'has-new' : '');
+?>
+<!--  begin notifications jewel -->
+<div
+	id="notifications-jewel"
+	class="jewel <?php echo $hasNewClass; ?>">
+	<a
+		class="jewel-button"
+		href="#"><span
+		id="notifications-count-wrapper"
+		class="jewel-count"><span id="notifications-count-value"><?php echo $numNotifications; ?>
+		</span> </span> </a>
+	<!-- begin notifications flyout -->
+	<div
+		id="notifications-flyout"
+		class="jewel-flyout toggle-target-closed">
+		<div
+			id="notifications-list"
+			class="jewel-item-list">
+			<div class="jewel-header">
+				<h3 class="jewel-header-title">Notifications</h3>
+			</div>
+			<?php if($numNotifications == 0) : ?>
+			<div class="no-notifications-header">
+				<h3 class="no-notifications-header-title">No New Notifications</h3>
+			</div>
+			<?php else : ?>
+			<!-- begin notifications list -->
+			<ul>
+				<?php foreach ($notifications as $notification) : ?>
+				<?php
+				$senderUsername = $notification->getSender()->getUsername();
+				$senderUrl = $this->url('timeline', array('id' => $senderUsername));
+				$senderIconUrl = ($notification->getSender()->getPicture()
+					? $notification->getSender()->getPicture()->getIcon()
+					: Constants::DEFAULT_THUMB_5050);
+				$senderDisplayName = $notification->getSender()->getDisplayName();
+				$senderSrc = '/content/' . $senderUsername . '/' . $senderIconUrl;
+				$senderImg = $this->htmlImg($senderUsername, $senderSrc, array('alt' => $senderDisplayName, 'class' => 'lfloat medium-thumb mrs'));
+
+				$listItemId = $notification->getType() . '-' . $notification->getId();
+				$isNewClass = ($notification->getIsUnread() ? 'jewel-item-new' : '');
+				$notficationId = substr(md5($senderUsername), 0, 8);
+				$creationDate = $notification->getCreationDate();
+				$titleDate = date('F j, Y, g:i a', $creationDate->getTimestamp());
+				$htmlDate = $this->elapsedTime($creationDate);
+				$iconClass = $this->notifyIconClass($notification);
+				?>
+				<!-- begin notification list item -->
+				<li
+					id="list-item"
+					class="<?php echo $isNewClass; ?>"><a
+					class="notification-link"
+					href="#">
+						<div
+							id="<?php echo $listItemId; ?>"
+							class="clearfix notification-block">
+							<?php echo $senderImg; ?>
+							<div class="notification-message">
+								<?php echo $notification->getHtmlTitle(); ?>
+								<div class="clearfix metadata">
+									<i class="notification-icon <?php echo $iconClass; ?>"></i> <span
+										class="timestamp"><abbr
+										class="timestamp"
+										title="<?php echo $titleDate; ?>"><?php echo $htmlDate; ?> </abbr>
+									</span>
+								</div>
+							</div>
+						</div>
+				</a>
+				</li>
+				<!-- end notification list item -->
+				<?php endforeach; ?>
+			</ul>
+			<!-- end notifications list -->
+			<?php endif; ?>
+		</div>
+		<div class="jewel-footer">
+			<a
+				class="jewel-footer-title"
+				href="/notifications"> <span>See All</span>
+			</a>
+		</div>
+	</div>
+	<!-- end notifications flyout -->
+</div>
+<!-- end notifications jewel -->

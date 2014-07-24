@@ -1,0 +1,262 @@
+@CHARSET "ISO-8859-1";
+
+/*--------------------------------------------*/
+.inline-tokenizer {
+	cursor: text;
+	border: 1px solid #bdc7d8;
+}
+
+.inline-tokenizer .tokenarea {
+	padding-left: 2px;
+}
+
+.inline-tokenizer .token {
+	top: 2px;
+}
+
+.inline-tokenizer .typeahead {
+	border: 0;
+	float: left;
+}
+
+.inline-tokenizer .typeahead .wrap {
+	border: 0;
+}
+
+div.inline-tokenizer-view {
+	width: 200px;
+}
+
+.inline-tokenizer .text-input[disabled] {
+	background: #fff;
+}
+
+/*--------------------------------------------*/
+div._14n,div._14o {
+	border: 0;
+	border-top: 1px dashed #bdc7d8;
+	padding: 0;
+}
+
+._14o .input-text {
+	min-width: 160px;
+}
+
+div._14n .wrap {
+	border: 0
+}
+
+._3-7 {
+	display: none;
+}
+
+.child-was-focused ._3-7 {
+	display: block;
+}
+
+._4p {
+	border-right: 1px solid #e0e0e0;
+	display: inline-block;
+	float: left;
+	height: 30px;
+	text-align: center;
+}
+
+._4p ._d31 {
+	display: inline-block;
+	height: 30px;
+	width: 29px;
+}
+
+._4p:hover {
+	background-color: #e9e9e9;
+}
+
+._4q ._d31 {
+	background-image: url(/images/fb-icons-6.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -254px -81px;
+}
+
+._4- {
+	display: none;
+}
+
+.child-was-focused ._4- {
+	display: block;
+}
+
+._118 {
+	background-color: #fff
+}
+
+._4_ {
+	padding: 5px 0 10px;
+	position: relative;
+	z-index: 1;
+}
+
+._4_ {
+	padding: 5px 0 10px;
+	position: relative;
+	z-index: 1;
+}
+
+._9lb {
+	font-weight: bold;
+}
+
+._4n ._9lb {
+	color: #333;
+	cursor: default;
+	text-decoration: none;
+}
+
+._9lb ._2wr {
+	display: none;
+}
+
+._4n ._2wr {
+	background-image: url(/images/fb-icons-7.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: 0 -76px;
+	display: block;
+	height: 6px;
+	left: 4px;
+	position: absolute;
+	top: 19px;
+	width: 9px;
+}
+
+._2yg {
+	border: 1px solid #b4bbcd;
+}
+
+._2yg .composer-typeahead,._2yg .composer-typeahead .wrap {
+	border: 0;
+}
+
+._2yg .input {
+	font-size: 13px;
+	height: 16px;
+	padding: 0;
+	resize: none;
+	vertical-align: bottom;
+}
+
+._2yg .mentions-input .highlighter {
+	font-size: 13px;
+}
+
+._2yg .composer-typeahead .wrap {
+	padding: 5px;
+}
+
+._4y {
+	background-color: #f2f2f2;
+	border-top: 1px solid #e6e6e6;
+}
+
+._4z {
+	margin: 4px;
+}
+
+/*--------------------------------------------*/
+._96 {
+	border: 1px solid #b4bbcd;
+}
+
+._eb .tab-grid-item {
+	display: table;
+	height: 79px;
+	width: 100%;
+}
+
+._eb .tab-grid-item .title {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+._ec {
+	position: relative;
+}
+
+._g5 {
+	background-color: #555;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+._ec .swfObject {
+	margin: 0 auto;
+}
+
+body ._hr {
+	display: block;
+}
+
+._hr a.selectOver {
+	background-color: #ebeef4;
+}
+
+._zg {
+	position: relative;
+}
+
+._y9 {
+	display: block;
+	white-space: nowrap;
+}
+
+._zh {
+	vertical-align: top;
+}
+
+._y8 {
+	color: #b0b0b0;
+}
+
+._y6 ._y8 {
+	color: #6b7eab;
+}
+
+._y6 ._ya {
+	background-image: url(/images/fb-icons-6.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -224px -81px;
+}
+
+._ya {
+	background-image: url(/images/fb-icons-6.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -434px -81px;
+	display: inline-block;
+	height: 30px;
+	outline: none;
+	vertical-align: top;
+	width: 29px;
+}
+
+._y7 {
+	padding-right: 15px;
+}
+
+._y7 ._ya {
+	width: 23px;
+}
+
+body ._zi {
+	display: none;
+	position: absolute;
+	right: 2px;
+	top: 9px;
+}
+
+._y7:hover ._zi {
+	display: inline;
+}

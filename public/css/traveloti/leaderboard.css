@@ -1,0 +1,358 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================================*/
+/*------------------------------------------------------------*/
+.loggedin-topbar-container {
+	background-color: #333;
+	height: 34px;
+	min-width: 960px;
+}
+
+.tr-logo-loggedin-wrapper {
+	height: 20px;
+	margin-top: 7px;
+	position: relative;
+	width: 110px;
+	position: relative;
+}
+
+.tr-logo-loggedin {
+	background: url(/images/Traveloti-Logo-Grey-30pt.gif);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: auto;
+	height: 20px;
+	position: absolute;
+	width: 110px;
+}
+
+/*------------------------------------------------------------*/
+#jewel-container {
+	float: left;
+	position: relative;
+	z-index: 4;
+}
+
+#jewel-container .has-new,#jewel-container .open-toggler {
+	position: relative;
+}
+
+.jewel {
+	float: left;
+	padding-top: 3px;
+	position: relative;
+}
+
+.jewel a.jewel-button {
+	display: block;
+	height: 31px;
+	margin: 0 1px;
+	position: relative;
+	text-decoration: none;
+	width: 24px;
+}
+
+.jewel a.jewel-button:ACTIVE,.jewel a.jewel-button:FOCUS,.jewel a.jewel-button:HOVER {
+	background-color: #999;
+	outline: none;
+	text-decoration: none;
+}
+
+.jewel .jewel-count {
+	border-radius: 2px;
+	color: #fff;
+	display: none;
+	font-size: 9px;
+	font-weight: bold;
+	overflow: hidden;
+	padding-bottom: 1px;
+	position: absolute;
+	top: 0;
+	z-index: 101;
+}
+
+#jewel-container .has-new .jewel-count {
+	display: block;
+}
+
+#jewel-container .open-toggler .jewel-count {
+	display: none;
+}
+
+#jewel-container .open-toggler .jewel-button {
+	background-color: #fff !important;
+	border: 1px solid #333;
+	border-bottom: 0;
+	margin: 0;
+}
+
+.jewel .jewel-count span {
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background-color: #F03D25;
+	border-color: #E23923 #D83722 #C0311E;
+	border-image: none;
+	border-left: 1px solid #D83722;
+	border-radius: 2px 2px 2px 2px;
+	border-right: 1px solid #D83722;
+	border-style: solid;
+	border-width: 1px;
+	box-shadow: 0 1px 0 rgba(0, 39, 121, 0.77);
+	display: block;
+	padding: 0 1px;
+}
+
+/*------------------------------------------------------------*/
+.jewel-flyout {
+	background-color: #fff;
+	border: 1px solid #d7d2c5;
+	border-radius: 3px 3px 3px 3px;
+	left: 0;
+	overflow: visible;
+	position: absolute;
+	top: 36px;
+	width: 350px;
+	z-index: -1;
+}
+
+.jewel-flyout .jewel-item-list {
+	background: transparent;
+	border-radius: 3px 3px 3px 3px;
+	padding: 0;
+}
+
+.jewel-flyout .metadata {
+	padding-top: 3px;
+}
+
+.jewel-header {
+	background-color: #f6f1e5;
+	border-bottom: 1px solid #d7d2c5;
+	padding: 0 10px;
+	text-align: left;
+}
+
+.jewel-header-title,.jewel-footer-title {
+	color: #884a14;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+
+.jewel-footer {
+	background-color: #f6f1e5;
+	padding: 5px 10px;
+	text-align: center;
+}
+
+.toggle-closed, .toggle-target-closed {
+	display: none;
+}
+
+.toggle-open {
+	display: block;
+}
+
+.no-requests-header .no-notifications-header {
+	color: #884a14;
+	padding: 4px 8px;
+}
+
+.no-requests-header-title,.no-notifications-header-title {
+	font-size: 11px;
+	margin: 0;
+	padding: 11px 0;
+	text-align: center;
+}
+
+/*------------------------------------------------------------*/
+
+#requests-jewel a.jewel-button {
+	background-image: url(/images/fb-icons-58g.png);
+	background-position: -31px -50px;
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+
+#requests-jewel.open-flyout a.jewel-button {
+	background-image: url(/images/fb-icons-58g.png);
+	background-position: -56px -50px !important;
+	background-repeat: no-repeat;
+	background-size: auto auto !important;
+}
+
+#requests-flyout {
+	left: -327px;
+}
+
+/*------------------------------------------------------------*/
+
+#notifications-jewel a.jewel-button {
+	background-image: url(/images/fb-icons-58g.png);
+	background-position: -50px -186px;
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+
+#notifications-jewel.open-flyout a.jewel-button {
+	background-image: url(/images/fb-icons-58g.png);
+	background-position: -50px -286px;
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+
+/*------------------------------------------------------------*/
+
+.profile-inner-content {
+	overflow: hidden;
+	padding: 8px 8px 8px 0;
+}
+
+.profile-content {
+	display: inline-block;
+	width: 126px;
+	margin-right: 8px;
+}
+
+.friend-button-wrapper .button {
+	margin-top: 14px;
+}
+
+.friend-button-wrapper .confirm-button {
+	border-color: #000;
+	background-color: #ccc3a3;
+	color: #fff;
+}
+
+a.notification-link {
+	border-bottom: 1px solid #d7d2c5;
+	display: block;
+	padding: 8px;
+	text-decoration: none;
+}
+
+a.notification-link:HOVER {
+	background-color: #fffef9;
+	text-decoration: none;
+}
+
+.blue-name {
+	font-weight: bold;
+}
+
+.notification-icon {
+	background-image: url(/images/fb-icons-5.png);
+	background-repeat: no-repeat;
+	background-size: auto auto;
+	display: inline-block;
+	margin-right: 5px;
+	height: 16px;
+	width: 16px;
+}
+
+.icon-notify {
+	background-position: 0 -122px;
+}
+
+.timestamp {
+	color: #999;
+	font-size: 11px;
+	vertical-align: top;
+}
+
+/*------------------------------------------------------------*/
+#head-nav {
+	height: 30px;
+	margin-top: 2px;
+}
+
+#nav_search {
+	margin-top: 5px;
+	position: relative;
+	width: 340px;
+}
+
+.nav-search-inner-wrapper {
+	overflow: hidden;
+}
+
+.search-input input {
+	border: 0 none;
+	margin-right: 22px;
+	outline: medium none;
+	padding-top: 3px;
+	width: 315px;
+}
+
+.search-input .search-submit {
+	background-color: #fff;
+	background-image: url(/images/fb-icons-1a.png);
+	background-position: -698px -24px;
+	background-repeat: no-repeat;
+	background-size: auto auto;
+	border: 0 none;
+	cursor: pointer;
+	display: block;
+	height: 19px;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 22px;
+}
+
+/*------------------------------------------------------------*/
+#page-nav .nav-item {
+	float: left;
+	padding-top: 2px;
+	padding-bottom: 1px;
+}
+
+#page-nav .nav-link {
+	color: #D8DFEA;
+	display: inline-block;
+	font-weight: bold;
+	height: 31px;
+	line-height: 29px;
+	position: relative;
+	text-decoration: none;
+	vertical-align: top;
+}
+
+#page-nav .middle-item .nav-link,#page-nav .last-item a {
+	margin-left: -1px;
+	padding: 0 8px;
+}
+
+#page-nav .nav-link:HOVER,#page-nav .nav-link:FOCUS,#page-nav .nav-link:ACTIVE {
+	background-color: #666;
+	color: #FFFFFF;
+	outline: medium none;
+	z-index: 1;
+}
+
+#page-nav .nav-link:AFTER {
+	background: none repeat scroll 0 0 #82afb6;
+	content: " ";
+	display: block;
+	height: 14px;
+	position: absolute;
+	right: 0;
+	top: 9px;
+	width: 1px;
+}
+
+#page-nav .tinyman .header-tinyman-name {
+	display: inline-block;
+	max-width: 175px;
+	overflow: hidden;
+	padding-right: 8px;
+	text-overflow: ellipsis;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+/*------------------------------------------------------------*/
+/*============================================================*/

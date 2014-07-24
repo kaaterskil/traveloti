@@ -1,0 +1,18 @@
+<?php
+$this->headLink()->appendStylesheet($this->basepath('/css/traveloti/logged-out.css'));
+?>
+<div id="pagelet-topbar">
+	<div
+		id="topbar-container"
+		class="loggedout-topbar-container">
+		<div class="container_16">
+			<div class="grid_7 tr-logo-loggedout-wrapper">
+				<a href="#"> <i class="tr-logo-loggedout"></i>
+				</a>
+			</div>
+			<div class="grid_9 login-container">
+				<?php echo $this->zfcUserLoginWidget(); ?>
+			</div>
+		</div>
+	</div>
+</div>

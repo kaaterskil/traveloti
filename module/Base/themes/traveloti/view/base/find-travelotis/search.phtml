@@ -1,0 +1,129 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Model\Photo;
+use Base\Model\TravelLog;
+use Base\Model\Traveloti;
+use Base\Model\User;
+use Zend\Form\Form;
+use Zend\Form\Element;
+
+/* @var $user User */
+/* @var $connection Traveloti */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/browser.css'));
+
+$user = $this->zfcUserIdentity();
+$connections = $this->searchResults;
+$numConnections = count($connections);
+$i = 0;
+?>
+<!-- begin pagelet search -->
+<div id="timeline">
+	<div class="connections-header-wrapper">
+		<h3 class="connections-header-title">Search Results</h3>
+	</div>
+	<div class="timeline-connections-list_wrapper">
+		<div class="">
+			<!-- begin search results list -->
+			<ul class="timeline-connections-=list">
+				<?php if($numConnections == 0) : ?>
+				<li class="connections-list-item">Sorry! No matches returned.</li>
+				<?php else : ?>
+				<?php foreach ($connections as $connection) : ?>
+				<?php
+				if($connection->equals($user)) {
+					continue;
+				}
+
+				$connectionId = $connection->getId();
+				$connectionUsername = $connection->getUsername();
+				$connectionDisplayName = $connection->getDisplayName();
+				$connectionType = $connection->getType();
+				if($connection instanceof TravelLog) {
+					$connectionIcon = ($connection->getCoverPicture()
+						? $connection->getCoverPicture()->getIcon()
+						: Constants::DEFAULT_THUMB_5050);
+				} else {
+					$connectionIcon = ($connection->getPicture()
+						? $connection->getPicture()->getIcon()
+						: Constants::DEFAULT_THUMB_5050);
+				}
+				$connectionLink = $this->url('timeline', array('id' => $connectionUsername));
+				$connectionSrc = $this->basePath(
+					'/content/' . $connectionUsername . '/' . $connectionIcon);
+				$connectionImg = $this->htmlImg(
+					$connectionUsername,
+					$connectionSrc,
+					array('alt' => $connectionDisplayName, 'class' => 'profile-large-thumb')
+				);
+
+				$elementId = substr(md5($connectionUsername . 'friendRequest'), 0, 8);
+				$newElement = new Element\Hidden();
+				$newElement->setAttributes(array(
+					'id' => $elementId,
+					'name' => 'traveloti_id[' . $i++ . ']',
+					'value' => $connectionId,
+				));
+
+				$newButtonId = $elementId . '1';
+				$newButton = new Element\Button();
+				$newButton->setAttributes(array(
+					'class' => 'add-traveloti-button',
+					'id' => $newButtonId,
+					'name' => $newButtonId,
+					'value' => 'Connect with this Traveloti',
+				));
+				$newButton->setLabel('Connect with this Traveloti');
+
+				$labelAddId = $elementId . '2';
+				$labelSentId = $elementId . '3';
+				?>
+				<!-- begin search results list item -->
+				<li class="connections-list-item">
+					<div class="connections-list-item-wrapper">
+						<a
+							class="connections-photo-wrapper lfloat"
+							href="<?php echo $connectionLink; ?>"><?php echo $connectionImg; ?>
+						</a>
+						<div class="connections-inner-content">
+							<div class="rfloat">
+								<div class="browser-button-wrapper">
+									<div class="traveloti-button">
+										<?php if(($connection instanceof User) && ($connection->isConnectedTo($user))) : ?>
+										<a
+											class="button"
+											href="#"><span class="button-text">Connected</span> </a>
+										<?php else  : ?>
+										<?php echo $this->formHidden($newElement); ?>
+										<label
+											id="<?php echo $labelAddId; ?>"
+											class="button"
+											for="<?php echo $newButtonId; ?>"><i class="mrs"></i> <?php echo $this->formElement($newButton); ?>
+										</label> <a
+											id="<?php echo $labelSentId; ?>"
+											class="button hidden-element"
+											href="#"><span class="button-text">Connection Request Sent</span>
+										</a>
+										<?php endif; ?>
+									</div>
+								</div>
+							</div>
+							<div class="fsl fwb">
+								<a href="<?php echo $connectionLink; ?>"><?php echo $connectionDisplayName; ?>
+								</a>
+							</div>
+							<div class="">
+								<?php echo $connectionType; ?>
+							</div>
+						</div>
+					</div>
+				</li>
+				<!-- end search results list item -->
+				<?php endforeach; ?>
+				<?php endif; ?>
+			</ul>
+			<!-- end search results list -->
+		</div>
+	</div>
+</div>
+<!-- end pagelet search -->

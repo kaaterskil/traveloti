@@ -1,0 +1,291 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================================*/
+/*------------------------------------------------------------*/
+
+/*----- Logger -----------------------------------------------*/
+#control-wrapper {
+	border: 1px solid rgb(0, 0, 0);
+	opacity: 0.8;
+	position: absolute;
+	left: 4px;
+	top: 38px;
+	width: 550px;
+}
+
+#control-wrapper p {
+	margin-bottom: 4px;
+}
+
+#control-wrapper input[type="button"] {
+	padding: 1px 5px;
+}
+
+#control {
+	background-color: #ffb;
+	height: 10%;
+	padding: 2px;
+}
+
+#logger-log {
+	background-color: #ffd;
+	height: 180px;
+	overflow: auto;
+	padding: 2px;
+	white-space: nowrap;
+}
+
+#logger-log p {
+	font-family: 'Lucida Console' ';
+	font-size: 11px;
+	margin: 0;
+	padding: 0;
+}
+
+.control-toggler {
+	height: 16px;
+	margin-right: 8px;
+	margin-top: 4px;
+	width: 16px;
+	z-index: 10;
+}
+
+.control-toggle-icon {
+	background-image: url(/images/fb-icons-59.png);
+	background-position: -141px -14px;
+	background-size: auto auto;
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+}
+
+.chat-toggle-icon {
+	background-image: url(/images/fb-icons-59.png);
+	background-position: -132px -34px;
+	background-size: auto auto;
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+}
+
+/*------------------------------------------------------------*/
+#dock {
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+}
+
+.chat-button {
+	background-color: #f1eee4;
+	border: 1px solid #666;
+	cursor: pointer;
+	font-weight: bold;
+	padding: 2px 6px;
+}
+
+.chat-button:HOVER {
+	background-color: #999;
+}
+
+/*----- Chat -------------------------------------------------*/
+.chat-outer-container {
+	
+}
+
+.chat-container {
+}
+
+#chat-toolbar {
+	background-color: #973534;
+	border-color: #5e2a2b;
+	border-radius: 4px 4px 0 0;
+	border-style: solid;
+	border-width: 1px 1px 0 1px;
+}
+
+#chat-toolbar .titlebar-label {
+	color: #fff;
+	font-weight: bold;
+	line-height: 18px;
+}
+
+#chat-toolbar .titlebar-text {
+	line-height: 18px;
+	margin: 3px 3px 3px 5px;
+}
+
+#new-contact, #new-chat, #disconnect {
+	display: none;
+}
+
+#chat-area {
+	border-color: #c3c3bb;
+	border-radius: 0;
+	border-style: solid;
+	border-width: 0 1px 0 1px;
+	font-size: 11px;
+	height: 300px;
+	line-height: 14px;
+	padding: 0;
+	width: 398px;
+}
+
+#chat-area ul {
+	border-width: 0 0 1px 0;
+}
+
+#chat-area ul.ui-corner-all {
+	border-radius: 0 0 0 0;
+}
+
+#chat-area.ui-tabs .ui-tabs-nav li a {
+	padding: 2px 1em;
+}
+
+#chat-area .ui-tabs-panel {
+	padding: 0;
+}
+
+#chat-area .chat-input-container {
+	border-top: 1px solid #999;
+	padding: 5px;
+}
+
+#chat-area input {
+	border: 0 none;
+	display: block;
+	line-height: 16px;
+	margin: 0;
+	outline: medium none;
+	padding: 0;
+	resize: none;
+	width: 100%;
+}
+
+.chat-messages {
+	height: 249px;
+	min-height: 249px;
+	overflow: auto;
+	position: relative;
+}
+
+.chat-name {
+	color: #973534;
+	display: none;
+}
+.chat-name:AFTER {
+	content: ": ";
+}
+
+.chat-message {
+	line-height: 14px;
+	padding: 2px 5px 3px 5px;
+	position: relative;
+}
+
+.chat-text {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	background-color: #f1eee4;
+	border: 1px solid #999;
+	border-radius: 3px;
+	display: inline-block;
+	float: right;
+	margin: 2px 0 3px 0;
+	padding: 3px 5px;
+	text-align: right;
+	max-width: 250px;
+}
+
+.chat-text-nub {
+	background-image: url(/images/chat-right-nub.png);
+	background-repeat: no-repeat;
+	clear: both;
+	height: 7px;
+	position: absolute;
+	right: 10px;
+	bottom: 0px;
+	width: 7px;
+	z-index: 10;
+}
+
+.me .chat-text {
+	background-color: #fff;
+	color: #33c;
+	float: left;
+	text-align: left;
+}
+
+.me .chat-text-nub {
+	background-image: url(/images/chat-left-nub.png);
+	bottom: 0;
+	left: 10px;
+	z-index: 10;
+}
+
+.chat-event {
+	font-style: italic;
+	float: right;
+}
+
+/*----- Roster -----------------------------------------------*/
+#right-column-container {
+}
+
+#roster-container {
+	border-left: 1px solid #c3c3bb;
+	padding-top: 8px;
+}
+
+.roster-item {
+	width: 219px;
+}
+
+.roster-contact {
+	color: #333;
+	display: block;
+	padding: 2px 8px 2px 10px;
+	position: relative;
+	text-decoration: none;
+}
+
+.roster-contact:HOVER {
+	background-color: #f1eee4;
+	text-decoration: none;
+}
+.roster-jid {
+	
+}
+
+.roster-thumbnail-wrapper {
+	float: left;
+	margin-right: 8px;
+}
+
+.roster-name {
+	line-height: 30px;
+}
+
+.roster-status {
+	background-image: url(/images/fb-icons-61.png);
+	display: inline-block;
+	float: right;
+	height: 30px;
+	margin: 0 4px 0 4px;
+	width: 8px;
+}
+
+.online .roster-status {
+	background-position: 0 -231px;
+}
+
+.away .roster-status {
+	background-position: 0 -201x;
+}
+
+.offline .roster-status {
+	background-position: 0 -261px;
+}
+
+/*------------------------------------------------------------*/
+/*============================================================*/

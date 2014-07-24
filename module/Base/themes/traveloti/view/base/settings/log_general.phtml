@@ -1,0 +1,55 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Form\TravelLogForm;
+use Base\Model\TravelLog;
+use Base\Model\User;
+
+/* @var $travelLog TravelLog */
+/* @var $tlf TravelLogForm */
+/* @var $currentUser User */
+/* @var $user User */
+
+$this->headlink()->appendStylesheet($this->basePath('/css/traveloti/account-settings.css'));
+$travelLog = $this->travelLog;
+$currentUser = $this->zfcUserIdentity();
+
+$tlf = $this->travelLogForm;
+$tlf->prepare();
+$tlf->setAttributes(array(
+	'action' => '/logs/index/' . $travelLog->getId(),
+	'method' => 'post',
+	'name' => 'travelLogForm',
+));
+$tlf->get('location')->setAttributes(array('id' => 'location'));
+$tlf->get('submit_btn')->setAttributes(array('value' => 'Update'));
+?>
+<!-- begin log information pagelet -->
+<div class="pal settings-info-container">
+	<?php echo $this->form()->openTag($tlf); ?>
+	<div class="mbm setting-info-form-element">
+		<label class="settings-info-label lfloat" for="about">About:</label>
+		<?php echo $this->formText($tlf->get('about')); ?>
+	</div>
+	<div class="mbm setting-info-form-element">
+		<label class="settings-info-label lfloat" for="description">Description:</label>
+		<?php echo $this->formText($tlf->get('description')); ?>
+	</div>
+	<div class="mbm setting-info-form-element">
+		<label class="settings-info-label lfloat" for="general_info">General Information:</label>
+		<?php echo $this->formTextarea($tlf->get('general_info')); ?>
+	</div>
+	<div class="mbm setting-info-form-element">
+		<label class="settings-info-label lfloat" for="location">Location:</label>
+		<?php echo $this->formText($tlf->get('location')); ?>
+	</div>
+	<div class="mbm setting-info-form-element">
+		<label class="settings-info-label lfloat" for="website">Website:</label>
+		<?php echo $this->formText($tlf->get('website')); ?>
+	</div>
+	<div class="mbm setting-info-form-element">
+		<label class="settings-info-label lfloat" for="submit_btn">&nbsp;</label>
+		<?php echo $this->formSubmit($tlf->get('submit_btn')); ?>
+	</div>
+	<?php echo $this->form()->closeTag(); ?>
+</div>
+<!-- end log information pagelet -->

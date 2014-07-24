@@ -1,0 +1,49 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================================*/
+/*------------------------------------------------------------*/
+#chat-sidebar {
+	position: relative;
+}
+
+#chat-sidebar .chat-list {
+	background-color: #f1eee4;
+	padding: 8px 2px 0 2px;
+	position: relative;
+}
+
+.chat-list .chat-item {
+	float: left;
+	width: 100%;
+}
+
+#chat-sidebar .chat-item .img {
+	height: 28px !important;
+	width: 28px !important;
+}
+
+#chat-sidebar .chat-list .chat-item a:HOVER {
+	background-color: #d8d0b6;
+	text-decoration: none;
+}
+
+.chat-list .chat-item a {
+	color: #333;
+}
+
+.chat-list .chat-item .chat-thumb {
+	float: left;
+	height: 28px !important;
+	margin: 2px 8px 2px 2px;
+	width: 28px !important;
+}
+
+.chat-list .chat-item .chat-list-name {
+	line-height: 28px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/*------------------------------------------------------------*/
+/*============================================================*/

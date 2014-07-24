@@ -1,0 +1,132 @@
+<?php
+$title = "Traveloti";
+$this->headTitle($title);
+$this->headLink()->appendStylesheet($this->basePath('/css/fb-theme/traveloti-login.css'));
+
+$form = $this->loginForm;
+$form->prepare();
+
+// Set form attributes
+$form->setAttribute('action', $this->url('home'));
+$form->setAttribute('method', 'post');
+$form->setAttribute('name', 'login-form');
+
+// Set username css classes
+$form->get('identity')->setAttribute('class', 'input-text');
+$form->get('identity')->setOptions(array(
+	'label_attributes' => array(
+		'class' => 'login-form-label',
+	),
+));
+
+// Set password css classes
+$form->get('credential')->setAttribute('class', 'input-password');
+$form->get('credential')->setOptions(array(
+	'label_attributes' => array(
+		'class' => 'login-form-label',
+	),
+));
+
+// Remove existing submit button (it needs to be an input element)
+$form->remove('submit');
+
+// Create new submit button
+$submit = new Zend\Form\Element\Submit('submit');
+$submit->setValue('Log In');
+$submit->setOptions(array(
+	'label' => ' ',
+	'label_attributes' => array(
+		'id' => 'loginButton',
+		'class' => 'button button-confirm button-large',
+	),
+));
+$submit->setAttributes(array(
+	'class' => 'button button-confirm button-large',
+	'tabIndex' => 3,
+));
+$form->add($submit);
+
+$messages = $form->getMessages();
+?>
+<div id="pagelet-blue-bar">
+	<div id="blue-bar-holder">
+		<div id="blue-bar">
+			<div>
+				<div class="loggedout-menubar-container">
+					<div class="clearfix loggedout-menubar">
+						<a
+							class="lfloat"
+							href="/"><?php echo $this->htmlImg(
+								'logo',
+								$this->basePath() . '../images/Traveloti-Logo-ReverseBlue-9pt.gif',
+								array(
+									'title' => "Go to Traveloti Home",
+									'class' => 'tr_logo'
+								)); ?> </a>
+					</div>
+				</div>
+				<div class="signup-banner">
+					<div class="signup-bar-container">
+						<div class="signup-box clearfix">
+							<a
+								class="signup-btn button button-special button-large"
+								href="/user/register"><span class="button-text">Sign Up</span> </a> <span
+								class="signup-box-content">Connect and share your travels with
+								the people in your life.</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div
+	id="content"
+	class="clearfix">
+	<div class="fullpage-container">
+		<div class="interstitial login-page-interstitial box-white">
+			<div class="header header-bottom-border interstitial-header">
+				<div class="clearfix">
+					<h2 class="header-title">Traveloti Login</h2>
+				</div>
+			</div>
+			<div class="interstitial-content">
+				<div class="login-form-container">
+					<?php echo $this->form()->openTag($form); ?>
+					<?php if ($messages) : ?>
+					<div class="login-error-box box-red">
+						<?php foreach ($messages as $message) : ?>
+						<div class="login-error-msg">
+							<?php foreach ($message as $msg) : ?>
+							<p>
+								<?php print_r($msg); ?>
+							</p>
+							<?php endforeach; ?>
+						</div>
+						<?php endforeach; ?>
+					</div>
+					<?php endif; ?>
+					<div id="loginform">
+						<div class="form-row clearfix">
+							<?php echo $this->formRow($form->get('identity')); ?>
+						</div>
+						<div class="form-row clearfix">
+							<?php echo $this->formRow($form->get('credential')); ?>
+						</div>
+						<div id="login-btn-inline">
+							<?php echo $this->formRow($form->get('submit')); ?>
+						</div>
+						<div id="register-link">
+							or <strong><a
+								id="reg-btn-link"
+								rel="nofollow"
+								target="_self"
+								href="register">Sign Up for Traveloti</a> </strong>
+						</div>
+					</div>
+					<?php echo $this->form()->closeTag(); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,75 @@
+<?php
+$title = "Welcome to Traveloti";
+$this->headTitle($title);
+
+$this->headLink()->appendStylesheet($this->basePath('/js/supersized/slideshow/css/supersized.css'))
+->appendStylesheet($this->basePath('/js/supersized/slideshow/theme/supersized.shutter.css'));
+
+$this->headScript()->appendFile($this->basePath('/js/supersized/slideshow/js/supersized.3.2.7.min.js'))
+->appendFile($this->basePath('/js/supersized/slideshow/theme/supersized.shutter.min.js'));
+?>
+<!-- begin top menu bar -->
+<script type="text/javascript">
+			
+	jQuery(function($){
+		
+		$.supersized({
+		
+			// Functionality
+			slide_interval          :   3000,		// Length between transitions
+			transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+			transition_speed		:	700,		// Speed of transition
+													   
+			// Components
+			slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+			slides 					:  	[			// Slideshow Images
+												{image : 'http://traveloti.localhost/images/Safari-960x578.jpg', title : '', thumb : 'http://traveloti.localhost/images/Safari-960x578.jpg', url : ''},
+												{image : 'http://traveloti.localhost/images/family-reunion-ideas-extended-family.s600x600.jpg', title : '', thumb : 'http://traveloti.localhost/images/family-reunion-ideas-extended-family.s600x600.jpg', url : ''},
+												{image : 'http://traveloti.localhost/images/badger-pass-photo1.jpg', title : '', thumb : 'http://traveloti.localhost/images/badger-pass-photo1.jpg', url : ''},
+												{image : 'http://traveloti.localhost/images/a0c91adda0491bd10ee96482c04e6efc1bf70db1.jpeg', title : '', thumb : 'http://traveloti.localhost/images/a0c91adda0491bd10ee96482c04e6efc1bf70db1.jpeg', url : ''},
+												{image : 'http://traveloti.localhost/images/divi-family-top.jpg', title : '', thumb : 'http://traveloti.localhost/images/divi-family-top.jpg', url : ''},
+												{image : 'http://traveloti.localhost/images/Earthwatch-1.jpg', title : '', thumb : 'http://traveloti.localhost/images/Earthwatch-1.jpg', url : ''},
+												{image : 'http://traveloti.localhost/images/how-to-plan-family-reunion-cruise-1.jpg', title : '', thumb : 'http://traveloti.localhost/images/how-to-plan-family-reunion-cruise-1.jpg', url : ''},
+												{image : 'http://traveloti.localhost/images/Las-Vegas-Vacation-2011-element8.jpg', title : '', thumb : 'http://traveloti.localhost/images/Las-Vegas-Vacation-2011-element8.jpg', url : ''},
+												{image : 'http://traveloti.localhost/images/family-cruise-ship-vacation1.jpg', title : '', thumb : 'http://traveloti.localhost/images/family-cruise-ship-vacation1.jpg', url : ''}
+										]
+			
+		});
+    });
+    
+</script>
+<?php echo $this->topBarPagelet; ?>
+<div class="clear"></div>
+<!-- end top menu bar -->
+<!-- begin main content -->
+<div id="content-container">
+	<div id="content">
+		<div class="container_16">
+			<div class="splash-block">
+				<div class="title-wrapper">
+					<h1 id="home-title">Connect, plan and share your travels with the
+						other people in your life.</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="reg-container">
+		<div class="reg-box-wrapper">
+			<h1 class="reg-title">Sign Up</h1>
+			<h2 class="reg-lede">It's free!</h2>
+			<?php echo $this->registrationForm; ?>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<div id="lede-container">
+	<div class="container_16">
+		<div class="grid_16">
+			<h2 class="home-lede">We bring travelers together with friends,
+				bloggers and travel professionals to get best-in-class research,
+				trusted advice and tips, and responsive and value-conscious booking
+				service. Become a Traveloti today!</h2>
+		</div>
+	</div>
+</div>
+<!-- end main content -->

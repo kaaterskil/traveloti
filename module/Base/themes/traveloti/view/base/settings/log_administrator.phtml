@@ -1,0 +1,85 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Form\TravelLogAdminForm;
+use Base\Model\TravelLog;
+use Base\Model\TravelLogAdmin;
+use Base\Model\User;
+/* @var $travelLog TravelLog */
+/* @var $admin TravelLogAdmin */
+/* @var $tlf TravelLogAdminForm */
+/* @var $currentUser User */
+/* @var $user User */
+
+$this->headlink()->appendStylesheet($this->basePath('/css/traveloti/account-settings.css'));
+$admins = $this->administrators;
+$travelLog = $this->travelLog;
+$currentUser = $this->zfcUserIdentity();
+
+$tlf = $this->travelLogAdminForm;
+$tlf->prepare();
+$tlf->setAttributes(array(
+	'action' => '/logs/addAdmin/' . $travelLog->getId(),
+	'method' => 'post',
+	'name' => 'travelLogAdminForm',
+));
+?>
+<!-- begin log administrator pagelet -->
+<ul class="list settings-list settings-list-container">
+	<li
+		class="settings-section-item list-item settings-section-item-border-top">
+		<div class="settings-section-item-content-wrapper">
+			<div class="settings-section-item-title">Add a Travel Log
+				Administrator</div>
+			<div class="settings-section-item-content">If you want to collaborate
+				with your connections in building and maintaining your travel log,
+				add them as Administrators.</div>
+			<div class="">
+				<?php echo $this->form()->opentag($tlf); ?>
+				<?php echo $this->formHidden($tlf->get('traveloti_id')); ?>
+				<?php echo $this->formElement($tlf->get('connections')); ?>
+				<?php echo $this->formRow($tlf->get('submit_btn')); ?>
+				<?php echo $this->form()->closeTag(); ?>
+			</div>
+		</div>
+	</li>
+	<?php foreach ($admins as $admin) : ?>
+	<?php
+	$adminId = $admin->getId();
+	$user = $admin->getUser();
+	$username = $user->getUsername();
+	$userLink = $this->url('timeline', array('id' => $username));
+	$displayName = $user->getDisplayName();
+	$icon = ($user->getPicture() ? $user->getPicture()->getIcon() : Constants::DEFAULT_THUMB_5050);
+	$src = $this->basePath('/content/' . $username . '/' . $icon);
+	$img = $this->htmlImg($username, $src, array('alt' => $displayName, 'class' => 'img'));
+	$removeLink = $this->url('logs', array(
+		'action' => 'deleteAdmin',
+		'id' => $travelLog->getId(),
+		'oid' => $adminId
+	));
+	?>
+	<li class="settings-list-item clearfix list-item">
+		<div class="settings-list-link settings-list-item-container clearfix">
+			<div class="settings-admin-item-container">
+				<a
+					class="settings-photo-container lfloat"
+					href="<?php echo $userLink; ?>"><?php echo $img; ?> </a>
+				<div class="rfloat">
+					<?php if((count($admins) > 1) && ($user->getId() != $currentUser->getId())) : ?>
+					<div class="">
+						<a
+							class="button"
+							href="<?php echo $removeLink; ?>"><span class="button-text">Remove</span>
+						</a>
+					</div>
+					<?php endif; ?>
+				</div>
+				<div class="fsl fwb">
+					<a href="<?php echo $userLink; ?>"><?php echo $displayName; ?> </a>
+				</div>
+			</div>
+		</div>
+	</li>
+	<?php endforeach; ?>
+</ul>
+<!-- end log administrator pagelet -->

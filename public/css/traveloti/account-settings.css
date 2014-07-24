@@ -1,0 +1,146 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================================*/
+/*------------------------------------------------------------*/
+.settings-header {
+	padding: 10px 0;
+}
+
+.settings-header-title {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 0;
+	min-height: 20px;
+	padding: 0;
+}
+
+.settings-section-item-content-wrapper {
+	background-color: #f1eee4;
+	margin-bottom: 4px;
+	padding: 20px;
+}
+
+.settings-section-item-title {
+	margin-bottom: 5px;
+	font-size: 13px;
+	font-weight: bold;
+}
+.settings-list {
+	border-bottom: 1px solid #aaa;
+	border-top: 1px solid #aaa;
+}
+
+.settings-list-container>li {
+	border-color: #e9e9e9;
+	border-style: solid;
+	border-width: 1px 0 0;
+}
+
+.settings-list-item-container {
+	padding: 10px 5px;
+}
+
+.settings-list .settings-list-link {
+	background: none repeat scroll 0 0 transparent;
+	display: block;
+	text-decoration: none;
+}
+
+.settings-list .settings-list-link:HOVER {
+	background: none repeat scroll 0 0 #f1eee4;
+	text-decoration: none;
+}
+
+.settings-list .settings-list-item-label {
+	color: #333;
+	float: left;
+	font-weight: bold;
+	padding-left: 5px;
+	width: 165px;
+}
+
+.settings-list .setting-list-item-saved,.settings-list .settings-list-item-edit {
+	color: #333;
+	float: right;
+	padding-left: 25px;
+	padding-right: 5px;
+	text-align: right;
+}
+
+.settings-list .settings-list-item-category {
+	float: left;
+	width: 165px;
+}
+
+.settings-list-item-content {
+	
+}
+
+.settings-section-item-content-wrapper {
+	padding: 10px;
+}
+
+.settings-section-item-title {
+	color: #333;
+	font-weight: bold;
+	font-size: 1.182em;
+	margin-bottom: 10px;
+}
+
+.settings-section-item-content {
+	font-size: 1em;
+	line-height: 1.455em;
+	margin-bottom: 10px;
+}
+
+/*------------------------------------------------------------*/
+.settings-info-container {
+	background-color: #f1eee4;
+	border-bottom: 1px solid #999;
+	border-top: 1px solid #999;
+}
+
+. setting-info-form-element {
+	position: relative;
+}
+
+.settings-info-label {
+	width: 130px;
+	font-weight: bold;
+	line-height: 20px;
+}
+
+.settings-info-container .input-text {
+	width: 450px;
+}
+
+.settings-info-container textarea {
+	resize: vertical;
+	width: 450px;
+}
+
+/*------------------------------------------------------------*/
+.settings-expert-container {
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.settings-admin-item-container {
+	margin-left: 60px;
+	margin-right: 60px;
+}
+
+.settings-photo-container {
+	cursor: pointer;
+	display: block;
+	margin-right: 10px;
+	text-decoration: none;
+}
+
+/*------------------------------------------------------------*/
+/*============================================================*/

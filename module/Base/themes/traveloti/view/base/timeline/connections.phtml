@@ -1,0 +1,161 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Model\Photo;
+use Base\Model\Traveloti;
+use Base\Model\User;
+use Zend\Form\Form;
+use Zend\Form\Element;
+/* @var $user User */
+/* @var $traveloti User */
+/* @var $connection User */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/browser.css'));
+
+$user = $this->zfcUserIdentity();
+$connections = $this->connections;
+$traveloti = $this->traveloti;
+
+$isSelf = $user->equals($traveloti);
+$numConnections = count($connections);
+$i = 0;
+
+$travelotiUsername = $traveloti->getUsername();
+$travelotiLink = $this->url('timeline', array('id' => $travelotiUsername));
+$travelotiDisplayName = $traveloti->getDisplayName();
+$travelotiIcon = $traveloti->getPicture()
+	? $traveloti->getPicture()->getIcon()
+	: Constants::DEFAULT_THUMB_3232;
+$travelotiSrc = $this->basePath('/content/' . $travelotiUsername . '/' . $travelotiIcon);
+$travelotiImg = $this->htmlImg(
+	$travelotiDisplayName,
+	$travelotiSrc,
+	array('alt' => $travelotiDisplayName, 'class' => 'img')
+);
+?>
+<!-- begin pagelet connections -->
+<div id="timeline">
+	<?php if(!$isSelf) :?>
+	<div class="timeline-top-section-wrapper clearfix">
+		<div class="clearfix timeline-top-section">
+			<a class="profile-thumb" href="<?php echo $travelotiLink; ?>"><?php echo $travelotiImg; ?></a>
+			<div class="clearfix profile-inner-content">
+				<a class="fsl fwb" href="<?php echo $travelotiLink; ?>">
+					<span class=""><?php echo $travelotiDisplayName; ?></span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
+	<div class="connections-header-wrapper">
+		<h3 class="connections-header-title">
+			<?php echo $traveloti->getFirstName() . "'s Connections" ?>
+		</h3>
+	</div>
+	<div class="timeline-connections-list_wrapper">
+		<div class="">
+			<!-- begin connections list -->
+			<ul class="timeline-connections-list">
+				<?php if($numConnections == 0) : ?>
+				<li class="connections-list-item">No connections yet!</li>
+				<?php else : ?>
+				<?php foreach ($connections as $connection) : ?>
+				<?php
+				$isUser = $connection->equals($user);
+				if($isUser) {
+					continue;
+				}
+
+				$connectionId = $connection->getId();
+				$connectionUsername = $connection->getUsername();
+				$connectionDisplayName = $connection->getDisplayName();
+				$connectionType = $connection->getUserType();
+				$connectionIcon = ($connection->getPicture()
+					? $connection->getPicture()->getIcon()
+					: Constants::DEFAULT_THUMB_5050);
+				$connectionLink = $this->url('timeline', array('id' => $connectionUsername));
+				$connectionSrc = $this->basePath(
+					'/content/' . $connectionUsername . '/' . $connectionIcon);
+				$connectionImg = $this->htmlImg(
+					$connectionUsername,
+					$connectionSrc,
+					array('alt' => $connectionDisplayName, 'class' => 'profile-large-thumb')
+				);
+				$mutualConnections = $connection->countMutualConnections($user);
+
+				$elementId = substr(md5($connectionUsername . 'friendRequest'), 0, 8);
+				$newElement = new Element\Hidden();
+				$newElement->setAttributes(array(
+					'id' => $elementId,
+					'name' => 'traveloti_id[' . $i++ . ']',
+					'value' => $connectionId,
+				));
+
+				$newButtonId = $elementId . '1';
+				$newButton = new Element\Button();
+				$newButton->setAttributes(array(
+					'class' => 'add-traveloti-button',
+					'id' => $newButtonId,
+					'name' => $newButtonId,
+					'value' => 'Connect with this Traveloti',
+				));
+				$newButton->setLabel('Connect with this Traveloti');
+
+				$labelAddId = $elementId . '2';
+				$labelSentId = $elementId . '3';
+				?>
+				<!-- begin connections list item -->
+				<li class="connections-list-item">
+					<div class="connections-list-item-wrapper">
+						<a
+							class="connections-photo-wrapper lfloat"
+							href="<?php echo $connectionLink ?>"><?php echo $connectionImg; ?>
+						</a>
+						<div class="connections-inner-content">
+							<?php if(!$isSelf && !$isUser) : ?>
+							<div class="rfloat">
+								<div class="browser-button-wrapper">
+									<div class="traveloti-button">
+										<?php if($connection->isConnectedTo($user)) : ?>
+										<a
+											class="button"
+											href="#"><span class="button-text">Connected</span> </a>
+										<?php else : ?>
+										<?php echo $this->formHidden($newElement); ?>
+										<label
+											id="<?php echo $labelAddId; ?>"
+											class="button"
+											for="<?php echo $newButtonId; ?>"><i class="mrs"></i> <?php echo $this->formElement($newButton); ?>
+										</label> <a
+											id="<?php echo $labelSentId; ?>"
+											class="button hidden-element"
+											href="#"><span class="button-text">Connection Request Sent</span>
+										</a>
+										<?php endif; ?>
+									</div>
+								</div>
+							</div>
+							<?php endif; ?>
+							<div class="fsl fwb">
+								<a href="<?php echo $connectionLink; ?>"><?php echo $connectionDisplayName; ?>
+								</a>
+							</div>
+							<div class="">
+								<?php echo $connectionType; ?>
+							</div>
+							<?php if($mutualConnections) :?>
+							<div class="">
+								<?php echo $mutualConnections; ?> mutual <?php echo ($mutualConnections == 1 ? 'connection' : 'connections'); ?>.
+							</div>
+							<?php endif; ?>
+						</div>
+					</div>
+				</li>
+				<!-- end connections list item -->
+				<?php endforeach; ?>
+				<?php endif; ?>
+			</ul>
+			<!-- end connections list -->
+		</div>
+	</div>
+</div>
+<!-- end pagelet connections -->

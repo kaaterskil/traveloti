@@ -1,0 +1,826 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================*/
+/*----- begin SCT4Rl7_btD.css ----------------*/
+.event-header .event-headline {
+	max-width: 480px;
+	margin-bottom: 6px;
+}
+
+.event-header .event-buttons {
+	text-align: right;
+}
+
+.event-header .event-buttons .ui-selector {
+	text-align: left;
+}
+
+.event-header .event-status {
+	margin-top: 5px;
+	text-align: right;
+}
+
+.event-header .event-join-button {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.event-header .event-join-button .img,.event-header .event-invite-button .img {
+	margin-top: 2px;
+}
+
+.event-photo-placeholder {
+	height: 43px;
+}
+
+.ff4 .event-photo-placeholder {
+	height: 44px;
+}
+
+.event-photo {
+	margin: 1px 0 0 -1px;
+}
+
+.event-profile-picture {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	width: 180px;
+}
+
+.event-profile-picture .event-profile-pic-selector {
+	background: transparent;
+}
+
+.event-profile-picture .edit_profilepicture {
+	margin: 1px 0 0 -1px;
+}
+
+.event-profile-picture:hover .edit_profilepicture {
+	display: block;
+}
+
+.event-profile-picture .open-toggler {
+	display: block;
+	opacity: 1.0;
+}
+
+.event-divider {
+	color: #333;
+	margin-left: -20px;
+}
+
+.event-info .ui-info-table {
+	width: 450px;
+}
+
+.event-info .ui-info-table .label {
+	white-space: nowrap;
+	width: 45px;
+}
+
+.event-info .info-icon {
+	text-align: center;
+	width: 30px;
+}
+
+.event-info .info-date-time {
+	width: 450px;
+}
+
+.event-info .event-time-adder {
+	white-space: nowrap;
+}
+
+.event-location-info {
+	width: 463px;
+}
+
+.location-editor-container {
+	position: relative;
+	left: 50%;
+	height: 0;
+}
+
+.location-editor,.location-editor-with-city {
+	border: 1px solid rgba(0, 0, 0, .45);
+	border-bottom-color: #666;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+	position: relative;
+	left: -50%;
+}
+
+.location-editor {
+	top: 30px;
+}
+
+.location-editor-with-city {
+	top: 22px;
+}
+
+.event-permalink .posts-header {
+	margin-left: -20px;
+	padding-left: 20px;
+}
+
+.event-permalink .event-composer {
+	margin-left: -20px;
+	padding-left: 20px;
+	padding-top: 12px;
+}
+
+.event-permalink .event-composer-bordered {
+	border-top: 1px solid #ccc;
+	margin-top: 15px;
+}
+
+.event-wall {
+	margin-top: 12px;
+}
+
+.event-wall .ui-stream .ui-stream-story {
+	margin-left: -20px;
+	padding-left: 20px;
+}
+
+.event-wall .topborder,.event-wall .groups-boulder-stream .groups-slim-stream-header {
+	margin-left: -20px;
+}
+
+.event-guests .selected {
+	color: #333;
+	cursor: default;
+	text-decoration: none;
+}
+
+.event-guests .guest-divider {
+	overflow: hidden;
+}
+
+.event-header.edit-cover .cover-editor {
+	padding: 0;
+	height: 46px;
+}
+
+.event-header.edit-cover .event-header-block {
+	display: none;
+}
+
+.event-header .profile-cover .cover-wrap {
+	height: 200px;
+}
+
+.event-header .profile-cover .cover-image {
+	margin: -20px -19px 20px;
+	height: 200px;
+	width: 804px;
+}
+
+.event-header .profile-cover .cover-no-image {
+	height: 60px;
+	background: white;
+	border-bottom: 1px dashed #c4cde0;
+}
+
+.event-header .profile-cover .cover-no-image .profile-cover-photo-selector {
+	top: 20px;
+	right: 20px;
+}
+
+.event-header .profile-cover .profile-cover-photo-selector {
+	top: 160px;
+	right: 1px;
+}
+
+.upsell-roe-button {
+	text-align: right;
+}
+
+.event-guest-suggestion {
+	height: 32px;
+}
+
+.event-guest-suggestion .event-suggestee-name {
+	white-space: nowrap;
+	line-height: 32px;
+	vertical-align: middle;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.event-guest-suggestion .event-remove-suggestion {
+	margin: 11px 0;
+}
+
+.event-guests .event-remove-action {
+	margin-top: 3px;
+}
+
+.event-privacy .event-privacy-icon {
+	position: relative;
+	top: 1px;
+	width: 13px;
+}
+
+.event-privacy .event-privacy-short-icon {
+	position: relative;
+	top: 2px;
+	width: 13px;
+}
+
+.event-guest-item .event-guest-item-hover {
+	visibility: hidden;
+}
+
+.event-guest-item:hover .event-guest-item-hover {
+	visibility: visible;
+}
+
+.ui-toolbar-bordered {
+	margin: 0 -7px;
+	padding: 6px 7px 6px 1px;
+}
+
+.ui-toolbar .ui-toolbar-item {
+	float: left;
+	margin-left: 6px;
+	vertical-align: top;
+}
+
+.ui-toolbar-unbordered .ui-toolbar-item:first-child {
+	margin-left: 0;
+}
+
+.ui-toolbar .ui-toolbar-divider {
+	background: #d6d6d6;
+	height: 22px;
+	width: 1px;
+}
+
+._qt ._qi {
+	width: 417px;
+}
+
+._qu ._qi {
+	width: 276px;
+}
+
+._qu ._qi:last-child {
+	width: 277px;
+}
+
+._qv ._qi {
+	width: 206px;
+}
+
+._qw ._qi {
+	width: 164px;
+}
+
+._qw ._qi:last-child {
+	width: 163px;
+}
+
+._qi {
+	background-color: #f2f4f8;
+	display: inline-block;
+	margin-left: 2px;
+	margin-right: 3px;
+}
+
+._qi:first-child {
+	margin-left: 0;
+}
+
+._qi:last-child {
+	margin-right: 0;
+}
+
+.timeline-section._qh {
+	margin-bottom: -3px;
+	margin-top: 12px;
+	padding: 5px;
+}
+
+._ql {
+	display: block;
+	padding: 10px 14px;
+}
+
+._qy {
+	color: #8897bd;
+	font-family: 'Helvetica Neue', Calibri, Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+._qz {
+	color: gray;
+	font-size: 11px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+._qg._qi {
+	background-color: #6d84b4;
+}
+
+._qg._qi:hover {
+	background-color: #5871a7;
+}
+
+._qi:hover {
+	background-color: #e8ebf3;
+}
+
+._qg ._qy,._qg ._qz {
+	color: #fff;
+}
+
+._ql:hover {
+	text-decoration: none;
+}
+
+div.timeline-friends-section .ui-more-pager {
+	margin-bottom: -20px;
+	padding: 20px 0 0;
+}
+
+.timeline-friends-section .expanded-list {
+	padding-bottom: 10px;
+}
+
+.timeline-friends-section .profile-browser-list-container .expanded-list li:first-child {
+	border-top: 0;
+}
+
+.timeline-friends-section .ui-typeahead {
+	border-right-width: 1px;
+}
+
+.timeline-friends-section .ui-more-pager-primary {
+	background-color: #fff;
+	border-bottom: 0;
+	border-left: 0;
+	border-right: 0;
+	padding: 5px 15px;
+}
+
+.timeline-friends-section .profile-browser
+.typeahead-view .profile-browser-summary-box {
+	display: none;
+}
+
+.timeline-friends-section .profile-browser-grid .ui-grid {
+	table-layout: fixed;
+}
+
+.timeline-friends-section .friends-layout .filter-box {
+	padding: 0;
+}
+
+.timeline-friends-section h3 .subheader {
+	background: url(/images/fb-icons-56.gif)
+		no-repeat left center;
+	display: inline-block;
+}
+
+.timeline-friends-section h3 {
+	font-size: 16px;
+}
+
+.timeline-friends-column-header .timeline-sticky-header .actions {
+	padding-right: 15px;
+}
+
+.timeline-section._e2 {
+	padding: 0;
+	margin-top: 12px;
+}
+
+._e2 .friends-layout .filter-box {
+	border-bottom: 1px solid #d8dfea;
+	padding: 14px 26px;
+	background: #eceff5;
+	margin: 3px;
+}
+
+._e2 .filter-box .half-width {
+	width: 66%;
+}
+
+._e2 .list-view {
+	padding-left: 27px;
+}
+
+._e2 .list-view.show-listview-loading {
+	padding-bottom: 80px;
+}
+
+._qs .ui-search-input span {
+	width: 100%;
+}
+
+._qs .profile-browser-typeahead .name-typeahead-throbber {
+	right: 30px;
+}
+
+._e2 h3 {
+	font-size: 16px;
+}
+
+._e2 h3 .subheader {
+	background: url(/images/fb-icons-56.gif)
+		no-repeat left center;
+	display: inline-block;
+}
+
+._e2 .ui-more-pager-primary {
+	background-color: #fff;
+	border-bottom: 0;
+	border-left: 0;
+	border-right: 0;
+	padding: 5px 15px;
+}
+
+div._e2 .ui-more-pager {
+	margin: -1px -28px -20px -27px;
+	padding: 0 28px 10px 0;
+}
+
+._e3 {
+	height: 75px;
+	width: 75px;
+}
+
+._e4 {
+	background: #eee;
+	height: 75px;
+	width: 75px;
+	overflow: hidden;
+	position: absolute;
+}
+
+._e5 {
+	overflow: hidden;
+}
+
+._g_ {
+	margin-left: 10px;
+	margin-right: 0;
+}
+
+._e6 {
+	margin-left: 1px;
+	margin-right: 28px;
+	border-bottom: 1px solid lightgray;
+}
+
+.profile-browser-no-more-items tr:last-child ._e6 {
+	border-bottom: none;
+}
+
+._e2 .typeahead-view .profile-browser-summary-box {
+	margin-bottom: 10px;
+	margin-right: 30px;
+}
+
+._e2 .typeahead-view .profile-browser-list-item {
+	padding-bottom: 5px;
+}
+
+.typeahead-view ul:last-child .profile-browser-list-item {
+	padding-bottom: 10px;
+}
+
+.friends-layout .half-width {
+	width: 50%;
+}
+
+.friends-layout .buttons-cell {
+	padding-left: 6px;
+}
+
+.friends-layout .has-selector .ui-typeahead .wrap {
+	border-right: 0;
+}
+
+.standard-layout .filter-box {
+	padding: 6px 7px 6px 5px;
+}
+
+.standard-layout .filter-box table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.standard-layout .filter-box td {
+	padding: 0;
+}
+
+.standard-layout .full-width,.standard-layout .ui-typeahead {
+	width: 100%;
+}
+
+.standard-layout .has-selector .ui-typeahead .wrap {
+	border-left: 0;
+}
+
+.standard-layout .hubs-loading .throbber {
+	display: block;
+}
+
+.standard-layout .hubs-loading .selected .ui-close-button {
+	display: none;
+}
+
+.list-view .throbber,.show-listview-loading .lists {
+	display: none;
+}
+
+.show-listview-loading .throbber {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	top: 40px;
+}
+
+.limit-reached .checkable-list-item {
+	opacity: .3;
+}
+
+.limit-reached .selected-checkable {
+	opacity: 1;
+}
+
+.list-view .nullstate {
+	color: #999;
+	font-size: 18px;
+	margin-top: 85px;
+	text-align: center;
+}
+
+.list-view .query-throbber {
+	background-image: url(/images/fb-icons-42.gif);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: 0 0;
+	height: 32px;
+	margin: 20px auto 0;
+	width: 32px;
+}
+
+.searching,.query-active .nothing-found {
+	display: none;
+}
+
+.query-active .searching {
+	color: #666;
+	display: block;
+}
+
+.hidden-list {
+	top: 150%;
+	left: -3000px;
+	position: fixed !important;
+}
+
+.profile-browser-list-container .expanded-list .profile-browser-list-item:first-child {
+	border-top: 1px solid #e9e9e9;
+}
+
+.profile-browser-summary-box {
+	border-bottom: 1px solid #ccc;
+}
+
+.hide-summary .profile-browser-summary-box {
+	display: none;
+}
+
+.profile-browser-typeahead .name-typeahead-throbber {
+	display: none;
+	position: absolute;
+	right: 6px;
+	top: 5px;
+}
+
+div.profile-browser-typeahead .clear,.profile-browser .loading .name-typeahead-throbber {
+	display: block;
+}
+
+.profile-browser .loading .clear {
+	display: none;
+}
+
+.profile-large-portrait-img-scale-height {
+	height: 75px;
+	position: relative;
+}
+
+.profile-large-portrait-img-scale-width {
+	position: relative;
+	width: 75px;
+}
+
+.profile-large-portrait-img-small {
+	background-position: center 10%;
+}
+
+.profile-large-portrait-img-medium {
+	background-position: center 15%;
+}
+
+.profile-large-portrait-img-large {
+	background-position: center 20%;
+}
+
+.profile-large-portrait-img-huge {
+	background-position: center 30%;
+}
+
+.profile-browser-nullstate {
+	padding-top: 40px;
+	text-align: center;
+}
+
+.profile-header {
+	margin-top: 4px;
+}
+
+.profile-header-main {
+	width: 513px;
+}
+
+.profile-header-main h1 {
+	display: inline;
+	margin-right: 5px;
+}
+
+.profile-header-main .profile-header-button {
+	margin-right: 5px;
+	z-index: 3;
+}
+
+.profile-header-main #profile_connect {
+	margin-left: 0;
+}
+
+.profile-header .main-button-span {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.profile-header .subtitle {
+	line-height: 15px;
+	padding-top: 4px;
+	width: 490px;
+}
+
+.profile-header .profile-actions {
+	float: left;
+	margin-top: 3px;
+}
+
+.profile-header .add-to-map-form {
+	display: inline;
+}
+
+.add-to-map-form+.ui-button {
+	margin-left: 4px;
+}
+
+.ginormous-profile-name {
+	color: #1c2a47;
+	font-size: 20px;
+}
+
+.profile-arrow {
+	margin: 0 5px 2px 6px;
+}
+
+.profile-picture {
+	background-color: #fff;
+	display: block;
+	overflow: hidden;
+	position: relative;
+	width: 180px;
+}
+
+.profile-picture:hover {
+	text-decoration: none;
+}
+
+.profile-picture:hover .edit_profilepicture {
+	display: block;
+}
+
+.profile-picture img {
+	display: block;
+	margin: auto;
+	max-width: 180px;
+}
+
+.profile-picture span {
+	background-color: #000;
+	height: 800px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 1px;
+	opacity: .30;
+}
+
+.edit_profilepicture {
+	background: #000;
+	color: #fff;
+	display: none;
+	opacity: .7;
+	padding: 6px 7px 6px 23px;
+	position: absolute;
+	right: 1px;
+	top: 0;
+}
+
+.edit_profilepicture:hover {
+	opacity: .95;
+}
+
+span.edit_profilepicture_icon {
+	background: url(/images/fb-icons-55.png)
+		no-repeat left 4px;
+	height: 18px;
+	left: 7px;
+	opacity: .95;
+	position: absolute;
+	top: 4px;
+	width: 18px;
+}
+
+.profile-friends .profile-friends-text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 102px;
+	word-wrap: normal;
+	white-space: nowrap;
+}
+
+.profile-friends .profile-friends-byline {
+	width: 172px;
+}
+
+.profile-friends-byline {
+	white-space: nowrap;
+}
+
+.profile-friends-network {
+	white-space: nowrap;
+}
+
+.relationship-section:hover .profile-nav-header-edit-button {
+	display: block;
+}
+
+.relationship-section .profile-nav-header-edit-button {
+	display: none;
+}
+
+.profile-friends {
+	margin: 7px 6px 15px;
+}
+
+.profile-friends li {
+	margin-bottom: 7px;
+}
+
+.profile-friends-footer {
+	border-top: 1px solid #cdcdcd;
+	padding: 8px 10px 0 6px;
+}
+
+.profile-friends-footer li:first-child {
+	padding-top: 0;
+}
+
+div.profile-pagelet-section {
+	margin-bottom: 24px;
+}
+
+.profile .fbx_profile_tab_loading {
+	background: no-repeat
+		url(/images/fb-icons-42.gif) center center;
+	padding: 150px 0;
+}
+
+.fbx .profile-info-table th.label {
+	padding-right: 8px;
+	width: 81px;
+}
+
+.fbx .f-status-outgoing .add-friend-text {
+	display: none;
+}
+
+/*----- end SCT4Rl7_btD.css ------------------*/
+/*============================================*/

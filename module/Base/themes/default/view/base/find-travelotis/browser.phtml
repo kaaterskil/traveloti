@@ -1,0 +1,108 @@
+<?php
+use Application\StdLib\Constants;
+
+/* @var $friend User */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti-friend-browser.css'))
+				 ->appendStylesheet($this->basePath('/css/traveloti-friend.css'));
+$friends = $this->friends;
+?>
+<div class="full-page-container friend-browser-page">
+	<div class="box-white bottom-border friend-browser-header-container">
+		<div class="clearfix">
+			<div class="lfloat">
+				<div class="friend-browser-header">
+					<span class="friend-browser-title">Find friends from different
+						parts of your life.</span>
+					<div class="friend-browser-subtitle">Use the checkboxes below to
+						discover other people.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="friend-browser-checkbox-filters"></div>
+		<div class="friend-browser-checkbox-content">
+			<div class="friend-browser-checkbox-results">
+				<div class="friend-browser-checkbox-content-grid">
+					<ul class="list _4kg _6-h _6-j _4ks">
+						<?php foreach ($friends as $friend) : ?>
+						<li class="friend-browser-list-unit list-item">
+							<div class="clearfix">
+								<a
+									class="_8o _8t lfloat"
+									href="<?php echo $this->url('timeline', array('id' => $friend->getUsername())); ?>">
+									<div class="friend-browser-photo-wrapper">
+										<div class="friend-browser-photo-crop">
+											<?php
+											$src = $this->basePath('/content/'
+													. $friend->getUsername() . '/'
+													. ($friend->getPicture() != null
+														? $friend->getPicture()->getIcon()
+														: Constants::DEFAULT_THUMB_5050)
+											);
+											$id = 'profile_pic_welcome_' . substr(md5($friend->getUsername()), 0, 8);
+											$alt = $friend->getDisplayName();
+											?>
+											<?php echo $this->htmlImg($id, $src, array(
+												'alt' => $alt,
+												'class' => 'profile-large-portrait-img-scale-width profile-large-portrait-img-small img',
+											)); ?>
+										</div>
+									</div>
+								</a>
+								<div class="clearfix _8m">
+									<div class="rfloat">
+										<div
+											class="friend-browser-unit friend-browser-aux-align-middle">
+											<?php
+											$fid1 = substr(md5($friend->getUsername() . 'idFormElement'), 0, 8);
+											$fid2 = substr(md5($friend->getUsername() . 'addFriendLabel'), 0, 8);
+											$fid3 = substr(md5($friend->getUsername() . 'addFriendButton'), 0, 8);
+											$fid4 = substr(md5($friend->getUsername() . 'requestSentButton'), 0, 8);
+											?>
+											<input
+												id="<?php echo $fid1 ?>"
+												class="friend-browser-id"
+												name="friend-browser-id[]"
+												type="hidden"
+												value="<?php echo $friend->getId(); ?>">
+											<div class="friend-browser-add-as-friend stat-elem">
+												<div class="friend-button">
+													<label
+														id="<?php echo $fid2; ?>"
+														class="friend-request-add add-button button"
+														for="<?php echo $fid3; ?>"> <i
+														class="mrs img sp_c6q8pv sx_452990"></i> <input
+														id="<?php echo $fid3; ?>"
+														type="button"
+														value="Add Friend"
+														onclick="TR.sendFriendRequest('<?php echo $fid1; ?>', '<?php echo $fid2; ?>', '<?php echo $fid4; ?>')">
+													</label> <a
+														id="<?php echo $fid4; ?>"
+														class="friend-request-outgoing enable-friend-list-flyout outgoing-button enable-friend-list-flyout hidden-element button"
+														href="#"> <i class="mrs img sp_c6q8pv sx_452990"></i> <span
+														class="button-text">Friend Request Sent</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="friend-browser-content-align-middle">
+										<div class="friend-browser-actor">
+											<a
+												href="<?php echo $this->url('timeline', array('id' => $friend->getUsername())); ?>"><?php echo $friend->getDisplayName(); ?>
+											</a>
+											<?php // INSERT OTHER USER INFORMATION HERE ?>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

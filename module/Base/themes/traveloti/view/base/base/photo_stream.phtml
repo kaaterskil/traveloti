@@ -1,0 +1,112 @@
+<?php
+use Base\Form\InlineImageForm;
+use Base\Model\Album;
+use Base\Model\Photo;
+use Base\Model\User;
+
+/* @var $iif InlineImageForm */
+/* @var $user User */
+/* @var $photo Photo */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/browser.css'));
+
+$user = $this->zfcUserIdentity();
+$username = $user->getUsername();
+$displayName = $user->getDisplayName();
+
+$photos = $this->photos;
+$numPhotos = count($photos);
+
+$iif = $this->inlineImageForm;
+$iif->prepare();
+$iif->setAttributes(array(
+	'action' => 'uploadPhoto',
+	'method' => 'post',
+));
+$fileElementId = substr(md5('file-element'), 0, 8);
+$iif->get($iif::FILE_ELEMENT)->setAttribute('id', $fileElementId);
+?>
+<!-- begin photo stream pagelet -->
+<div id="pagelet-photo-stream">
+	<div class="photo-stream-list-wrapper">
+		<div class="">
+			<!-- begin photos list -->
+			<div class="timeline-photos-list">
+				<?php if($numPhotos == 0) : ?>
+				<div class="no-photos-list-item">No photos yet!</div>
+				<?php else : ?>
+				<?php foreach ($photos as $photo) : ?>
+				<!-- begin photo list item -->
+				<?php
+				// Photo variables
+				$photoId = $photo->getId();
+				$photoName = ($photo->getName() ? $photo->getName() : $displayName);
+				$srcThumb = $this->basePath('/content/' . $username . '/' . $photo->getPicture());
+				$srcFull = $this->basePath('/content/' . $username . '/' . $photo->getSource());
+				$numLikes = $photo->getLikes()->count();
+				$numComments = $photo->getComments()->count();
+
+				// Album variables
+				$albumId = $photo->getAlbum()->getId();
+				$albumName = $photo->getAlbum()->getName();
+				$albumLink = $this->url('timeline', array('action' => 'album', 'id' => $username, 'set' => $albumId));
+
+				// DOM elements
+				$elementId = substr(md5($srcFull), 0, 8);
+				$outerWrapperId = $elementId . '1';
+				$innerWrapperId = $elementId . '2';
+				$likeElementId = $elementId . '3';
+				$commentElementId = $elementId . '4';
+				$metaElementId = $elementId . '5';
+				?>
+				<div
+					id="<?php echo $elementId; ?>"
+					data-id="<?php echo 'photo-' . $photoId; ?>"
+					class="photos-list-item text-hover">
+					<a
+						class="media-thumbnail"
+						href="<?php echo $srcFull; ?>"
+						rel="shadowbox"><div class="tag-wrapper">
+							<i class="media-thumbnail-image" style="background-image: url('<?php echo $srcThumb; ?>');"></i>
+						</div> </a>
+					<div class="media-text-outer-wrapper media-text">
+						<div class="album-wrapper">
+							<div class="album-inner-wrapper">
+								<a
+									class="media-text-content"
+									href="<?php echo $albumLink; ?>"><?php echo $albumName; ?> </a>
+							</div>
+						</div>
+						<div id="<?php echo $outerWrapperId; ?>">
+							<div
+								id="<?php echo $innerWrapperId; ?>"
+								class="media-action-wrapper">
+								<a
+									id="<?php echo $likeElementId; ?>"
+									class="media-text-content"
+									href="#">Like</a> <span class="media-text-separator"> &middot;
+								</span> <a
+									id="<?php echo $commentElementId; ?>"
+									class="media-text-content"
+									href="#">Comment</a> <a
+									id="<?php echo $metaElementId; ?>"
+									class="media-text-content media-meta"
+									href="#">
+									<div class="">
+										<span class="media-meta-like"><?php echo $numLikes; ?> </span>
+										<span class="media-meta-comment"><?php echo $numComments; ?> </span>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end photo list item -->
+				<?php endforeach; ?>
+				<?php endif; ?>
+			</div>
+			<!-- end photos list -->
+		</div>
+	</div>
+</div>
+<!-- end photo stream pagelet -->

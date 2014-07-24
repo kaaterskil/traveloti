@@ -1,0 +1,3159 @@
+/*1354017415,173213213*/
+.fbBoostedPost {
+	outline: none
+}
+
+.uiPopover.selected .uiPopoverButton.fbBoostedPostPopoverButton.uiButtonSuppressed {
+	border-bottom-color: #3b5998
+}
+
+.fbBoostedPostPopoverButton.uiPopoverTriggerElem {
+	display: inline-block
+}
+
+.fbBoostedPostPopoverButton .uiButtonText {
+	color: #3b5998;
+	font-weight: normal
+}
+
+.fbBoostedPostPopoverButton:hover .uiButtonText {
+	color: #333
+}
+
+.openToggler .fbBoostedPostPopoverButton:hover .uiButtonText {
+	color: #fff
+}
+
+.promotedPostFlyoutContainer {
+	background-color: #fff;
+	border: 1px solid #777;
+	border-bottom: 2px solid #293e6a;
+	width: 340px;
+	position: relative;
+	top: -1px
+}
+
+.promotedPostFlyoutContainer.discountedFlyout {
+	width: 450px
+}
+
+.uiContextualLayerAboveLeft .promotedPostFlyoutContainer,.uiContextualLayerAboveRight .promotedPostFlyoutContainer
+	{
+	border-bottom: 1px solid #293e6a;
+	top: 1px
+}
+
+.promotedPostFlyoutFooter {
+	padding: 6px 7px 6px 8px
+}
+
+.promotedPostFlyoutContainer .moreOptionsLink {
+	display: block
+}
+
+.editBudget .budgetEditDescriptionString {
+	float: left;
+	margin-right: 6px
+}
+
+.editBudget .budgetValue {
+	display: none
+}
+
+.editBudgetButton {
+	margin-top: -4px
+}
+
+.promotedPostUpsellHeader {
+	padding: 15px
+}
+
+.uiComposerAttachment .attachmentLink {
+	outline: none
+}
+
+.uiComposerAttachment .attachmentLink:focus {
+	text-decoration: underline
+}
+
+.uiComposerAttachment .selected,.uiComposerAttachmentSelected .normal {
+	display: none
+}
+
+.uiComposerAttachmentSelected .selected {
+	display: inline-block
+}
+
+.uiComposerAttachment .nub {
+	background: url(http://static.ak.fbcdn.net/rsrc.php/v2/yw/x/PfBgtiydy5U.gif) no-repeat
+		center top;
+	height: 7px;
+	left: 2px;
+	position: absolute;
+	top: 18px;
+	width: 11px
+}
+
+.uiMetaComposer .uiComposerAttachment .nub {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yv/x/ALnh3ly4npU.gif);
+	left: 4px;
+	top: 19px
+}
+
+span.uiComposerAttachment {
+	color: #333;
+	display: inline-block
+}
+
+.uiComposerAttachments {
+	padding: 7px 0 8px;
+	position: relative;
+	z-index: 2
+}
+
+.uiComposerOpen .uiComposerAttachments {
+	padding-bottom: 10px
+}
+
+.uiComposerMetaContainer {
+	background-color: #fff;
+	border: 1px solid #b4bbcd;
+	position: relative;
+	z-index: 1
+}
+
+.uiMetaComposer .uiComposerMetaContainer .attachmentFrame {
+	border: 0
+}
+
+.uiMetaComposer.uiComposerWhiteMessageBox .child_was_focused {
+	border: none
+}
+
+.uiMetaComposerMessageBox {
+	zoom: 1
+}
+
+.uiComposerHideMessageBox .uiMetaComposerMessageBox {
+	display: none
+}
+
+.uiComposerWhiteMessageBox .uiComposerMessageBox {
+	background-color: #fff;
+	border-width: 0;
+	padding: 0
+}
+
+.uiMetaComposerMessageBoxTable {
+	border-spacing: 0;
+	table-layout: fixed;
+	width: 100%
+}
+
+.uiMetaComposerMessageBoxTable td {
+	padding: 0;
+	vertical-align: top;
+	word-wrap: break-word
+}
+
+.uiMetaComposerMessageBoxTable .attachmentBottomRow {
+	height: 0
+}
+
+.uiMetaComposerMessageBoxTable .attachmentBottomRow td {
+	vertical-align: bottom
+}
+
+.uiMetaComposerMessageBox .inputContainer {
+	background-color: #fff;
+	zoom: 1
+}
+
+.uiComposerHideInput .uiMetaComposerMessageBoxTable {
+	display: none
+}
+
+.uiMetaComposerMessageBox .uiComposerMessageBoxControls {
+	margin: 0
+}
+
+.uiMetaComposerMessageBox .uiComposerMessageBoxMentions .inputContainer {
+	border: none;
+	padding: 0;
+	position: relative;
+	zoom: 1
+}
+
+.uiMetaComposerMessageBox .uiComposerMention .inputContainer {
+	z-index: 2
+}
+
+.uiMetaComposerMessageBoxShelf {
+	background-color: #f2f2f2;
+	border-top: 1px solid #e6e6e6
+}
+
+.uiMetaComposerMessageBox .composerTypeahead {
+	border: 0
+}
+
+.uiMetaComposerMessageBox .composerTypeahead .wrap {
+	padding: 5px !important;
+	border: 0
+}
+
+.uiMetaComposerMessageBox .uiMentionsInput .highlighter {
+	font-size: 13px;
+	left: 1px;
+	top: 1px
+}
+
+.uiMetaComposerMessageBox .uiMentionsInput .highlighter .metadataFragment {
+	color: gray
+}
+
+.uiMetaComposerMessageBox .uiMentionsInput .highlighter .withToken,.uiMetaComposerMessageBox .uiMentionsInput .highlighter .timeToken,.uiMetaComposerMessageBox .uiMentionsInput .highlighter .placeToken
+	{
+	z-index: 2;
+	position: relative
+}
+
+.uiMetaComposerMessageBox .uiMentionsInput .highlighter .withToken {
+	cursor: pointer;
+	color: #3b5998
+}
+
+.uiMetaComposerMessageBox .uiMentionsInput .highlighter .withToken:hover {
+	text-decoration: underline
+}
+
+.uiMetaComposerMessageBox .input {
+	background: transparent;
+	border-width: 0;
+	font-size: 13px;
+	height: 17px;
+	margin: 0;
+	outline: none;
+	padding: 0;
+	resize: none;
+	vertical-align: bottom;
+	width: 100%
+}
+
+.child_was_focused .uiMetaComposerMessageBox .input {
+	min-height: 48px
+}
+
+.child_was_focused .uiMetaComposerMessageBox .inputContainer {
+	min-height: 58px
+}
+
+.uiMetaComposerMessageBox .composerTypeahead .uiStickyPlaceholderInput {
+	width: 100%
+}
+
+div.uiMetaComposerMessageBox .composerTypeahead .placeholder {
+	font-size: 13px;
+	padding: 0
+}
+
+.uiMetaComposerMessageBox .attachmentMetaArea {
+	position: relative
+}
+
+.uiMetaComposerMessageBox .textBlurb label {
+	font-weight: normal;
+	vertical-align: baseline
+}
+
+.uiMetaComposerMessageBox .textBlurb input {
+	vertical-align: middle
+}
+
+.uiMetaComposerMessageBox .uiComposerTagControls {
+	border-right: 1px solid #e0e0e0;
+	display: inline-block;
+	float: left;
+	height: 30px
+}
+
+.uiMetaComposerMessageBox .uiComposerTagControls:hover {
+	background-color: #e9e9e9
+}
+
+.uiMetaComposerMessageBox .attachmentBarArea .uiComposerTagControlOpen {
+	background-color: #fafafa;
+	border-top: 1px solid #f2f2f2;
+	margin-top: -1px
+}
+
+.uiMetaComposerMessageBox .uiComposerBarRightArea {
+	margin: 4px
+}
+
+.uiMetaComposerMessageBox .submitBtn {
+	padding: 2px 16px
+}
+
+.uiMetaComposerMessageBox .fakePrivacyWidget,.uiMetaComposerMessageBox .fakePrivacyWidget:active,.uiMetaComposerMessageBox .fakePrivacyWidget:focus,.uiMetaComposerMessageBox .fakePrivacyWidget:hover
+	{
+	border-color: transparent;
+	margin: 2px 6px;
+	padding: 0
+}
+
+.uiMetaComposerMessageBox .fakePrivacyWidget .uiButtonText {
+	font-weight: normal;
+	color: gray
+}
+
+.uiMetaComposer .ComposerCitySharer,.uiMetaComposer .ComposerMusicSharer {
+	color: gray;
+	line-height: 30px;
+	position: relative
+}
+
+.uiMetaComposer .friendsTokenizer,.uiMetaComposer .taggerLocationSharer {
+	border: 0;
+	border-top: 1px dashed #bdc7d8;
+	padding: 0
+}
+
+div div.uiFriendsTokenizerTypeaheadView {
+	width: 300px
+}
+
+.uiMetaComposer .friendsTokenizer .tokenarea {
+	padding-left: 2px
+}
+
+.uiMetaComposer .attachmentBottomArea .inputtext {
+	border: none;
+	min-width: 160px;
+	outline: none
+}
+
+.uiMetaComposer .friendsTokenizer .uiTypeaheadDisabled {
+	display: none
+}
+
+.uiMetaComposer .taggerLocationSharer .wrap {
+	border: 0
+}
+
+.uiMetaComposer .taggerLocationSharer .uiStickyPlaceholderInput {
+	width: 100%
+}
+
+.uiMetaComposerMessageBox .cameraIcon {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yz/x/ELW8FjnbiZf.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -284px -81px;
+	width: 29px
+}
+
+.uiMetaComposerMessageBox .cameraIconSelected {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yz/x/ELW8FjnbiZf.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -164px -81px;
+	width: 29px
+}
+
+.uiMetaComposerMessageBox .friendTaggerIcon {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yz/x/ELW8FjnbiZf.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -254px -81px;
+	width: 29px
+}
+
+.uiMetaComposerMessageBox .friendTaggerIconSelected {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yz/x/ELW8FjnbiZf.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -194px -81px;
+	width: 29px
+}
+
+.uiMetaComposerMessageBox .placeTaggerIcon {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yz/x/ELW8FjnbiZf.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -434px -81px;
+	width: 29px
+}
+
+.uiMetaComposerMessageBox .placeTaggerIconSelected {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yz/x/ELW8FjnbiZf.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -224px -81px;
+	width: 29px
+}
+
+.threadRow .snippet {
+	max-width: 430px;
+	overflow: hidden;
+	position: absolute;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.threadRow .snippet .indicator,#fbMessagesItemList .snippet .indicator {
+	vertical-align: middle
+}
+
+#admin_panel {
+	background: #fff;
+	border: 1px solid #c4cde0;
+	border-top: none;
+	padding-top: 7px;
+	padding-bottom: 5px;
+	position: relative;
+	width: 809px;
+	z-index: 5
+}
+
+#admin_panel .uiHeaderPage {
+	padding-bottom: 6px
+}
+
+.admin_panel_loading {
+	text-align: center
+}
+
+.admin_panel_loading .img {
+	margin-top: 180px
+}
+
+#admin_panel .uiHeaderSection {
+	background: #f2f2f2;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 5px 10px
+}
+
+#admin_panel .uiHeaderTitle {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+#admin_panel .uiSideNavCountInline {
+	background-color: #f03d25;
+	border: 1px solid #c0311e;
+	color: #fff;
+	font-size: 9px;
+	line-height: normal;
+	padding: 0 2px
+}
+
+.adminPanelModule {
+	display: inline-block;
+	vertical-align: top
+}
+
+#admin_panel_body {
+	height: 430px;
+	margin-top: 10px;
+	overflow: hidden
+}
+
+.adminPanelNotifColumn {
+	width: 539px
+}
+
+.adminPanelLikesColumn {
+	width: 226px
+}
+
+.adminPanelInsightsColumn {
+	width: 312px
+}
+
+.adminPanelMessagesColumn,#admin_panel #AdminTip {
+	width: 269px
+}
+
+.adminPanelBorderRight {
+	border-right: 1px solid #ccc
+}
+
+.adminPanelContentTall {
+	height: 205px
+}
+
+.adminPanelContent,#admin_panel .AdminTipContent {
+	height: 164px
+}
+
+.adminPanelBlankStateImage {
+	margin: 24px 15px 33px;
+	height: 84px;
+	width: 84px
+}
+
+#admin_panel .AdminTipImageWrap {
+	height: 141px;
+	padding-top: 24px;
+	width: 115px;
+	text-align: center
+}
+
+.adminPanelBlankStateText,#admin_panel .AdminTipBody {
+	padding: 22px 10px 5px 0
+}
+
+.adminPanelVisibilityButtonGroup {
+	vertical-align: bottom
+}
+
+.adminPanelVisibilityButtonGroup .counter {
+	padding: 0 1px;
+	margin-top: 3px
+}
+
+#admin-panel-insights-graph {
+	padding: 4px 4px 0
+}
+
+#admin-panel-insights-graph .graph-canvas {
+	width: 304px;
+	height: 141px;
+	margin: 0
+}
+
+#admin-panel-insights-graph .graph-legend {
+	position: relative;
+	height: 20px
+}
+
+#admin-panel-insights-graph:hover {
+	cursor: pointer
+}
+
+#admin_panel_messages .adminPanelContent {
+	overflow: hidden
+}
+
+.adminPanelList li {
+	cursor: pointer;
+	border-bottom: 1px solid #e9e9e9;
+	padding: 0
+}
+
+.adminPanelList li.jewelItemNew {
+	background: rgb(237, 239, 245, .98);
+	background-color: #eeeff4;
+	border-bottom: 1px solid #d1d8e7
+}
+
+.adminPanelList li.jewelItemNew:hover {
+	background-color: #e7ebf2;
+	border-color: #d1d8e7
+}
+
+#admin_panel_notifications .notif_x_div,#admin_panel_notifications .confirmingMsg {
+	display: none
+}
+
+.adminPanelList li a {
+	color: #333;
+	display: block;
+	padding: 4px 5px 4px 10px;
+	text-decoration: none
+}
+
+.adminPanelList li:hover,.adminPanelList li:active,.adminPanelList li:focus {
+	background-color: #f4f6f9;
+	border-color: #e3e8f0;
+	outline: none;
+	text-decoration: none
+}
+
+.adminPanelList .notif_block .img {
+	height: 32px;
+	margin-right: 8px;
+	width: 32px
+}
+
+.adminPanelList .author,.adminPanelList .preview,.adminPanelList .info div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.adminPanelList .author,#admin_panel_notifications .blueName {
+	color: #000;
+	font-weight: bold
+}
+
+#admin_panel_messages .subject {
+	color: #333
+}
+
+#admin_panel_messages .time,#admin_panel_notifications .timestamp {
+	color: #9d9d9d;
+	font-size: 11px;
+	padding-top: 0
+}
+
+#admin_panel_messages .snippet {
+	width: 210px
+}
+
+#admin_panel_messages .snippet .indicator {
+	vertical-align: middle
+}
+
+#admin_panel_notifications .info .img {
+	display: none
+}
+
+.AdminTipContent {
+	overflow: hidden
+}
+
+.AdminTipBody {
+	overflow: hidden
+}
+
+.AdminTipImageWrap {
+	display: inline-block;
+	float: left
+}
+
+.pagesTimelinePinpost .pagesPinpostImage {
+	position: absolute;
+	right: 12px;
+	top: -4px
+}
+
+.pagesTimelinePinpost .fbTimelineCurationControl {
+	top: 23px
+}
+
+.timelinePagesInsightsReport .timelinePagesInsightsDouble .leftPageHead,.timelinePagesInsightsReport .timelinePagesInsightsDouble .rightPageHead
+	{
+	width: 199px;
+	background-color: #f1f1f1
+}
+
+.timelinePagesInsightsReport .timelinePagesInsightsDouble .rightPageCount,.timelinePagesInsightsReport .timelinePagesInsightsDouble .rightPageHead
+	{
+	border-left: 1px solid #e5e5e5
+}
+
+.timelinePagesInsightsTopDouble.timelinePagesInsightsDouble {
+	border-top: none;
+	margin-top: -12px
+}
+
+.timelinePagesInsightsDouble {
+	border-top: 1px solid #e5e5e5;
+	margin: 2px -14px -2px -15px
+}
+
+.timelinePagesInsightsDouble table {
+	border-collapse: collapse
+}
+
+.timelinePagesInsightsDouble table td {
+	vertical-align: top
+}
+
+.timelinePagesInsightsReport .timelinePagesInsightsDouble .pageNumTitle {
+	padding: 5px 12px;
+	color: #333
+}
+
+.timelinePagesInsightsDouble .bigNumber {
+	margin-left: 10px;
+	margin-top: 10px
+}
+
+.timelinePagesInsightsSingle .bigNumber {
+	margin-left: -5px;
+	margin-bottom: 5px
+}
+
+.timelinePagesInsightsReport .bigNumber {
+	color: #6278ae;
+	font-family: Helvetica, Arial, sans-serif
+}
+
+.timelinePageMostRecentLabel {
+	border-color: #e9e9e9;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	padding-bottom: 8px
+}
+
+.timelineUnitContainer div.profile-pagelet-section {
+	margin-bottom: 0
+}
+
+ul.pageMostRecentPostList>li {
+	border-color: #e9e9e9;
+	margin: 0 5px;
+	padding: 7px 0 1px 0
+}
+
+.timelineUnitContainer .pageMostRecentPostList {
+	margin-bottom: 0
+}
+
+.pageMostRecentPostList .uiStreamStory .mainWrapper {
+	margin: 0;
+	padding-top: 0
+}
+
+.fbTimelineUnit .pageMostRecentPostList .uiStreamStory .mainWrapper {
+	padding-top: 0
+}
+
+.pageMostRecentPostList .uiStreamStory .actorPhoto {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0
+}
+
+.pageMostRecentPostList .pageOneLine .messageBody {
+	overflow: hidden;
+	max-width: 300px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block
+}
+
+.pageMostRecentPostList .storyContent .storyInnerContent {
+	margin-left: 45px
+}
+
+.pageMostRecentPostList li:hover {
+	background: #edeff4;
+	border-radius: 2px;
+	border-top-color: #edeff4;
+	cursor: pointer;
+	margin: 0 0 -1px 0;
+	padding: 5px 5px 6px 5px;
+	position: relative;
+	z-index: 1
+}
+
+.pageMostRecentPostList .uiStreamStory .uiStreamHide {
+	margin-top: 0;
+	margin-right: 15px
+}
+
+.pageMostRecentPostList .uiStreamMessage .actorDescription {
+	padding: 0
+}
+
+.pageMostRecentPostList .uiStreamStory .recentStoryText {
+	margin: 2px 0
+}
+
+.pageMostRecentPostList .uiStreamStory .tlPageStoryAttachment {
+	margin-bottom: -2px
+}
+
+.pageMostRecentPostList .uiBlingBox,.pageMostRecentPostList .uiBlingBox:hover {
+	border-bottom: 0
+}
+
+.fbTimelineUnit .timelineUnitContainer .pageMostRecentPostList .uiStreamStory .storyInnerContent
+	{
+	margin-left: 39px
+}
+
+.fbTimelineBoxCount {
+	background-color: #e7eaf2;
+	color: #6d84b4;
+	display: inline-block;
+	font-size: 24px;
+	font-weight: bold;
+	height: 61px;
+	line-height: 61px;
+	text-align: center;
+	text-decoration: none;
+	text-indent: -3px;
+	vertical-align: middle;
+	width: 61px
+}
+
+.fbTimelineBoxHighCountFriends {
+	font-size: 19px
+}
+
+.fbTimelineBoxSuperHighCountFriends {
+	font-size: 16px
+}
+
+.fbTimelineBoxSummarizedCountFriends {
+	font-size: 13px
+}
+
+.fbTimelineOneColumn .fbTimelineBoxCountFriends,.fbTimelineOneColumn .fbTimelineBoxHighCountFriends,.fbTimelineOneColumn .fbTimelineBoxSuperHighCountFriends,.fbTimelineOneColumn .fbTimelineBoxSummarizedCountFriends
+	{
+	width: 79px;
+	height: 79px;
+	line-height: 79px
+}
+
+.fbTimelineOneColumn .fbTimelineBoxCountFriends {
+	font-size: 28px
+}
+
+.fbTimelineOneColumn .fbTimelineBoxHighCountFriends {
+	font-size: 24px
+}
+
+.fbTimelineOneColumn .fbTimelineBoxSuperHighCountFriends {
+	font-size: 22px
+}
+
+.fbTimelineOneColumn .fbTimelineBoxSummarizedCountFriends {
+	font-size: 20px
+}
+
+.fbTimelineBoxCountPosts,.fbTimelineBoxHighCountPosts,.fbTimelineBoxSuperHighCountPosts,.fbTimelineBoxSummarizedCountPosts
+	{
+	width: 64px;
+	height: 64px;
+	line-height: 64px
+}
+
+.fbTimelineBoxCountPosts {
+	font-size: 30px
+}
+
+.fbTimelineBoxHighCountPosts {
+	font-size: 26px
+}
+
+.fbTimelineBoxSuperHighCountPosts {
+	font-size: 20px
+}
+
+.fbTimelineBoxSummarizedCountPosts {
+	font-size: 14px
+}
+
+.fbTimelineBoxCountCheckinlarge,.fbTimelineBoxHighCountCheckinlarge,.fbTimelineBoxSuperHighCountCheckinlarge,.fbTimelineBoxSummarizedCountCheckinlarge
+	{
+	width: 70px;
+	height: 70px;
+	line-height: 70px
+}
+
+.fbTimelineBoxCountCheckinlarge {
+	font-size: 30px
+}
+
+.fbTimelineBoxHighCountCheckinlarge {
+	font-size: 28px
+}
+
+.fbTimelineBoxSuperHighCountCheckinlarge {
+	font-size: 24px
+}
+
+.fbTimelineBoxSummarizedCountCheckinlarge {
+	font-size: 22px
+}
+
+.fbTimelineBoxCountCheckin,.fbTimelineBoxHighCountCheckin,.fbTimelineBoxSuperHighCountCheckin,.fbTimelineBoxSummarizedCountCheckin
+	{
+	width: 54px;
+	height: 54px;
+	line-height: 54px
+}
+
+.fbTimelineBoxCountCheckin {
+	font-size: 26px
+}
+
+.fbTimelineBoxHighCountCheckin {
+	font-size: 24px
+}
+
+.fbTimelineBoxSuperHighCountCheckin {
+	font-size: 22px
+}
+
+.fbTimelineBoxSummarizedCountCheckin {
+	font-size: 20px
+}
+
+.fbTimelineBoxCountPostsdouble,.fbTimelineBoxHighCountPostsdouble,.fbTimelineBoxSuperHighCountPostsdouble,.fbTimelineBoxSummarizedCountPostsdouble
+	{
+	width: 85px;
+	height: 85px;
+	line-height: 85px
+}
+
+.fbTimelineBoxCountPostsdouble {
+	font-size: 36px
+}
+
+.fbTimelineBoxHighCountPostsdouble {
+	font-size: 34px
+}
+
+.fbTimelineBoxSuperHighCountPostsdouble {
+	font-size: 28px
+}
+
+.fbTimelineBoxSummarizedCountPostsdouble {
+	font-size: 22px
+}
+
+.fbTimelineBoxCount:first-letter {
+	font-size: .9em;
+	vertical-align: 2px
+}
+
+.fbTimelineBoxCountPagefriendsummary,.fbTimelineBoxHighCountPagefriendsummary,.fbTimelineBoxSuperHighCountPagefriendsummary,.fbTimelineBoxSummarizedCountPagefriendsummary
+	{
+	height: 37px;
+	line-height: 36px;
+	text-indent: 0;
+	width: 37px
+}
+
+.fbTimelineBoxCountPagefriendsummary {
+	font-size: 18px
+}
+
+.fbTimelineBoxHighCountPagefriendsummary {
+	font-size: 16px
+}
+
+.fbTimelineBoxSuperHighCountPagefriendsummary {
+	font-size: 14px
+}
+
+.fbTimelineBoxSummarizedCountPagefriendsummary {
+	font-size: 12px
+}
+
+.pageFriendSummaryContainer .headerDigit {
+	float: left;
+	font-size: 30px;
+	color: #3b5998;
+	margin-right: 6px
+}
+
+.pageFriendSummaryContainer .headerText {
+	line-height: 1.2;
+	padding-top: 5px
+}
+
+.fbTimelineCapsule div.pageFriendSummaryContainer {
+	padding-top: 10px
+}
+
+.pageFriendSummaryContainer .header {
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 2px
+}
+
+.fbPageFriendSummaryFacepile .bigPic {
+	height: 75px;
+	width: 75px
+}
+
+.fbPageFriendSummaryFacepile .smallPic {
+	height: 37px;
+	width: 37px
+}
+
+.fbPageFriendSummaryFacepile .pic {
+	display: block;
+	float: left
+}
+
+.fbPageFriendSummaryFacepile .innerPic {
+	padding-right: 1px
+}
+
+.fbPageFriendSummaryFacepile.onlyFacepile {
+	padding-top: 3px
+}
+
+.fbPageFriendSummarySection.needsBorder {
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 3px
+}
+
+.fbPageFriendSummarySection .friendMusicReport {
+	margin-top: 3px
+}
+
+.fbPageFriendSummarySection .friendMusicReport .topSongs {
+	border-top: 1px solid #e5e5e5
+}
+
+.fbPageFriendSummarySection .friendMusicReport .topSongs .topSongsContent {
+	padding: 0
+}
+
+.fbTimelineFilters {
+	padding-bottom: 1px;
+	position: relative;
+	text-align: center
+}
+
+.fbTimelineFilters #fbTimelinePagesFilterSelectorButton {
+	border-radius: 4px;
+	border: 1px solid #c3cce0;
+	background: #e8ecf2 url(http://static.ak.fbcdn.net/rsrc.php/v2/yv/x/ZWvAgFWgfHn.png)
+		no-repeat right 9px;
+	color: #c3cce0;
+	padding-right: 19px
+}
+
+.fbTimelineFilters .openToggler #fbTimelinePagesFilterSelectorButton {
+	border: 1px solid #3b5998;
+	border-bottom: 1px solid #777;
+	background: #6d84b4 url(http://static.ak.fbcdn.net/rsrc.php/v2/yp/x/gfx8S-0T_FA.png)
+		no-repeat right 10px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	padding-right: 19px
+}
+
+.fbTimelineFilters #fbTimelinePagesFilterSelectorButton .uiButtonText {
+	color: #a1a1c1;
+	font-weight: normal;
+	padding: 2px
+}
+
+.fbTimelineFilters .openToggler #fbTimelinePagesFilterSelectorButton .uiButtonText {
+	color: #fff;
+	font-weight: normal;
+	padding: 2px
+}
+
+.fbTimelineFilters .uiSelectorMenuWrapper {
+	text-align: left
+}
+
+.timelineUnitContainer .bigNumber,.timelineUnitContainer .ogProfileNumberUnits {
+	color: #6374b1
+}
+
+.timelineUnitContainer .bigNumber,.timelineUnitContainer .ogProfileNumberUnits .quantity .quantityNumber
+	{
+	color: #6374b1;
+	font-size: 40px;
+	line-height: 1em
+}
+
+.timelineUnitContainer .ogProfileNumberUnits,.timelineUnitContainer .ogProfileNumberUnits .quantity
+	{
+	color: #6374b1;
+	font-size: 25px;
+	margin-left: 3px
+}
+
+#profile_minifeed .reportHide {
+	display: none
+}
+
+.fbProfileStream .uiStreamMessage .passiveName {
+	font-weight: normal
+}
+
+.fbProfileStream .uiStreamMessage a.passiveName {
+	font-weight: bold
+}
+
+.graphTooltip {
+	background: url(http://static.ak.fbcdn.net/rsrc.php/v2/yi/x/uVR6w3wRHEJ.gif) left bottom
+		no-repeat;
+	bottom: 100%;
+	display: block;
+	padding: 0 0 4px;
+	position: absolute;
+	z-index: 200
+}
+
+.graphTooltipText {
+	background-color: #282828;
+	color: #fff !important;
+	display: block;
+	font-size: 11px;
+	line-height: 14px;
+	padding: 4px 8px;
+	text-align: left
+}
+
+.insights-graph-header {
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px
+}
+
+.graph-toggles {
+	height: 20px
+}
+
+.insights-section .graph-toggles.ufb-list_horizontal>li.ufb-list-item {
+	border-width: 0 0 0 0
+}
+
+.insights-graphs-half-width .graph-canvas {
+	width: 360px;
+	height: 200px
+}
+
+.insights-graphs-full-width {
+	margin-bottom: 20px
+}
+
+.insights-graphs-full-width .graph-canvas {
+	width: 100%;
+	height: 250px
+}
+
+.insights-graphs-full-width .graph-legend .legendLabel {
+	padding-right: 10px;
+	white-space: nowrap
+}
+
+.insights-users-likes-graph .graph-canvas,.insights-users-follows-graph .graph-canvas {
+	height: 200px;
+	width: 460px
+}
+
+.graph-canvas {
+	margin: 10px 0
+}
+
+.graph-canvas .tickLabel {
+	white-space: nowrap
+}
+
+.insightsBar {
+	margin: 15px -12px -12px 0
+}
+
+.insightsBar .reachStats {
+	display: inline-block;
+	padding: 4px 0
+}
+
+.insightsBar .promotionUnavailableLink {
+	text-decoration: none;
+	visibility: hidden
+}
+
+.insightsBar:hover .promotionUnavailableLink {
+	visibility: visible
+}
+
+.profile .app_tab {
+	position: relative;
+	zoom: 1;
+	overflow: hidden
+}
+
+.pagelet_app_runner_centered {
+	text-align: center
+}
+
+.timelinePageLikedPagesLabel {
+	border-color: #e9e9e9;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	padding-bottom: 8px
+}
+
+.pagesTimelineButtonPagelet {
+	background-color: #e7ebf2;
+	border-bottom: 1px solid #c8d1e2;
+	min-width: 122px;
+	padding: 13px 0 12px 1px;
+	top: 38px;
+	z-index: 4
+}
+
+.fbTimelineWideRightCol .pagesTimelineButtonPagelet {
+	min-width: 244px
+}
+
+body.hasVoiceBar .pagesTimelineButtonPagelet {
+	top: 64px
+}
+
+.pagesTimelineRightColumn .fbTimelineScrubber {
+	top: 87px
+}
+
+body.hasVoiceBar .pagesTimelineRightColumn .fbTimelineScrubber {
+	top: 113px
+}
+
+#createPageButton .img {
+	top: 3px
+}
+
+#createPageButton {
+	padding-left: 6px
+}
+
+._1_u {
+	margin-top: -15px;
+	margin-left: -10px;
+	margin-right: -10px
+}
+
+._1wx {
+	margin: -10px 0 2px -5px
+}
+
+._1wy ._1wx {
+	margin-bottom: -5px;
+	margin-top: 0
+}
+
+._1wz {
+	height: 32px;
+	margin-left: -4px;
+	padding: 1px 4px;
+	width: 32px
+}
+
+._1w- {
+	width: 409px
+}
+
+.timelineReportContent ._1w- {
+	width: 403px
+}
+
+._4lh ._1w- {
+	width: 504px
+}
+
+._4lh .timelineReportContent ._1w- {
+	width: 315px
+}
+
+._4lh .timelineReportContent ._1wx {
+	margin: -7px 0 -12px -5px
+}
+
+._4lh ._1wy ._1ww {
+	margin-top: 12px
+}
+
+.fbTimelineOneColumn ._1w- {
+	width: 843px
+}
+
+._1w- .fbTimelineUnitMorePager .uiMorePagerPrimary,._1w- .fbTimelineUnitMorePager .uiMorePagerLoader
+	{
+	border: none;
+	padding: 6px 12px
+}
+
+._1w- .fbTimelineUnitMorePager .uiMorePagerPrimary:hover {
+	border-color: #edeff4
+}
+
+._1w- li._1ww {
+	padding-bottom: 0;
+	padding-top: 3px
+}
+
+._1w- ._1ww .fbTimelineUnitMorePager {
+	margin: 0 -12px
+}
+
+._1w- .uiListItem {
+	padding: 20px 12px 12px
+}
+
+._5oh {
+	padding-top: 1px
+}
+
+._5oi {
+	border-bottom: 1px solid #e5e5e5
+}
+
+._1_u .fbTimelineUFI {
+	margin: -12px -12px 0
+}
+
+._1w- .uiListItem:hover .uiMorePagerPrimary {
+	background: #edeff4;
+	text-decoration: underline
+}
+
+._5oj .fbTimelineFeedbackStub {
+	display: none
+}
+
+._5oj ._1_u {
+	margin-left: -7px
+}
+
+._ml {
+	border: 0;
+	margin-top: 1px;
+	overflow: hidden
+}
+
+._mm {
+	border: 1px solid #000;
+	border-bottom: 2px solid #2e396d
+}
+
+._ml .uiScrollableAreaContent ul {
+	border: 0
+}
+
+._ml.contentAfter::after {
+	background-color: #fff
+}
+
+.fbStarGrid {
+	position: relative;
+	-moz-transition-property: width, height;
+	-moz-transition-duration: 500ms
+}
+
+.fbStarGridBlank {
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #c4cde0;
+	padding: 30px
+}
+
+#photo_set_pagelet .fbStarGridBlank {
+	border: none
+}
+
+.fbStarGridBlankContent {
+	color: #bbb;
+	font-family: 'helvetica neue', helvetica, arial, sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 70px 0;
+	text-align: center
+}
+
+.fbStarGridAsTimelineUnit .fbStarGrid {
+	background: #fff;
+	border: 1px solid #c4cde0;
+	border-bottom-width: 2px;
+	border-radius: 3px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 3px 2px 2px 3px;
+	z-index: 1
+}
+
+.fbTimelineStarGridSeparator,.fbTimelinePhotosScroller {
+	background: url(http://static.ak.fbcdn.net/rsrc.php/v2/yQ/x/N8eF8pLkCCD.png) repeat-y
+		center top;
+	font-size: 0;
+	padding-top: 10px;
+	position: relative;
+	text-align: center;
+	z-index: 2
+}
+
+.fbTimelinePhotosScroller {
+	margin-bottom: 30px;
+	padding-top: 0
+}
+
+.fbTimelinePhotosScroller .uiSimpleScrollingLoadingIndicator {
+	display: block
+}
+
+.fbTimelineStarGridSeparator h4,.fbTimelinePhotosScroller .async_saving {
+	background: #a9b5d3;
+	border-radius: 3px;
+	color: #fff;
+	display: inline-block;
+	font-weight: normal;
+	font-size: 14px;
+	padding: 6px 11px;
+	word-wrap: normal
+}
+
+.fbTimelineStarGridSeparator h4 {
+	margin-bottom: 40px;
+	margin-top: 20px
+}
+
+.fbTimelinePhotosScroller .async_saving {
+	margin-bottom: 0;
+	margin-top: 30px
+}
+
+#album_photos_pagelet .fbTimelinePhotosScroller {
+	background: none;
+	margin: 0
+}
+
+#album_photos_pagelet .fbTimelinePhotosScroller .async_saving {
+	background: none;
+	margin-bottom: 10px;
+	margin-top: 10px
+}
+
+.fbTimelineStarGridSeparator .spinePointer {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yK/x/nDEHv4nTejR.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -152px -658px;
+	bottom: -1px;
+	height: 21px;
+	left: 418px;
+	position: absolute;
+	width: 15px
+}
+
+div.fbStarGrid .uiVideoLink,div.fbStarGrid .uiMediaThumb {
+	border: none;
+	margin: 2px 3px 3px 2px;
+	padding: 0
+}
+
+.fbStarGrid .uiMediaThumb:before {
+	background: #f4f6f9 url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/x/NABTt1QzBLW.png)
+		no-repeat center center;
+	bottom: 0;
+	content: '';
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 1
+}
+
+.fbStarGrid .uiMediaThumb i {
+	background-color: transparent;
+	position: relative;
+	z-index: 2
+}
+
+.fbStarGrid .fbStarGridMediaHideMessage {
+	position: absolute;
+	margin: 2px 0 0 2px;
+	background-color: #e7ebf2;
+	z-index: 100;
+	border: 1px solid #c4cde0
+}
+
+.fbStarGrid .fbStarGridMediaHiddenMsgNonStarred {
+	width: 204px;
+	height: 204px
+}
+
+.fbStarGrid .fbStarGridMediaHiddenMsgStarred {
+	width: 415px;
+	height: 415px
+}
+
+.fbStarGrid .fbStarGridMessageClose {
+	width: 100%
+}
+
+.fbStarGrid .fbStarGridMessageClose .uiCloseButton {
+	float: right
+}
+
+.fbStarGrid .fbStarGridHideMessageBody {
+	display: table;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	margin-top: -1px
+}
+
+.fbStarGrid .fbStarGridHideMessageContent {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 16px
+}
+
+.fbStarGrid .fbPhotoStarGridStarred .uiVideoLink i,.fbStarGrid .fbPhotoStarGridStarred .uiMediaThumb i
+	{
+	height: 417px;
+	width: 417px
+}
+
+.fbStarGrid .fbPhotoStarGridNonStarred .uiVideoLink i,.fbStarGrid .fbPhotoStarGridNonStarred .uiMediaThumb i
+	{
+	height: 206px;
+	width: 206px
+}
+
+.fbPhotoStarGridElement {
+	display: inline-block;
+	-moz-transition-property: margin-left, margin-right, margin-top;
+	-moz-transition-duration: 500ms
+}
+
+.fbPhotoStarGridElement .uiMediaThumb i,.fbPhotoStarGridElement .uiVideoLink i {
+	background-size: cover;
+	background-position: 50% 25%;
+	-moz-transition-property: width, height;
+	-moz-transition-duration: 500ms
+}
+
+.fbPhotoStarGridElement.fbPhotoStarGridDrag {
+	-moz-transition-property: none
+}
+
+.fbPhotoStarGridDrag .tagWrapper {
+	box-shadow: 0 3px 8px rgba(0, 0, 0, .3)
+}
+
+.fbPhotoStarGridAbove {
+	z-index: 3
+}
+
+.fbPhotoStarGridElement.fbPhotoStarGridDrag a {
+	cursor: move
+}
+
+.fbPhotoStarGridElement .uiMediaThumb,.fbPhotoStarGridElement .uiVideoLink {
+	background-color: transparent
+}
+
+.fbPhotoStarGridElement .uiVideoLink i {
+	background-color: #000
+}
+
+._30l {
+	display: inline-block;
+	height: 206px;
+	position: relative;
+	width: 206px
+}
+
+html ._30m {
+	border: 0;
+	left: 0;
+	opacity: 1;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	-moz-transition: opacity .4s ease
+}
+
+._30m .uiMediaThumbImg {
+	background-size: cover;
+	height: 206px;
+	width: 206px
+}
+
+._30l::after {
+	border: 1px solid rgba(0, 0, 0, .1);
+	bottom: 0;
+	content: '';
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0
+}
+
+._30k {
+	background-color: #f3f4f8;
+	border-radius: 5px;
+	border: 2px dashed #d8dce5;
+	color: #8897bd;
+	cursor: pointer;
+	display: inline-block;
+	font-family: "helvetica neue", helvetica, arial, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	height: 204px;
+	line-height: 202px;
+	width: 204px
+}
+
+.fbPhotoStarGridElement ._30k {
+	height: 202px;
+	margin: 2px 3px 3px 2px;
+	text-align: center;
+	width: 202px
+}
+
+._30k:hover,.selectOver ._30k {
+	background-color: #ebeef5;
+	border: 2px dashed #ccd0db
+}
+
+.bulkTaggerTypeahead {
+	width: 210px
+}
+
+.bulk_tagger_body .bulkTagIcon {
+	margin-top: 6px;
+	margin-right: 7px
+}
+
+.bulk_tagger_body .bulkTagStatus {
+	display: inline-block;
+	padding-top: 4px
+}
+
+.bulkTagSaving {
+	display: none
+}
+
+.tagSaving .bulkTagSaving {
+	display: inline-block;
+	margin-top: 2px
+}
+
+.bulk_tagger_loading {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yD/x/LOOn0JtHNzb.gif);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: center center;
+	height: 21px
+}
+
+.fbPhotoCurationControl {
+	display: none;
+	margin-right: 8px;
+	margin-top: 7px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 3
+}
+
+.fbPhotoCurationControl .uiButtonGroup {
+	border: none
+}
+
+.fbPhotoCurationControlWrapper {
+	position: relative
+}
+
+.fbPhotoCurationControlWrapper:hover .fbPhotoCurationControl {
+	display: inline-block
+}
+
+.uiMediaThumbNoOverlay .fbPhotoCurationControlWrapper:hover
+.fbPhotoCurationControl {
+	display: none
+}
+
+.fbPhotoCurationControlWrapper .fbPhotoCurationControl .fbPhotoStarButton {
+	border: 1px solid #aaa;
+	border: 1px solid rgba(0, 0, 0, .35);
+	padding: 2px 8px;
+	border-right: none
+}
+
+.fbPhotoCurationControlWrapper .fbPhotoCurationControl .fbPhotoStarButton.selected {
+	border-color: #3b5998;
+	border-color: rgba(14, 34, 74, .7);
+	background-color: #6d84b4
+}
+
+.fbPhotoCurationControlWrapper .fbPhotoCurationControl .fbTimelineSelectorButton {
+	border: 1px solid #aaa;
+	border: 1px solid rgba(0, 0, 0, .35);
+	border-left: 1px solid transparent;
+	padding: 2px 9px 2px 8px
+}
+
+.fbPhotoCurationControlWrapper .fbPhotoCurationControl .fbTimelineSelectorButton.selected
+	{
+	border-color: #3b5998;
+	border-color: rgba(14, 34, 74, .7);
+	border-left: 1px solid #5a6e97;
+	border-bottom: 1px solid #777
+}
+
+.fbPhotosReorderableGrid .drag {
+	z-index: 200
+}
+
+.fbPhotosReorderableGrid .dragWrapper {
+	position: relative
+}
+
+.fbPhotosReorderableGrid .dragWrapper .uiMediaThumb {
+	cursor: move
+}
+
+.fbPhotosReorderableGrid .dragWrapper .dragHover {
+	display: none
+}
+
+.fbPhotosReorderableGrid .dragWrapper:hover .dragHover {
+	display: block
+}
+
+.fbPhotosReorderableGrid .dragHover {
+	background-color: #ddd;
+	position: absolute;
+	left: 10px;
+	top: 10px
+}
+
+.fbPhotosReorderableGrid .mover {
+	display: block;
+	left: -8px;
+	overflow: hidden;
+	position: absolute;
+	text-align: right;
+	top: 3px;
+	z-index: 2
+}
+
+.fbPhotosReorderableGrid .mover .arrow {
+	position: relative;
+	top: -20px
+}
+
+.fbPhotosReorderableGrid .mover .arrow:active,.fbPhotosReorderableGrid .mover .arrow:focus
+	{
+	top: 0
+}
+
+.fbPhotoInlineCaptionEditor .editIcon {
+	background: url(http://static.ak.fbcdn.net/rsrc.php/v2/y8/x/ffUJLIqlYCk.gif) no-repeat
+		-18px 0;
+	display: inline-block;
+	height: 18px;
+	margin-bottom: 0;
+	vertical-align: sub;
+	width: 18px
+}
+
+.fbPhotoInlineCaptionEditor .editIcon:hover {
+	background-position: 0 0
+}
+
+.fbPhotoInlineCaptionEditor .captionWrapper {
+	margin-right: 18px
+}
+
+.fbPhotoInlineCaptionEditorEditMode .captionWrapper {
+	margin-right: 0
+}
+
+.fbPhotoInlineCaptionEditor .editForm,.fbPhotoInlineCaptionEditorEditMode .fbPhotoCaption,.fbPhotoInlineCaptionEditorEditMode .noCaption,.fbPhotoInlineCaptionEditorEditMode .editIcon
+	{
+	display: none
+}
+
+.fbPhotoInlineCaptionEditorEditMode .editForm {
+	display: block;
+	margin: 0;
+	padding: 0;
+	text-align: right
+}
+
+.fbPhotoInlineCaptionEditor textarea {
+	width: 429px;
+	font-size: 11px;
+	line-height: 13px;
+	margin: 0 0 2px 0;
+	padding: 0
+}
+
+.fbPhotoInlineCaptionEditor .uiMentionsInput .highlighter {
+	font-size: 11px;
+	overflow: hidden;
+	padding: 4px 4px 0 4px;
+	left: 2px;
+	top: 2px;
+	width: 392px
+}
+
+.fbPhotoInlineCaptionEditor .mentionsTypeahead {
+	margin-bottom: 5px
+}
+
+.fbPhotoInlineCaptionEditor .mentionsTypeahead .wrap {
+	padding: 5px
+}
+
+.fbPhotoInlineCaptionEditor .uiTypeahead .innerWrap {
+	overflow: visible
+}
+
+.fbPhotoInlineCaptionEditor .uiMentionsInput .highlighter div {
+	line-height: 13px;
+	white-space: pre-wrap;
+	text-align: left
+}
+
+.fluploader_swfdiv {
+	left: 0;
+	position: absolute;
+	top: 0
+}
+
+.flashUploaderOverlayButton {
+	display: inline;
+	position: relative;
+	vertical-align: top
+}
+
+.composerPhotoGrid .flashUploaderOverlayButton {
+	display: block
+}
+
+.flashUploaderOverlayButton.async_saving {
+	background: url(http://static.ak.fbcdn.net/rsrc.php/v2/yD/x/LOOn0JtHNzb.gif) no-repeat
+		center center
+}
+
+.flashUploaderOverlayButton.async_saving div,.flashUploaderOverlayButton.async_saving a {
+	opacity: .5
+}
+
+.flashUploaderOverlayButton a.selectOver,.flashUploaderOverlayButton .selectOver a.attachmentLink
+	{
+	text-decoration: underline
+}
+
+.composerPhotoGrid .flashUploaderOverlayButton a.selectOver {
+	background-color: #ebeef4
+}
+
+.flashUploaderOverlay .uiOverlayContent {
+	padding-bottom: 25px
+}
+
+.flashUploaderOverlay .layerCancel {
+	display: none
+}
+
+.flashUploaderOverlay .headerBox {
+	border-color: #c4cde0;
+	border-bottom-color: #f5f5f5;
+	border-bottom-color: rgba(0, 0, 0, 0.1);
+	border-radius: 3px 3px 0 0;
+	left: -1px;
+	margin: 0;
+	position: absolute;
+	right: -1px;
+	top: -1px;
+	z-index: 2
+}
+
+.flashUploaderOverlay .albumInfoFields {
+	width: 330px
+}
+
+.flashUploaderOverlay .albumMetaFields {
+	margin-left: 110px
+}
+
+.flashUploaderOverlay .albumMetaPlacesInput {
+	float: right;
+	margin-right: 20px;
+	width: 280px
+}
+
+.flashUploaderOverlay .albumInfoFields input {
+	border-color: #fff;
+	outline: none;
+	-moz-transition: border-color .2s
+}
+
+.flashUploaderOverlay .albumInfoFields input:hover,.flashUploaderOverlay .albumInfoFields input:focus
+	{
+	border-color: #bec7da
+}
+
+.flashUploaderOverlay .albumInfoFields .photoAlbumTitleInput:focus+.photoAlbumDescInput,.flashUploaderOverlay .albumInfoFields .photoAlbumTitleInput:hover+.photoAlbumDescInput:focus
+	{
+	border-top-color: transparent
+}
+
+.flashUploaderOverlay .albumInfoFields .highlighter {
+	display: none
+}
+
+.flashUploaderOverlay .fbPhotoBulkEditor {
+	margin: 65px -15px 0 -15px
+}
+
+.flashUploaderOverlay .fbPhotoBulkEditor .editablePhoto {
+	margin-bottom: 17px;
+	margin-left: 17px
+}
+
+.flashUploaderOverlay .headerFixed {
+	border-bottom-color: #b0bbd7;
+	border-radius: 0;
+	left: 50%;
+	margin-left: -483px;
+	position: fixed;
+	right: auto;
+	width: 946px
+}
+
+.flashUploaderOverlay .addPhotosEnabled .fakeButton,.flashUploaderOverlay .addPhotosDisabled .realButton
+	{
+	position: absolute;
+	top: -10000px
+}
+
+.flashUploaderOverlay .footerBox {
+	border-color: #c4cde0;
+	border-radius: 0 0 3px 3px;
+	border-top-color: #f5f5f5;
+	border-top-color: rgba(0, 0, 0, 0.1);
+	left: -1px;
+	position: absolute;
+	right: -1px
+}
+
+.footerBox .footerInner {
+	width: 100%
+}
+
+.flashUploaderOverlay .footerFixed {
+	bottom: 0;
+	border-bottom: 0;
+	border-radius: 0;
+	border-top-color: #c4cde0;
+	left: 50%;
+	margin-left: -483px;
+	margin-top: 50px;
+	position: fixed;
+	width: 926px;
+	z-index: 1
+}
+
+.flashUploaderOverlay .titleInput input,.flashUploaderOverlay .descriptionInput {
+	width: 100%
+}
+
+.flashUploaderOverlay .placesTypeaheadCell {
+	width: 280px
+}
+
+.flashUploaderOverlay .progressLinks {
+	padding-top: 3px
+}
+
+.flashUploaderOverlay .progressWrap {
+	width: 120px
+}
+
+.showEmptyState .progressWrap {
+	display: none
+}
+
+.flashUploaderOverlayFooter .quality {
+	display: inline-block;
+	left: 10px;
+	position: relative
+}
+
+.flashUploaderOverlayFooter .quality label {
+	color: #666
+}
+
+.fbAudienceHover {
+	position: relative;
+	top: 2px
+}
+
+.uiStreamSecondaryTime .img {
+	bottom: -2px;
+	position: relative;
+	vertical-align: top
+}
+
+.fbCommentViewMetadata,.fbCommentViewMetadata .fbPhotosPhotoUfi {
+	width: 364px
+}
+
+span.fbCommentViewThumb i {
+	width: 320px
+}
+
+._312 {
+	height: 0;
+	position: absolute;
+	text-align: center;
+	width: 406px
+}
+
+._313 {
+	display: inline-block;
+	position: relative;
+	top: 27px
+}
+
+._314 {
+	margin: 10px
+}
+
+._315 {
+	display: block;
+	height: 8px;
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yE/x/_ZD-lKB_nbn.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -8px 0;
+	width: 8px
+}
+
+._2xp ._315 {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yE/x/_ZD-lKB_nbn.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: 0 0
+}
+
+._316 .uiScrollableAreaContent {
+	margin-left: 15px;
+	margin-right: 15px
+}
+
+._316 .uiScrollableAreaTrack {
+	bottom: 5px;
+	top: 15px
+}
+
+._317 {
+	padding-bottom: 8px
+}
+
+._318 {
+	height: 45px;
+	padding-top: 4px;
+	vertical-align: middle;
+	width: 260px
+}
+
+._319 label {
+	vertical-align: baseline
+}
+
+._31a {
+	height: 144px;
+	overflow: hidden;
+	-moz-transition: height .2s ease
+}
+
+._31b {
+	background-color: #f4f5f9;
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/x/4ryuw3QXUKQ.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+	border: 1px solid #c4cde0;
+	border-bottom: 1px solid #d0d0d2;
+	border-bottom: 1px solid rgba(0, 0, 0, .15);
+	border-radius: 3px 3px 0 0;
+	box-shadow: 0 -8px 8px -8px rgba(0, 0, 0, .15) inset;
+	height: 107px;
+	padding: 35px 10px 0 200px;
+	position: relative
+}
+
+._31b p {
+	color: #666;
+	font-size: 13px;
+	margin-top: 5px
+}
+
+._31c {
+	cursor: pointer;
+	height: 11px;
+	position: absolute;
+	right: 10px;
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yO/x/Gu-NwivrUwf.gif);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: 0 0;
+	top: 10px;
+	width: 11px
+}
+
+#pagelet_photos_tour.fbPortfolioTourVisible+div .fbStarGrid:first-child,#pagelet_photos_tour.fbPortfolioTourVisible+.fbTimelinePhotoAlbum
+	{
+	border-radius: 0 0 3px 3px;
+	border-top: none
+}
+
+._35t {
+	color: #fff;
+	font-size: 11px;
+	position: relative;
+	text-shadow: 0 0 3px rgba(0, 0, 0, .75)
+}
+
+._35u {
+	left: 108px;
+	font-size: 14px;
+	font-weight: bold;
+	position: absolute;
+	top: 113px
+}
+
+._35v {
+	left: 108px;
+	position: absolute;
+	top: 142px
+}
+
+._35w {
+	color: #000;
+	font-size: 11px;
+	position: relative
+}
+
+._35x {
+	overflow: hidden;
+	position: absolute;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+._35y {
+	left: 193px;
+	color: #fff;
+	max-width: 82px;
+	top: 60px
+}
+
+._35z {
+	left: 193px;
+	max-width: 88px;
+	top: 80px
+}
+
+._35- {
+	left: 177px;
+	max-width: 110px;
+	top: 113px
+}
+
+._35_ {
+	left: 177px;
+	max-width: 110px;
+	top: 133px
+}
+
+.fbxPhotoSetPageHeader .fbxPhotoSetPageHeaderByline {
+	width: 714px
+}
+
+.fbxPhotoSetPageHeader .fbxPhotoSetPageHeaderBox {
+	width: 714px;
+	float: left
+}
+
+.fbxPhotoSetPageHeader .fbxPhotoSetViewSwitcher {
+	width: 8px
+}
+
+.fbxPhotoSetPageHeader .fbxPhotoSetViewSwitcher .fbxPhotoSetViewSwitcherIcon {
+	margin-top: 2px
+}
+
+#fbxPhotoSetViewSwitcherGrid {
+	border-right: 0
+}
+
+#fbxPhotoSetViewSwitcherComment {
+	margin-left: 0
+}
+
+.fbxPhotoSetViewSwitcherThrobber {
+	background-position: left center;
+	display: inline-block
+}
+
+.fbxPhotoSetPageHeader .async_throbber_left .async_saving {
+	padding-left: 28px
+}
+
+#fbCommentViewList {
+	margin-top: -10px
+}
+
+div.photoSetHeader {
+	padding-bottom: 0
+}
+
+.fbxPhotoSetPageMetadata {
+	width: 437px
+}
+
+.fbPhotoFeedbackForm .uiUfi {
+	width: 430px
+}
+
+.fbPhotosNullstate {
+	margin: 60px auto
+}
+
+.fbPhotosNullstate .imageCell {
+	padding-left: 60px
+}
+
+.fbPhotosNullstate .textCell {
+	height: 32px;
+	padding-right: 60px
+}
+
+.fbPhotosRedesignNav2 .fbPhotosRedesignNavItem {
+	width: 417px
+}
+
+.fbPhotosRedesignNav3 .fbPhotosRedesignNavItem {
+	width: 276px
+}
+
+.fbPhotosRedesignNav3 .fbPhotosRedesignNavItem:last-child {
+	width: 277px
+}
+
+.fbPhotosRedesignNav4 .fbPhotosRedesignNavItem {
+	width: 206px
+}
+
+.fbPhotosRedesignNavItem {
+	background-color: #f2f4f8;
+	display: inline-block;
+	margin-left: 2px;
+	margin-right: 3px
+}
+
+.fbPhotosRedesignNavItem:first-child {
+	margin-left: 0
+}
+
+.fbPhotosRedesignNavItem:last-child {
+	margin-right: 0
+}
+
+.fbTimelineSection.fbPhotosRedesignNavPagelet {
+	margin-top: 12px;
+	padding: 5px
+}
+
+.fbPhotosRedesignNavContent {
+	display: block;
+	padding: 10px 14px
+}
+
+.fbPhotosRedesignNavIcon {
+	margin-top: 5px
+}
+
+.fbPhotosRedesignNavCount {
+	color: #8897bd;
+	font-family: 'Helvetica Neue', Calibri, Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	font-weight: bold
+}
+
+.fbPhotosRedesignNavSubtitle {
+	color: gray;
+	font-size: 11px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.fbPhotosRedesignNavSelected.fbPhotosRedesignNavItem {
+	background-color: #6d84b4
+}
+
+.fbPhotosRedesignNavSelected.fbPhotosRedesignNavItem:hover {
+	background-color: #5871a7
+}
+
+.fbPhotosRedesignNavItem:hover {
+	background-color: #e8ebf3
+}
+
+.fbPhotosRedesignNavSelected .fbPhotosRedesignNavCount,.fbPhotosRedesignNavSelected .fbPhotosRedesignNavSubtitle
+	{
+	color: #fff
+}
+
+.fbPhotosRedesignNavContent:hover {
+	text-decoration: none
+}
+
+.fbPhotosRedesignHideCounts .fbPhotosRedesignNavCount {
+	display: none
+}
+
+.fbPhotosRedesignHideCounts .fbPhotosRedesignNavSubtitle {
+	margin-top: 12px
+}
+
+a.uiMediaThumbTagging {
+	cursor: default
+}
+
+a.uiMediaThumbTagging i,a.uiMediaThumbTagging .taggerOverlay {
+	cursor: crosshair
+}
+
+a.uiMediaThumbTagging .taggerOverlayDisabled {
+	cursor: default
+}
+
+a.uiMediaThumbTagging:hover,a.uiMediaThumbTagging:active,a.uiMediaThumbTagging:focus {
+	border-color: #ccc;
+	text-decoration: none
+}
+
+.tagWrapper {
+	position: relative;
+	overflow: hidden
+}
+
+a.uiMediaThumbTagging .taggerOverlay .lockBar {
+	background-color: #222;
+	color: #fff;
+	left: 10px;
+	padding-left: 21px;
+	position: absolute;
+	top: 86px;
+	opacity: .9
+}
+
+a.uiMediaThumbTagging .taggerOverlay .lockIcon {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yb/x/LIMS6JdvvOD.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 15px;
+	left: 6px;
+	position: absolute;
+	top: 5px;
+	width: 15px
+}
+
+a.uiMediaThumbTagging .taggerOverlay .blackwash {
+	background: #000;
+	height: 100%;
+	left: 0;
+	opacity: .7;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 2
+}
+
+a.uiMediaThumbTagging .taggerOverlay .highlightBox {
+	border: 2px solid #fff;
+	opacity: .3;
+	position: absolute;
+	z-index: 2
+}
+
+div.fbTimelinePhotoAlbums {
+	padding: 30px 41px 15px 41px
+}
+
+div.fbTimelineVideos {
+	padding-bottom: 15px
+}
+
+div.fbTimelinePhotosAndVideosOfMe {
+	padding: 30px 41px 20px 41px
+}
+
+.fbTimelinePhotosSeparator h4 {
+	color: gray;
+	cursor: default;
+	font-size: 13px;
+	margin: 10px 0 15px;
+	text-align: center
+}
+
+.fbTimelinePhotosSeparator h4 span {
+	background-color: #fff;
+	padding: 0 10px
+}
+
+.fbTimelinePhotosAndVideosOfMe .async_saving {
+	margin: 20px 0 30px
+}
+
+.fbTimelineNoVideosMsg {
+	text-align: center;
+	margin: 60px 0
+}
+
+.fbTimelinePhotosAndVideosOfMe .uiMediaThumb {
+	border: 0;
+	padding: 0 3px 3px 0
+}
+
+.fbPhotosRedesign.fbTimelinePhotoAlbum {
+	margin-top: 0;
+	padding: 3px 2px 2px 3px
+}
+
+.fbPhotosRedesign.fbTimelinePhotoAlbums {
+	margin-top: 0;
+	padding: 30px 30px 15px 30px
+}
+
+.fbPhotosRedesign .fbPhotosGrid {
+	width: 100%
+}
+
+.fbPhotosRedesign .fbPhotosGrid .photoDetails .photoText {
+	overflow: visible
+}
+
+.fbPhotosRedesign .fbPhotosReorderableGrid .dragWrapper .dragHover,.fbPhotosRedesign .fbPhotosReorderableGrid .dragWrapper:hover .dragHover
+	{
+	display: none
+}
+
+.fbPhotosRedesign .albumThumbLink.uiMediaThumb {
+	border: none
+}
+
+.albumThumbLink,.albumTextLink {
+	display: inline-block;
+	margin-bottom: 5px;
+	margin-top: 20px;
+	outline: none
+}
+
+.fbPhotosRedesign .albumTextLink .flashUploaderOverlayButton,.fbPhotosRedesignUploadLink {
+	display: inline-block
+}
+
+.fbPhotosRedesign .photoTextTitle {
+	display: inline-block;
+	font-family: 'helvetica neue', helvetica, arial, sans-serif;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.fbPhotosRedesign.fbTimelinePhotoAlbums .fbPhotosGrid td {
+	padding: 0;
+	text-align: center;
+	width: 225px
+}
+
+.timelineLayout .fbPhotosRedesign .fbPhotosGrid .photoDetails .fbAudienceHover {
+	margin-left: 6px;
+	margin-right: 0
+}
+
+.photoDetails .uiSelector {
+	vertical-align: -1px;
+	width: 16px
+}
+
+.fbPhotosRedesign .photoText {
+	font-size: 14px;
+	text-align: center
+}
+
+.fbPhotosRedesign .photoTextSubtitle {
+	line-height: 19px
+}
+
+.timelineLayout .fbPhotosRedesign .fbPhotosGrid .photoDetails {
+	margin: 0 auto;
+	width: 222px
+}
+
+.timelineLayout .fbPhotosRedesign .uiMediaThumbAlbHuge,.timelineLayout .fbPhotosRedesign .uiMediaThumbHuge .uiMediaThumbWrap i,.timelineLayout .fbPhotosRedesign .uiMediaThumbHuge .uiMediaThumbWrap .fbPhotosCreateAlbum
+	{
+	height: 155px;
+	width: 207px
+}
+
+.fbPhotosCreateAlbum {
+	border: 2px dashed #d2d5ea;
+	border-radius: 2px;
+	color: #a4b5d4
+}
+
+.fbPhotosCreateAlbumLabel {
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 70px;
+	text-align: center
+}
+
+.fbPhotosCreateAlbumWrapper:hover .fbPhotosCreateAlbum {
+	background-color: #edeff4;
+	color: #627aad;
+	cursor: pointer
+}
+
+.timelineLayout .fbPhotosRedesign .uiMediaThumbWrap {
+	border-radius: 2px;
+	box-shadow: 0 0 3px rgba(0, 0, 0, .15)
+}
+
+.fbPhotoAlbumHeader {
+	padding-bottom: 20px;
+	padding-top: 17px;
+	position: relative;
+	text-align: center
+}
+
+.fbPhotoAlbumOptionsLeft {
+	left: 7px;
+	position: absolute;
+	top: 7px
+}
+
+.fbPhotoAlbumOptionsRight {
+	position: absolute;
+	right: 8px;
+	top: 7px
+}
+
+.uiSelectorNormal .uiSelectorButton.fbPhotoAlbumOptionsGear {
+	padding-right: 23px
+}
+
+.fbPhotoAlbumTitle {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	margin: 0 214px 7px 213px
+}
+
+.fbPhotoAlbumHeader .fbPhotoInlineCaptionEditor .captionWrapper {
+	margin-right: 0
+}
+
+.fbPhotoAlbumHeader .fbPhotoCaption {
+	font-size: 13px;
+	line-height: 18px
+}
+
+.fbPhotoAlbumActions .timelineAudienceSelector,.fbPhotoAlbumActionList {
+	display: inline-block
+}
+
+.fbPhotoAlbumActions .audienceSelector .uiSelectorMenu .itemIcon {
+	display: none
+}
+
+.fbPhotoAlbumActions a.uiSelectorButton {
+	background: none
+}
+
+.fbPhotoAlbumHeaderLong .fbPhotoInlineCaptionEditorEditMode.fbPhotoAlbumHeaderText,.fbPhotoAlbumHeaderText
+	{
+	-moz-column-count: 1;
+	margin-left: auto;
+	margin-right: auto;
+	width: 417px
+}
+
+.fbPhotoAlbumHeaderLong .fbPhotoCaptionInput {
+	height: 200px
+}
+
+.fbPhotoAlbumHeaderLong.fbPhotoAlbumHeader {
+	padding-top: 40px
+}
+
+.fbPhotoAlbumHeaderLong .fbPhotoAlbumHeaderText {
+	-moz-column-count: 2;
+	-moz-column-gap: 40px;
+	margin: 20px 40px;
+	text-align: left;
+	width: auto
+}
+
+.fbPhotoAlbumHeaderText {
+	padding-top: 20px
+}
+
+.fbPhotoAlbumBulkTagger .uiBoxGray {
+	margin: 2px 3px 3px 2px
+}
+
+#album_feedback_pagelet .fbTimelineUFI {
+	margin: 2px 3px 3px 2px;
+	margin-bottom: 3px !important;
+	position: static
+}
+
+#album_photos_pagelet .fbTimelinePhotosScroller {
+	background: none
+}
+
+.fbPhotosRedesignBorderOverlay .uiMediaThumb .uiMediaThumbImg:after,.fbPhotosRedesignBorderOverlay .uiVideoLink .uiVideoLinkImg:after
+	{
+	border: 1px solid rgba(0, 0, 0, .1);
+	bottom: 0;
+	content: '';
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0
+}
+
+#album_pagelet .fbTimelinePhotoAlbums {
+	margin-top: 0
+}
+
+.fbPhotosRedesignAlbumList {
+	margin-top: 20px
+}
+
+.fbPhotosRedesignAlbumList .fbPhotosRedesignAlbumListItem {
+	color: #94a0c1;
+	display: block;
+	margin-bottom: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.fbPhotosRedesignAlbumList .fbPhotosRedesignAlbumListItem.fbPhotosRedesignAlbumListItemActive
+	{
+	color: #627aad;
+	font-weight: bold
+}
+
+.fbPhotosRedesignStreamSidebar,.fbPhotosRedesignSidebar {
+	padding-top: 8px;
+	position: fixed
+}
+
+.fbPhotosRedesignAlbumsListAllLink {
+	border-top: 1px solid #dce0eb;
+	padding-top: 10px
+}
+
+.fbTimelineSection.fbTimelinePhotoAlbums .uiMorePager {
+	margin: 15px -41px -15px -41px
+}
+
+.fbTimelineTabSection.fbPhotosRedesign .uiMorePager {
+	margin: 15px -30px -15px -30px
+}
+
+.fbTimelineTabSection .fbTimelinePhotosScroller .uiMorePager {
+	margin: 2px 3px 5px 2px
+}
+
+.fbTimelinePhotoAlbums .uiMorePager .uiMorePagerPrimary,.fbTimelineSectionStarGrid .uiMorePager .uiMorePagerPrimary,.fbTimelinePhotoAlbums .uiMorePager .uiMorePagerLoader
+	{
+	background-color: #e9eef4;
+	border-top: 1px solid #e2e6e9;
+	color: #6279ad;
+	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+	font-size: 11px;
+	height: 36px;
+	line-height: 35px;
+	padding: 0
+}
+
+.fbTimelineSectionStarGrid .uiMorePager .uiMorePagerPrimary {
+	border-color: #d8dfea
+}
+
+.fbTimelineSectionStarGrid .async_saving .uiMorePagerLoader {
+	background: transparent;
+	border: none;
+	padding: 0
+}
+
+.fbTimelinePhotoAlbums .uiMorePager .uiMorePagerPrimary:hover,.fbTimelineSectionStarGrid .uiMorePager .uiMorePagerPrimary:hover,.fbTimelinePhotoAlbums .uiMorePager .uiMorePagerLoader
+	{
+	background-color: #e1e5f0;
+	text-decoration: none
+}
+
+.fbPhotosRedesignVideoIcon {
+	margin-right: 5px;
+	position: relative;
+	top: 3px
+}
+
+.fbPhotosRedesignAds {
+	position: fixed;
+	top: 40px
+}
+
+.fbPhotosRedesignAlbumPermalinkUpload {
+	margin-right: -14px
+}
+
+.sp_3possb {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yJ/x/oXv8pk2GPQK.png);
+	background-size: auto;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 12px;
+	width: 12px
+}
+
+.sx_87d9f8 {
+	background-position: -13px 0
+}
+
+.selected .sx_87d9f8 {
+	background-position: 0 0
+}
+
+.sx_5a95f7 {
+	background-position: -13px -13px
+}
+
+.selected .sx_5a95f7 {
+	background-position: 0 -13px
+}
+
+.sx_60811f {
+	background-position: -13px -26px
+}
+
+.selected .sx_60811f {
+	background-position: 0 -26px
+}
+
+.sx_0c1091 {
+	background-position: -13px -39px
+}
+
+.selected .sx_0c1091 {
+	background-position: 0 -39px
+}
+
+.sx_6a9e6a {
+	background-position: -13px -52px
+}
+
+.selected .sx_6a9e6a {
+	background-position: 0 -52px
+}
+
+.sx_adf0e0 {
+	background-position: -13px -65px
+}
+
+.selected .sx_adf0e0 {
+	background-position: 0 -65px
+}
+
+.sx_6749c0 {
+	background-position: -13px -78px
+}
+
+.selected .sx_6749c0 {
+	background-position: 0 -78px
+}
+
+.sx_c518a8 {
+	width: 10px;
+	height: 10px;
+	background-position: 0 -91px
+}
+
+.sp_6zgvcv {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yZ/x/asjyW_9LvVM.png);
+	background-size: auto;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 16px;
+	width: 16px
+}
+
+.sx_c03739 {
+	background-position: -16px 0
+}
+
+.selected .sx_c03739 {
+	background-position: 0 0
+}
+
+.sx_cf1458 {
+	background-position: -16px -17px
+}
+
+.selected .sx_cf1458 {
+	background-position: 0 -17px
+}
+
+.sx_42c769 {
+	background-position: -16px -34px
+}
+
+.selected .sx_42c769 {
+	background-position: 0 -34px
+}
+
+.sx_3c5cbf {
+	background-position: -16px -51px
+}
+
+.selected .sx_3c5cbf {
+	background-position: 0 -51px
+}
+
+.sx_7b4def {
+	width: 18px;
+	height: 18px;
+	background-position: 0 -68px
+}
+
+.sx_b86edb {
+	background-position: 0 -105px
+}
+
+.sx_362281 {
+	width: 14px;
+	height: 14px;
+	background-position: -17px -87px
+}
+
+.sx_6b6cb0 {
+	background-position: 0 -122px
+}
+
+.sx_f3a79f {
+	background-position: 0 -139px
+}
+
+.sx_4f495f {
+	height: 17px;
+	background-position: 0 -87px
+}
+
+.sx_5fdf24 {
+	background-position: 0 -156px
+}
+
+.sx_a0905d {
+	background-position: 0 -173px
+}
+
+.sx_a63e95 {
+	background-position: 0 -190px
+}
+
+.sx_869f36 {
+	background-position: 0 -207px
+}
+
+.sx_bc9a12 {
+	background-position: 0 -224px
+}
+
+.sp_7mfzzl {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yf/x/HHXUrn-MN4h.png);
+	background-size: auto;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 17px;
+	width: 17px
+}
+
+.sx_c20eb8 {
+	background-position: -78px -92px
+}
+
+.sx_f44ef8 {
+	background-position: -96px -92px
+}
+
+.sx_5d05f7 {
+	width: 28px;
+	height: 28px;
+	background-position: 0 -120px
+}
+
+.sx_e3eb4e {
+	width: 28px;
+	height: 28px;
+	background-position: -29px -120px
+}
+
+.sx_7cf8c5 {
+	width: 35px;
+	height: 27px;
+	background-position: -42px -92px
+}
+
+.sx_11c66e {
+	width: 41px;
+	height: 27px;
+	background-position: 0 -92px
+}
+
+.sx_1151c8 {
+	width: 15px;
+	height: 16px;
+	background-position: -114px -92px
+}
+
+.sx_5f2e0e {
+	width: 493px;
+	height: 91px;
+	background-position: 0 0
+}
+
+.sp_bhkf7q {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yp/x/pIohG2dOz6k.png);
+	background-size: auto;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 11px;
+	width: 12px
+}
+
+.sx_2b691c {
+	width: 11px;
+	background-position: 0 -42px
+}
+
+.sx_93ea6f {
+	width: 16px;
+	height: 16px;
+	background-position: 0 0
+}
+
+.sx_a5cb2f {
+	background-position: 0 -30px
+}
+
+.sx_62b0c1 {
+	height: 12px;
+	background-position: 0 -17px
+}
+
+.sp_ch2kh6 {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yp/x/Q95yz3EX_8t.png);
+	background-size: auto;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 16px;
+	width: 84px
+}
+
+.sx_ab4e70 {
+	width: 16px;
+	background-position: -39px -243px
+}
+
+.sx_e6fd47 {
+	width: 19px;
+	background-position: -19px -243px
+}
+
+.selected .sx_e6fd47 {
+	background-position: 0 -243px
+}
+
+.sx_480a79 {
+	width: 8px;
+	height: 12px;
+	background-position: -64px -243px
+}
+
+.selected .sx_480a79 {
+	background-position: -56px -243px
+}
+
+.sx_efe8d2 {
+	height: 84px;
+	background-position: 0 -73px
+}
+
+.sx_23a479 {
+	height: 84px;
+	background-position: 0 -158px
+}
+
+.sx_b4ea1a {
+	width: 100px;
+	height: 72px;
+	background-position: 0 0
+}
+
+.sx_bcfa2f {
+	width: 34px;
+	height: 34px;
+	background-position: 0 -260px
+}
+
+.sp_epwws3 {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yk/x/j-0XKShlMYx.png);
+	background-size: auto;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 14px;
+	width: 8px
+}
+
+.sx_61e291 {
+	background-position: -8px 0
+}
+
+.selected .sx_61e291 {
+	background-position: 0 0
+}
+
+.sx_0622f8 {
+	background-position: -8px -15px
+}
+
+.selected .sx_0622f8 {
+	background-position: 0 -15px
+}
+
+.sp_tqss2i {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yS/x/U-m-W-qKP6m.png);
+	background-size: auto;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 13px;
+	width: 9px
+}
+
+.sx_c64d1a {
+	width: 8px;
+	height: 14px;
+	background-position: -8px 0
+}
+
+.selected .sx_c64d1a {
+	background-position: 0 0
+}
+
+.sx_5b6abe {
+	width: 10px;
+	background-position: 0 -15px
+}
+
+.sx_5f7cf9 {
+	width: 11px;
+	height: 10px;
+	background-position: 0 -99px
+}
+
+.sx_8d83a5 {
+	width: 8px;
+	height: 8px;
+	background-position: 0 -110px
+}
+
+.sx_1d2dfb {
+	width: 10px;
+	background-position: 0 -29px
+}
+
+.sx_907f20 {
+	background-position: 0 -43px
+}
+
+.sx_c11461 {
+	background-position: 0 -57px
+}
+
+.sx_899880 {
+	background-position: 0 -71px
+}
+
+.sx_ad579a {
+	background-position: 0 -85px
+}
+
+.uiVideoLink {
+	background-color: #000;
+	display: -moz-inline-box;
+	display: inline-block;
+	padding: 4px 0;
+	position: relative
+}
+
+.uiVideoLink:hover {
+	text-decoration: none
+}
+
+.uiVideoLink i {
+	background-position: center 25%;
+	background-repeat: no-repeat;
+	display: block
+}
+
+.uiVideoLinkMedium i {
+	height: 79px;
+	width: 124px
+}
+
+.uiVideoLinkLarge i {
+	height: 118px;
+	width: 159px
+}
+
+.uiVideoLinkHuge i {
+	height: 122px;
+	width: 171px
+}
+
+.uiVideoLink .playicon {
+	background-color: transparent;
+	bottom: 4px;
+	display: block;
+	height: 26px;
+	left: 5px;
+	position: absolute;
+	width: 35px
+}
+
+.uiVideoLink .playtime,.uiVideoLink .titlesnippet {
+	background-color: #000;
+	background-color: rgba(0, 0, 0, .65);
+	border-radius: 2px;
+	bottom: 4px;
+	color: #fff;
+	display: block;
+	font-size: 11px;
+	padding: 3px 6px;
+	position: absolute
+}
+
+.uiVideoLink .playtime {
+	right: 5px
+}
+
+.uiVideoLink .titlesnippet {
+	left: 5px;
+	overflow: hidden;
+	right: 50px;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.uiVideoLink:active .playicon,.uiVideoLink:hover .playicon,.uiVideoLink:focus .playicon {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yJ/x/Gj2ad6O09TZ.png);
+	background-repeat: no-repeat
+}
+
+#bootloader_RTcAg {
+	height: 42px;
+}

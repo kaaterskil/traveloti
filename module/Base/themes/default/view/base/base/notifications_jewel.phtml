@@ -1,0 +1,143 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Model\Notification;
+use Base\Model\User;
+
+/* @var $notification Notification */
+/* @var $user User */
+
+$user = $this->zfcUserIdentity();
+$notifications = $user->getNotifications()->getValues();
+?>
+<div
+	id="notifications-jewel"
+	class="jewel west has-count-small <?php echo ($user->countNotifications() > 0 ? 'has-new' : ''); ?>">
+	<a
+		class="jewel-button"
+		onclick="TR.toggleJewel('notifications');"
+		href="#"> <span
+		id="notifications-count-wrapper"
+		class="jewel-count"> <span id="notifications-count-value"><?php echo $user->countNotifications(); ?>
+		</span> <i class="accessible-element"> Notifications</i>
+	</span>
+	</a>
+	<div
+		id="notifications-flyout"
+		class="jewel-flyout toggle-target-closed toggle-flyout">
+		<div class="jewel-beeper-header">
+			<div class="beeper-nub-wrapper">
+				<div class="beeper-nub"></div>
+			</div>
+		</div>
+		<div class="notification-header header-bottom-border jewel-header">
+			<div class="clearfix header-top">
+				<div>
+					<h3 class="notification-header-title">Notifications</h3>
+				</div>
+			</div>
+		</div>
+		<div
+			id=""
+			class="scrollable-area fade scrollable-area-with-shadow"
+			style="width: 330px;">
+			<div
+				class="scrollable-area-wrap scrollable"
+				tabindex="0">
+				<div
+					class="scrollable-area-body"
+					style="width: 330px;">
+					<div class="scrollable-area-content">
+						<ul
+							id="notifications-list"
+							class="jewel-item-list"">
+							<?php if(count($notifications) == 0) : ?>
+							<li class="empty list-gray list-item">
+								<table
+									class="grid no-notifications-grid"
+									cellspacing="0"
+									cellpadding="0">
+									<tbody>
+										<tr>
+											<td class="vmid hcent">No new notifications</td>
+										</tr>
+									</tbody>
+								</table>
+							</li>
+							<?php else : ?>
+							<?php foreach ($notifications as $notification) : ?>
+							<li
+								id="<?php echo $notification->getType() . '_' . $notification->getId(); ?>"
+								class="notification <?php echo $notification->getIsUnread() ? 'jewel-item-new' : ''?>">
+								<a
+								class="notif-main-link"
+								href="#">
+									<div class="clearfix notif-block">
+										<?php
+										$from = $notification->getSender();
+										$id = $from->getUsername();
+										$src = '/content/' . $from->getUsername() . '/' . ($from->getPicture() ? Constants::PROFILE_THUMB_5050 : Constants::DEFAULT_THUMB_5050);
+										$alt = $from->getDisplayName();
+										echo $this->htmlImg($id, $src, array('alt' => $alt, 'class' => '_s0 _8o _8r lfloat _rw img'));
+										?>
+										<div class="clearfix _8m _8u">
+											<span class="_ho rfloat"></span>
+											<div
+												id="<?php echo $notification->getType() . '_' . $notification->getId() . '_info' ?>"
+												class="info">
+												<?php echo $notification->getHtmlTitle(); ?>
+												<div class="clearfix metadata">
+													<i class="_29h _29i img sp_4yuo6n sx_e66002"></i> <span
+														class="timestamp _29j _29k fss fwn fcg"> <abbr
+														class="timestamp"
+														title="<?php echo date('F j, Y, g:i a', $notification->getCreationDate()->getTimestamp()); ?>">
+															<?php echo $this->elapsedTime($notification->getCreationDate()); ?>
+													</abbr>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+							</a>
+							</li>
+							<?php endforeach;?>
+							<?php endif; ?>
+							<div
+								id="notifications-list-wrapper"
+								data-referrer="notifications-list-wrapper"></div>
+
+						</ul>
+						<div
+							class="clearfix more-pager static-element notif-more-pager static element hidden-element more-pager-light more-pager-center">
+							<div>
+								<a
+									class="pam box-white topborder more-pager-primary"
+									href="#"> Show Older <i
+									class="mts mls arrow img sp_apqfpf sx_b3d1c5"></i>
+								</a> <span class="more-pager-loader pam boxd-white topborder ">
+									<img
+									class="img"
+									width="16"
+									height="11"
+									alt=""
+									src="http://static.ak.fbcdn.net/rsrc.php/v2/yb/r/GsNJNwuI-UM.gif">
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="scrollable-area-track invisible-element">
+				<div class="scrollable-area-gripper hidden-element"></div>
+			</div>
+		</div>
+		<div
+			id="jewel-notice"
+			class="jewel-notice"></div>
+		<div class="jewel-footer">
+			<a
+				class="see-more"
+				href="/notifications"> <span>See All</span>
+			</a>
+		</div>
+	</div>
+</div>

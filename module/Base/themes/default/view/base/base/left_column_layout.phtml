@@ -1,0 +1,22 @@
+<?php
+$headTitle = $this->zfcUserIdentity()->getDisplayName() . ' | Traveloti';
+$this->headTitle($headTitle);
+?>
+<body class="has-left-column home composer-expanded trx">
+	<div>
+		<?php echo $this->pageletLeaderboard; ?>
+		<div
+			id="global-container"
+			class="contextual-layer-parent">
+			<div
+				id="content"
+				class="tr-content clearfix"
+				style="min-height: 100px;">
+				<div>
+					<?php echo $this->content; ?>
+				</div>
+			</div>
+			<?php echo $this->footer; ?>
+		</div>
+	</div>
+</body>

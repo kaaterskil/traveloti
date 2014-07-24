@@ -1,0 +1,28 @@
+<?php
+$title = 'Countries';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('country', array('action'=>'add'));?>">Add new country</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>ISO Code</th>
+    <th>Name</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($countries as $country) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($country->getIsoCode()); ?></td>
+    <td><?php echo $this->escapeHtml($country->getName()); ?></td>
+    <td>
+        <a href="<?php echo $this->url('country',
+        	array('action'=> 'edit', 'id' => $country->getId())); ?>">Edit</a>
+        <a href="<?php echo $this->url('country',
+        	array('action'=> 'delete', 'id' => $country->getId())); ?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

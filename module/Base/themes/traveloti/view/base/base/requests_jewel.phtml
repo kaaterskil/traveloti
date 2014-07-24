@@ -1,0 +1,141 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Model\Request;
+use Base\Model\User;
+use Zend\Form\Element;
+
+/* @var $request Request */
+/* @var $user User */
+/* @var $from User */
+
+$user = $this->zfcUserIdentity();
+$requests = $user->getFriendRequests()->getValues();
+$numRequests = $user->countActiveRequests();
+$hasNewClass = ($numRequests ? 'has-new' : '');
+?>
+<!-- begin requests jewel -->
+<div
+	id="requests-jewel"
+	class="jewel <?php echo $hasNewClass; ?>">
+	<a
+		class="jewel-button"
+		href="#"> <span
+		id="requests-count-wrapper"
+		class="jewel-count"><span id="requests-count-value"><?php echo $numRequests; ?>
+		</span> </span>
+	</a>
+	<!-- begin requests flyout -->
+	<div
+		id="requests-flyout"
+		class="jewel-flyout toggle-target-closed">
+		<div
+			id="requests-list"
+			class="jewel-item-list">
+			<div class="jewel-header">
+				<h3 class="jewel-header-title">Friend Requests</h3>
+			</div>
+			<?php if($numRequests == 0) : ?>
+			<div class="no-requests-header">
+				<h3 class="no-requests-header-title">No New Requests</h3>
+			</div>
+			<?php else : ?>
+			<ul>
+				<!-- begin request list -->
+				<?php foreach ($requests as $request) : ?>
+				<?php
+				$senderUsername = $request->getSender()->getUsername();
+				$senderUrl = $this->url('timeline', array('id' => $senderUsername));
+				$senderIconUrl = ($request->getSender()->getPicture()
+					? $request->getSender()->getPicture()->getIcon()
+					: Constants::DEFAULT_THUMB_5050);
+				$senderDisplayName = $request->getSender()->getDisplayName();
+				$senderType = $request->getSender()->getUserType();
+				$senderSrc = '/content/' . $senderUsername . '/' . $senderIconUrl;
+				$senderImg = $this->htmlImg($senderUsername, $senderSrc, array('alt' => $senderDisplayName, 'class' => 'lfloat'));
+
+				$elementId = substr(md5($senderUsername . 'friendRequest'), 0, 8);
+				$requestElement = new Element\Hidden();
+				$requestElement->setAttributes(array(
+					'id' => $elementId . '1',
+					'name' => 'request_id',
+					'value' => $request->getId(),
+				));
+				$senderElement = new Element\Hidden();
+				$senderElement->setAttributes(array(
+					'id' => $elementId . '2',
+					'name' => 'sender_id',
+					'value' => $request->getSender()->getId(),
+				));
+				$confirmButtonId = $elementId . '3';
+				$confirmButton = new Element\Button();
+				$confirmButton->setLabel('Confirm');
+				$confirmButton->setAttributes(array(
+					'class' => 'button-confirm',
+					'id' => $confirmButtonId,
+					'name' => $confirmButtonId,
+					'value' => 'Confirm',
+				));
+				$hideButtonId = $elementId . '4';
+				$hideButton = new Element\Button();
+				$hideButton->setLabel('Not Now');
+				$hideButton->setAttributes(array(
+					'class' => 'button-hide',
+					'id' => $hideButtonId,
+					'name' => $hideButtonId,
+					'value' => 'Not Now',
+				));
+				$labelConfirmId = $elementId . '5';
+				$labelHideId = $elementId . '6';
+				$acceptTextId = $elementId . '7';
+				$hideTextId = $elementId . '8';
+				?>
+				<!-- begin request list item -->
+				<li
+					id=""
+					class="list-item"><a
+					class="lfloat notification-link"
+					href="<?php echo $senderUrl; ?>"><?php echo $senderImg; ?> </a>
+					<div class="clearfix profile-inner-content">
+						<div class="profile-content">
+							<div class="fsl fwb">
+								<a href="<?php echo $senderUrl; ?>"><?php echo $senderDisplayName; ?>
+								</a>
+							</div>
+							<div class="">
+								<?php echo $senderType; ?>
+							</div>
+						</div>
+						<div class="rfloat">
+							<div class="friend-button-wrapper">
+								<?php echo $this->formHidden($requestElement); ?>
+								<?php echo $this->formHidden($senderElement); ?>
+								<label
+									id="<?php echo $labelConfirmId; ?>"
+									class="button confirm-button"
+									for="<?php echo $confirmButtonId; ?>"><?php echo $this->formElement($confirmButton); ?>
+								</label> <label
+									id="<?php echo $labelHideId; ?>"
+									class="button hide-button"
+									for="<?php echo $hideButtonId; ?>"><?php echo $this->formElement($hideButton); ?>
+								</label>
+							</div>
+							<div
+								id="<?php echo $acceptTextId; ?>"
+								class="hidden-element">Request accepted.</div>
+							<div
+								id="<?php echo $hideTextId;  ?>"
+								class="hidden-element">Request hidden. Take action later on the
+								Requests page.</div>
+						</div>
+					</div>
+				</li>
+				<!-- end request list item -->
+				<?php endforeach; ?>
+			</ul>
+			<!-- end request list -->
+			<?php endif; ?>
+		</div>
+	</div>
+	<!-- end requests flyout -->
+</div>
+<!-- end requests jewel -->

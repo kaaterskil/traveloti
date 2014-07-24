@@ -1,0 +1,73 @@
+<?php
+/* @var $lf ZfcLogin */
+
+$formId = substr(md5('travelotiLoginForm'), 0, 8);
+$lf = $this->loginForm;
+$lf->prepare();
+$lf->setAttributes(array(
+	'action' => '',
+	'id' => $formId,
+	'method' => 'post',
+));
+
+$lf->get('identity')->setAttributes(array(
+	'class' => 'input-text',
+	'tabindex' => 1,
+));
+
+$lf->get('credential')->setAttributes(array(
+	'class' => 'input-password',
+	'tabindex' => 2,
+));
+
+$lf->get('submit')->setAttributes(array(
+	'tabIndex' => 3,
+	'value' => 'Log In',
+));
+?>
+<!-- begin login form -->
+<div class="lfloat">
+	<table
+		cellspacing="0"
+		cellpadding="0">
+		<tr>
+			<td class="login-label"><label>Sign In With:</label></td>
+		</tr>
+		<tr>
+			<td><?php
+			$fb_href = $this->url('scn-social-auth-user/login/provider', array('provider' => 'facebook'));
+			$tw_href = $this->url('scn-social-auth-user/login/provider', array('provider' => 'twitter'));
+			$fs_href = $this->url('scn-social-auth-user/login/provider', array('provider' => 'foursquare'));
+			?> <a
+				class="social-btn-link fb-login-icon"
+				href="<?php echo $fb_href; ?>"></a> <a
+				class="social-btn-link tw-login-icon"
+				href="<?php echo $tw_href; ?>"></a> <a
+				class="social-btn-link fs-login-icon"
+				href="<?php echo $fs_href; ?>"></a>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="rfloat">
+	<?php echo $this->form()->openTag($lf); ?>
+	<table
+		cellspacing="0"
+		cellpadding="0">
+		<tr>
+			<td class="login-label"><label for="identity">Email</label></td>
+			<td class="login-label"><label for="credential">Password</label></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><?php echo $this->formElement($lf->get('identity')); ?></td>
+			<td><?php echo $this->formElement($lf->get('credential')); ?></td>
+			<td><label
+				class="button button-confirm"
+				for="submit"><?php echo $this->formSubmit($lf->get('submit')); ?> </label>
+			</td>
+		</tr>
+	</table>
+	<?php echo $this->form()->closeTag(); ?>
+</div>
+<!--  end login form -->

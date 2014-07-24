@@ -1,0 +1,185 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================================*/
+/*------------------------------------------------------------*/
+body {
+	background: transparent;
+}
+
+#content-container {
+	position: relative;
+	z-index: 100;
+}
+
+.title-wrapper {
+	padding: 0 35px;
+	position: relative;
+	width: 600px;
+}
+
+#home-title {
+	color: #fff;
+	font-size: 3.2727em;
+	font-weight: bold;
+	margin: 0;
+	padding: 100px 0 0;
+	text-align: left;
+	text-shadow: 2px 2px 2px #000;
+}
+
+#lede-container {
+	background-color: #333;
+	background: rgb(0, 0, 0);
+	bottom: 40px;
+	filter: alpha(opacity = 60); /* For IE8 and earlier */
+	opacity: 0.6;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	z-index: 10;
+}
+
+h2.home-lede {
+	color: #fff;
+	font-size: 1.636em;
+	font-weight: normal;
+	margin: 11px 0;
+}
+
+/*------------------------------------------------------------*/
+.loggedout-topbar-container {
+	background-color: #333;
+	height: 43px;
+	min-width: 960px;
+}
+
+.tr-logo-loggedout-wrapper {
+	height: 43px;
+	width: 177px;
+}
+
+.tr-logo-loggedout {
+	background: url(/images/Traveloti-Logo-Grey-36pt.gif);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: auto;
+	height: 40px;
+	position: absolute;
+	width: 177px;
+}
+
+.login-container table tr td {
+	padding: 0 0 0 14px;
+}
+
+.login-container .input-text,.login-container .input-password {
+	border: 1px solid #666;
+	margin: 0;
+	width: 140px;
+}
+
+.login-container .login-label label {
+	color: #fff;
+	padding-left: 1px;
+}
+
+/*------------------------------------------------------------*/
+.social-btn-link {
+	display: block;
+	float: left;
+	height: 22px;
+	margin-right: 4px;
+	width: 22px;
+}
+
+a.fb-login-icon {
+	background: url(/images/fb-icons-60.png);
+	background-position: 0 -80px;
+	background-repeat: no-repeat;
+	background-size: auto auto;
+}
+
+a.fb-login-icon:ACTIVE,a.fb-login-icon:FOCUS,a.fb-login-icon:HOVER {
+	background: url(/images/fb-icons-60.png);
+	background-position: 0 -106px;
+	background-repeat: no-repeat;
+	background-size: auto auto;
+}
+
+a.tw-login-icon {
+	background: url(/images/twitter-bird-white-on-blue.png);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: 22px 22px;
+}
+
+a.tw-login-icon:ACTIVE,a.tw-login-icon:FOCUS,a.tw-login-icon:HOVER {
+	background: url(/images/twitter-bird-blue-on-white.png);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: 22px 22px;
+}
+
+a.fs-login-icon {
+	background: url(/images/foursquare.png);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: 22px 22px;
+}
+
+/*------------------------------------------------------------*/
+#reg-container {
+	top: 0;
+	right: 40px;
+	position: absolute;
+}
+
+.reg-box-wrapper {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background-color: rgb(239, 231, 212);
+	background-image: none;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-attachment: scroll;
+	border: 1px solid #fff;
+	border-radius: 10px;
+	filter: alpha(opacity = 75); /* For IE8 and earlier */
+	margin-top: 100px;
+	opacity: 0.75;
+	padding: 8px 20px 20px;
+	z-index: 100;
+}
+
+.reg-title {
+	font-size: 1.6364em;
+	font-weight: bold;
+}
+
+.reg-lede {
+	font-weight: bold;
+}
+
+#reg-box .short-fields {
+	border: none;
+	width: 240px;
+}
+
+#reg-box .short-fields .text-field {
+	width: 107px;
+}
+
+#reg-box .text-field {
+	width: 232px;
+}
+
+label.gender-label {
+	float: left;
+	margin-right: 14px;
+}
+
+.placeholder {
+	padding-left: 3px;
+}
+/*------------------------------------------------------------*/
+/*============================================================*/

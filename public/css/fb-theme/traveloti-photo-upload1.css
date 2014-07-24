@@ -1,0 +1,402 @@
+@CHARSET "ISO-8859-1";
+
+/*============================================*/
+/*----- begin Pd56ztFbhVa.css ----------------*/
+div.photo-album-title-non-editable,input.photo-album-title-input {
+	font-size: 1.455em;
+	font-weight: bold;
+	padding: 1px 3px 0;
+	width: 100%;
+}
+
+.album-place-typeahead .place-typeahead-with-icon .wrap {
+	background: url('/images/fb-icons-47.png') no-repeat -4px -5px;
+	padding-left: 15px;
+}
+
+.album-place-typeahead .place-typeahead-with-icon .selected {
+	background: #e2e8f6 url('/images/fb-icons-47.png') no-repeat -4px -5px;
+}
+
+/*--------------------------------------------*/
+.photo-bulk-editor {
+	margin-left: -20px;
+	padding: 10px 15px;
+	position: relative;
+}
+
+.photo-bulk-editor .editable-photo {
+	display: inline-block;
+	vertical-align: bottom;
+	margin: 0 0 15px 20px;
+}
+
+/*--------------------------------------------*/
+.editable-photo {
+	position: relative;
+	z-index: 0;
+}
+
+.editable-photo .photo-contextual-selector,.editable-photo .remove-photo-button {
+	display: none;
+	position: absolute;
+	right: -10px;
+	top: -10px;
+}
+
+.editable-photo .photo-wrap:hover .photo-contextual-selector,.editable-photo .photo-wrap:hover .remove-photo-button
+	{
+	display: block;
+}
+
+.photo-contextual-selector .selector-button,.photo-contextual-selector .selector-button:hover
+	{
+	border: 1px solid #ccc;
+	background-image: url('/images/fb-icons-6.png');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -2px -8px;
+	height: 17px;
+	padding: 0;
+	width: 17px;
+}
+
+.photo-contextual-selector .selector-button:hover {
+	background-image: url('/images/fb-icons-6.png');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -23px -8px;
+}
+
+.photo-contextual-selector .open-toggler .selector-button,.photo-contextual-selector .open-toggler .selector-button:hover
+	{
+	border: 1px solid #3b5998;
+	background-image: url('/images/fb-icons-6.png');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -44px -8px;
+	padding: 0;
+}
+
+.editable-photo-will-be-removed {
+	opacity: .5;
+	-moz-transition: opacity 1s linear;
+}
+
+.editable-photo .photo-wrap {
+	position: relative;
+}
+
+.editable-photo .photo-wrap.editable-photo-ready {
+	background-color: #fff;
+}
+
+.editable-photo .remove-photo-button {
+	right: 5px;
+	top: 5px;
+}
+
+.editable-photo .photo-wrap .status-bar {
+	background-color: rgba(0, 0, 0, .5);
+	bottom: 0;
+	color: #fff;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	-moz-transition: opacity 1s linear;
+}
+
+.editable-photo-needs-hi-res .photo-wrap .status-bar {
+	opacity: 1;
+	-moz-transition: opacity 0s linear;
+}
+
+.editable-photo .click-to-tag-message {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+	cursor: crosshair;
+	left: 50%;
+	margin-left: -65px;
+	opacity: 0;
+	padding: 2px 0 1px;
+	position: absolute;
+	text-align: center;
+	top: 5px;
+	width: 120px;
+}
+
+.editable-photo .photo-wrap:hover .click-to-tag-message {
+	opacity: 1;
+}
+
+.editable-photo .border {
+	border: 1px solid #e6e6e6;
+	border-color: rgba(0, 0, 0, .1);
+	border-bottom-color: #bdc5ec;
+	border-bottom-color: rgba(59, 89, 152, .35);
+	bottom: 0;
+	cursor: crosshair;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.editable-photo .recognition-container {
+	position: relative;
+	margin: 0 auto;
+}
+
+.editable-photo .photo {
+	width: 290px;
+}
+
+.editable-photo .inputs {
+	position: relative;
+	width: 290px;
+	z-index: 0;
+}
+
+.editable-photo .caption-typeahead,.editable-photo .caption-typeahead .wrap,.editable-photo .places-typeahead .wrap
+	{
+	border: 0;
+}
+
+.editable-photo .places-typeahead,.editable-photo .backdate-input {
+	border-width: 1px;
+	display: none;
+}
+
+.editable-photo.focused-input {
+	z-index: 1;
+}
+
+.editable-photo .caption-typeahead .wrap {
+	padding: 5px;
+}
+
+.editable-photo .mentions-input {
+	border-color: #ddd;
+	border-style: solid;
+	border-width: 0 0 1px;
+	max-height: 68px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.editable-photo .backdate-input {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	padding: 3px 0;
+}
+
+.editable-photo .backdate-input .photo-backdated-date-picker {
+	display: inline;
+	margin-right: 20px;
+}
+
+.editable-photo .backdate-input .confirm-photo-backdate input {
+	vertical-align: baseline;
+}
+
+.backdate-input.backdating .saving-backdated-date,.editable-photo .confirm-photo-backdate {
+	display: inline-block;
+}
+
+.editable-photo .saving-backdated-date,.backdate-input.backdating .confirm-photo-backdate {
+	display: none;
+}
+
+.editable-photo .editable-photo-tag-list {
+	display: none;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	height: 64px;
+	overflow-y: auto;
+	padding: 4px 0 0 3px;
+}
+
+.editable-photo .editable-photo-tag-list .zero-tag-message {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.editable-photo .editable-photo-tag-list.has-people .zero-tag-message {
+	display: none;
+}
+
+.editable-photo .caption-area {
+	background-color: #fff;
+	border: solid #ddd;
+	border-width: 0 1px;
+	position: relative;
+	z-index: 2;
+}
+
+.editable-photo .caption-textarea {
+	height: 55px;
+	line-height: 14px;
+	padding: 0;
+	width: 100%;
+}
+
+.editable-photo .metadata-controls {
+	height: 30px;
+	position: relative;
+	z-index: 1;
+}
+
+.editable-photo .metadata-controls .inner {
+	border-color: #ddd;
+	bottom: 0;
+	left: 0;
+	line-height: 0;
+	position: absolute;
+	right: 0;
+}
+
+.editable-photo .metadata-inputs {
+	bottom: 30px;
+	display: none;
+	left: 0;
+	position: absolute;
+	right: 0;
+}
+
+.editable-photo .meta-icon {
+	border-right: 1px solid #ddd;
+	cursor: pointer;
+	float: left;
+	height: 30px;
+	outline: none;
+	text-decoration: none;
+	width: 29px;
+}
+
+.editable-photo .people-icon {
+	background-image: url('/images/fb-icons-6.png');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -254px -81px;
+}
+
+.editable-photo .people-icon .count {
+	display: none;
+}
+
+.editable-photo .date-icon {
+	background-image: url('/images/fb-icons-6.png');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -344px -81px;
+}
+
+.editable-photo .place-icon {
+	background-image: url('/images/fb-icons-6.png');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -434px -81px;
+}
+
+.editable-photo .people-icon.has-people {
+	background: url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/x/OSVLLjb_ppJ.png) no-repeat
+		center left;
+	width: auto;
+}
+
+.editable-photo .people-icon.has-people .count {
+	display: block;
+	font-weight: bold;
+	margin: 14px 10px 0 26px;
+}
+
+.editable-photo .date-icon.has-date {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yz/x/ELW8FjnbiZf.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -314px -81px;
+}
+
+.editable-photo .place-icon.has-place {
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yz/x/ELW8FjnbiZf.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: -224px -81px;
+}
+
+.editable-photo .metadata-inputs.people,.editable-photo .metadata-inputs.date,.editable-photo .metadata-inputs.place
+	{
+	display: block;
+	z-index: 2;
+}
+
+.editable-photo .metadata-inputs.people .editable-photo-tag-list,.editable-photo .metadata-inputs.date .backdate-input,.editable-photo .metadata-inputs.place .places-typeahead
+	{
+	display: block;
+}
+
+.editable-photo .tag-tokens-scrollable {
+	display: none;
+}
+
+.editable-photo .DOM-control_placeholder {
+	color: #aaa;
+}
+
+.editable-photo .recognition-box {
+	position: absolute;
+	opacity: 0;
+}
+
+/*--------------------------------------------*/
+.letterboxed-image {
+	position: relative;
+}
+
+/*--------------------------------------------*/
+.places-typeahead-view {
+	overflow: hidden;
+}
+
+.places-typeahead-view-populated {
+	background: #fff;
+	border: solid;
+	border-width: 1px 1px 2px;
+	border-color: #333 #333 #293e6a;
+	padding: 2px 0 0 0;
+}
+
+.places-typeahead-view .scrollable-area,.places-typeahead-view .scrollable-area-wrap {
+	max-height: 200px;
+}
+
+div.places-typeahead-view ul {
+	border: 0;
+	padding: 0;
+}
+
+.places-typeahead-view .dynamic-map {
+	border-top: 1px solid #ddd;
+}
+
+.places-typeahead-view .compact .placecreate,.places-typeahead-view .places .placecreate,.places-typeahead-view .compact .freeform,.places-typeahead-view .places .freeform
+	{
+	border-top-color: #ddd;
+	min-height: 10px;
+	padding: 2px 6px 1px;
+	text-align: center;
+}
+
+div.places-typeahead-view .selected {
+	background-color: #6d84b4;
+	border-color: #3b5998;
+}
+
+.places-typeahead-focused,.places-typeahead-focused .typeahead {
+	z-index: 3;
+}
+
+/*----- end Pd56ztFbhVa.css ------------------*/
+/*============================================*/

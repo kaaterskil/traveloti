@@ -1,0 +1,18 @@
+<?php
+$headTitle = $this->zfcUserIdentity()->getDisplayName() . ' | Traveloti';
+$this->headTitle($headTitle);
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/home-stream.css'));
+?>
+<body>
+	<?php echo $this->leaderboardPagelet; ?>
+	<div class="clearfix"></div>
+	<div id="content">
+		<?php echo $this->content; ?>
+	</div>
+	<div id="footer">
+		<?php //echo $this->footer; ?>
+	</div>
+	<?php echo $this->dockPagelet; ?>
+	<?php echo $this->xmppLoggerPagelet; ?>
+</body>

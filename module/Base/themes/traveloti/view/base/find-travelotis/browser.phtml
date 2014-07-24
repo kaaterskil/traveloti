@@ -1,0 +1,145 @@
+<?php
+use Application\StdLib\Constants;
+use Base\Model\User;
+use Base\Model\TravelLog;
+use Base\Model\Traveloti;
+use Base\Form\FriendFinderForm;
+use Zend\Form\Element;
+
+/* @var $traveloti User */
+/* @var $user User */
+/* @var $pf FriendFinderForm */
+
+$this->headLink()->appendStylesheet($this->basePath('/css/traveloti/browser.css'));
+
+$travelotis = $this->travelotis;
+
+$formId = substr(md5('travelotiFinder'), 0, 8);
+$pf = $this->interestsForm;
+$pf->prepare();
+$pf->setAttributes(array(
+	'action' => '/find-traveloti/browser',
+	'id' => $formId,
+	'method' => 'post',
+));
+$i = 0;
+?>
+<!-- begin main container -->
+<div
+	id="main-container"
+	class="container_16">
+	<div class="grid_12 prefix_2 suffix_2">
+		<div class="browser-header-container mbm">
+			<h1 class="browser-header">Find Other Traveloti</h1>
+			<div class="browser-subheader">Use the drop-down items below to
+				refine your search.</div>
+		</div>
+		<?php echo $this->form()->openTag($pf); ?>
+		<div class="grid_4 alpha">
+			<div class="browser-form">
+				<ul>
+					<?php foreach ($pf->getElements() as $element) : ?>
+					<li class="list-item">
+						<div class="mbm">
+							<?php echo $this->formRow($element); ?>
+						</div>
+					</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+		<div class="grid_8 omega">
+			<!-- begin traveloti list -->
+			<ul>
+				<?php if(count($travelotis) == 0) : ?>
+				<!-- begin list item -->
+				<li class="browser-list-item list-item clearfix">
+					<div class="clearfix browser-inner-content">
+						<div class="fsl fwb">Sorry! No traveloti fit your criteria.</div>
+					</div>
+				</li>
+				<!-- end list item -->
+				<?php else : ?>
+				<?php foreach($travelotis as $traveloti) : ?>
+				<?php
+				if($traveloti instanceof TravelLog) {
+					continue;
+				}
+				$travelotiId = $traveloti->getId();
+				$travelotiUsername = $traveloti->getUsername();
+				$travelotiDisplayName = $traveloti->getDisplayName();
+				$travelotiType = $traveloti->getUserType();
+				$travelotiIcon = ($traveloti->getPicture()
+					? $traveloti->getPicture()->getIcon() : Constants::DEFAULT_THUMB_5050);
+				$travelotiLink = $this->url('timeline', array('id' => $travelotiUsername));
+				$travelotiSrc = $this->basePath('/content/' . $travelotiUsername . '/' . $travelotiIcon);
+				$travelotiSrc = $this->htmlImg(
+					$travelotiUsername,
+					$travelotiSrc,
+					array('alt' => $travelotiDisplayName, 'class' => "profile-large-thumb")
+				);
+
+				$elementId = substr(md5($travelotiUsername . 'friendRequest'), 0, 8);
+				$newElement = new Element\Hidden();
+				$newElement->setAttributes(array(
+					'id' => $elementId,
+					'name' => 'traveloti_id[' . $i++ . ']',
+					'value' => $travelotiId,
+				));
+				$pf->add($newElement);
+
+				$newButtonId = $elementId . '1';
+				$newButton = new Element\Button();
+				$newButton->setAttributes(array(
+					'class' => 'add-traveloti-button',
+					'id' => $newButtonId,
+					'name' => $newButtonId,
+					'value' => 'Connect with this Traveloti',
+				));
+				$newButton->setLabel('Connect with this Traveloti');
+				$pf->add($newButton);
+
+				$labelAddId = $elementId . '2';
+				$labelSentId = $elementId . '3';
+				?>
+				<!-- begin list item -->
+				<li class="browser-list-item list-item clearfix"><a
+					class="browser-photo-container lfloat"
+					href="<?php echo $travelotiLink; ?>"> <?php echo $travelotiSrc; ?>
+				</a>
+					<div class="clearfix browser-inner-content">
+						<div class="rfloat">
+							<div class="browser-button-wrapper">
+								<?php echo $this->formHidden($newElement); ?>
+								<div class="traveloti-button">
+									<label
+										id="<?php echo $labelAddId; ?>"
+										class="button"
+										for="<?php echo $newButtonId; ?>"><i class="mrs"></i> <?php echo $this->formElement($newButton); ?>
+									</label> <a
+										id="<?php echo $labelSentId; ?>"
+										class="button hidden-element"
+										href="#"><span class="button-text">Traveloti Request Sent</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="fsl fwb">
+							<a href="<?php echo $travelotiLink; ?>"><?php echo $travelotiDisplayName; ?>
+							</a>
+						</div>
+						<div class="">
+							<?php echo $travelotiType; ?>
+						</div>
+					</div>
+				</li>
+				<!-- end list item -->
+				<?php endforeach; ?>
+				<?php endif; ?>
+			</ul>
+			<!-- end traveloti list -->
+		</div>
+		<?php echo $this->form()->closeTag(); ?>
+	</div>
+</div>
+<!-- end main container -->
